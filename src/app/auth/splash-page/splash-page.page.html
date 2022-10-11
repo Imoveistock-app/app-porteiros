@@ -1,9 +1,63 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>splash-page</ion-title>
-  </ion-toolbar>
-</ion-header>
+ <ion-app>
+  <ion-content fullscreen="true" class="">
+    <ion-grid *ngIf="splash" class="h-100 bg-splash-stap01">
+      <div class="w-100 ion-justify-content-center text-align-center
+        position-relative top-30 d-block ">
+        <ion-img src="../../../assets/img/logo.png" class="max-w-150"></ion-img>
+      </div>
+      <div class="w-100 ion-justify-content-center text-align-center bottom-7
+        d-block position-absolute">
+        <ion-img src="../../../assets/img/imoveistock.png" class="w-100
+          max-w-150"></ion-img>
+      </div>
+    </ion-grid>
 
-<ion-content>
+    <ion-grid *ngIf="splashstaps" class="h-100 bg-splash-stap02">
+      <swiper
+      class="swiper overflow-auto h-75"
+      [loop]="false"
+      [autoHeight]="true"
+      [allowTouchMove]="true"
+      [pagination]="{ clickable: true }"
+      [navigation]="true"
+      
+    >
+   
+      <ng-template class="" swiperSlide>
+        <div class="w-100 ion-justify-content-center text-align-center
+        d-block">
+          <img src="../../../assets/img/imagem-1.png" class="position-relative mt-5 "/>
+        </div>
+        <p class="w-100 line-43 text-left text-intro px-5 font-size-32 fw-500 position-relative">
+          Lorem ipsum <br/> dolor sit amet <br/> conser.
+        </p>
+        <span class="text-light w-100 line-34 text-left text-jump px-5 font-size-18 fw-400 position-relative">Pular</span>
+      </ng-template>
+      <ng-template class="" swiperSlide>
+        <div class="w-100 ion-justify-content-center text-align-center
+        d-block">
+          <img src="../../../assets/img/imagem-2.png" class="position-relative mt-5 "/>
+        </div>
+        <p class="w-100 line-43 text-left text-intro px-5 font-size-32 fw-500 position-relative">
+          Lorem ipsum <br/> dolor sit amet <br/> conser.
+        </p>
+        <span class="text-light w-100 line-34 text-left text-jump px-5 font-size-18 fw-400 position-relative">Pular</span>
+      </ng-template>
+      <ng-template class="" swiperSlide>
+        <div class="w-100 ion-justify-content-center text-align-center
+        d-block">
+          <img src="../../../assets/img/imagem-3.png" class="position-relative mt-5 "/>
+        </div>
+        <p class="w-100 line-43 text-left text-intro px-5 font-size-32 fw-500 position-relative">
+          Lorem ipsum <br/> dolor sit amet <br/> conser.
+        </p>
+        <span class="text-light w-100 line-34 text-left text-jump px-5 font-size-18 fw-400 position-relative">Pular</span>
+      </ng-template>
+      </swiper>
+      <ion-button (click)="swipeNext()" class="btn-next bg-greenpool color-purple fw-600 font-size-18 border-10 w-100 position-absolute bottom-7" type="button">
+        Próximo
+      </ion-button>
+    </ion-grid>
 
-</ion-content>
+  </ion-content>
+</ion-app>
