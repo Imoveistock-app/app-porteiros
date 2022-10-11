@@ -1,0 +1,41 @@
+.bg-splash-stap01{
+    background-image: url(../../../assets/img/Surface.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.bg-splash-stap02{
+    background-image: url(../../../assets/img/surface-2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: .3s;
+}
+
+
+.max-w-150{
+    max-width: 150px;
+}
+
+.bottom-7{
+    bottom: 7%;
+}
+
+.top-30{
+    top: 30%;
+}
+.text-intro{
+    top: -208px;
+    left: 8px;
+}
+.text-jump{
+    top: -185px;
+    left: 33%;
+}
+.btn-next{
+    max-width: calc(100% - 12%);
+    height: 62px;
+    text-transform:capitalize;
+    --box-shadow: none;
+    margin-left: 6%;
+}

@@ -1,0 +1,257 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root{
+    --greenpool: #68F4A0;
+    --purple: #4C3778;
+}
+
+
+// SPLASH-2
+.swiper-button-prev{
+    display: none !important;
+}
+
+.swiper-button-next {
+    right: 10px !important;
+    left: 6% !important;
+    right: 26px !important;
+    top: auto !important;
+    bottom: 70px !important;
+    width: 100% !important;
+    position: fixed !important;
+    opacity: 0!important;
+}
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+    top: 410px !important;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+}
+.swiper-pagination-bullet-active{
+    background-color: var(--greenpool) ;
+    padding: 0 1rem;
+    transition: .3s;
+    border-radius: 6px;
+}
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+        font-family: 'DM Sans', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(238, 238, 238, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(238, 238, 238, 0);
+}
+
+
+
+
+/* fonts */
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.dmsans {
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+/* size-fonts */
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-16 {
+    font-size: 16px;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.font-size-22 {
+    font-size: 22px;
+}
+
+
+.font-size-24 {
+    font-size: 24px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-32 {
+    font-size: 32px;
+}
+
+.font-size-36 {
+    font-size: 36px;
+}
+
+.font-size-40 {
+    font-size: 40px;
+}
+
+.font-size-48 {
+    font-size: 48px;
+}
+
+.font-size-60 {
+    font-size: 60px;
+}
+
+.font-size-90 {
+    font-size: 90px;
+}
+
+.line-18 {
+    line-height: 18px !important;
+}
+
+.line-24 {
+    line-height: 24px !important;
+}
+
+.line-32 {
+    line-height: 32px !important;
+}
+.line-34 {
+    line-height: 34px !important;
+}
+
+.line-43 {
+    line-height: 43px !important;
+}
+
+.line-50 {
+    line-height: 50px !important;
+}
+
+.line-56 {
+    line-height: 56px !important;
+}
+
+.line-70 {
+    line-height: 70px !important;
+}
+/* backgrounds */
+.bg-greenpool{
+    --background: var(--greenpool) !important;
+}
+/* colors */
+.color-purple{
+    color: var(--purple) ;
+}
+.color-green{
+    color: var(--greenpool);
+}
+/* align */
+
+.text-align-center{
+    text-align: -webkit-center;
+}
+
+
+/* get-started-page */
+.d-grid {
+    display: grid !important;
+}
+
+.d-none {
+    display: none;
+}
+
+.border-none {
+    border: none;
+}
+
+.outline-none {
+    outline: none !important;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.z-20 {
+    z-index: 20;
+}
+
+.right-0 {
+    right: 0 !important;
+}
+
+.top-0 {
+    top: 0 !important;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.border-3{
+    --border-radius: 3px;
+}
+.border-5{
+    --border-radius: 5px;
+}
+.border-10{
+    --border-radius: 10px;
+}

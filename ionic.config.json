@@ -1,0 +1,7 @@
+{
+  "name": "app-porteiro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
