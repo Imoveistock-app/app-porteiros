@@ -1,0 +1,11 @@
+ion-toolbar{
+    --background: transparent !important;
+}
+
+ion-content{
+    top: -1px;
+}
+ion-card{
+    margin-left: 4%;
+    width: calc(100% - 27px);
+}

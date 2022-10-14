@@ -15,6 +15,18 @@ const routes: Routes = [
     path: 'splash',
     loadChildren: () => import('./auth/splash-page/splash-page.module').then( m => m.SplashPagePageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./logged/about-page/about-page.module').then( m => m.AboutPagePageModule)
+  },
+  {
+    path: 'privacy-policy',
+    loadChildren: () => import('./logged/privacy-policy-page/privacy-policy-page.module').then( m => m.PrivacyPolicyPagePageModule)
+  },
+  {
+    path: 'terms-conditions',
+    loadChildren: () => import('./logged/terms-conditions/terms-conditions.module').then( m => m.TermsConditionsPageModule)
+  },
 ];
 
 @NgModule({
