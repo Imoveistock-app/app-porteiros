@@ -1,0 +1,63 @@
+<ion-app class="bg-gray-light h-100">
+  <ion-header class="bg-gray-light">
+    <ion-toolbar>
+      <ion-button  (click)="goProfile()" slot="start" fill="clear" class="back-btn">
+        <ion-icon class="color-purple" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <ion-title slot="" class="text-align-center" style="padding-right: 3rem;">
+        <span class="color-purple fw-500 line-26 font-size-20">Sobre</span>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="bg-gray-light" [fullscreen]="true">
+    <ion-grid class="bg-gray-light">
+      <ion-row class="row pb-5">
+        <ion-col class="col-12">
+          <ion-card class="bg-light border-10 mt-5 p-4">
+            <div class="">
+              <div class="logo-multicolor">
+                <ion-img src="../../../assets/svg/logo-colorida.svg" class=""></ion-img>
+              </div>
+              <p class="fw-800 font-size-24 line-32 py-4 color-purple text-center">
+                O Porteiro no <br/> comando uma nova <br/> oportunidade
+                  </p>
+                  <p class="fw-400 font-size-16 line-20 py-4 color-blue-light">
+                    Suspendisse commodo leo eget nisl molestie luctus.
+                  </p>
+                  <article class="">
+                    <p class="fw-400 font-size-16 text line-20 color-blue-light">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Suspendisse commodo leo eget nisl molestie luctus. Donec
+                      posuere luctus ultricies. <span class="fw-400 font-size-16
+                        line-20 color-purple">Mauris posuere, turpis vitae
+                        posuere pellentesque, tortor quam varius massa, id
+                        volutpat ante ex sed urna. Morbi aliquam velit orci, nec
+                        accumsan quam aliquam vitae.</span> Donec bibendum nunc
+                      nulla, id efficitur velit interdum at. Praesent ante leo,
+                      dapibus et hendrerit vitae, vulputate id diam. Nulla
+                      auctor scelerisque massa, sed tincidunt nulla lacinia vel.
+                    </p>
+                  </article>
+                </div>
+          </ion-card>
+        </ion-col>
+        <ion-col class="col-12">
+          <ion-card class="p-4 bg-light border-10 mt-5" *ngFor="let item of terms">
+            <div class="w-100 text-align-center">
+            <img [src]="item.img" class="user-img" />
+          </div>
+            <ion-text class="text-center d-grid py-3">
+              <span class="fw-500 font-size-20 line-26 color-purple">{{item.name}}</span>
+              <span class="fw-400 font-size-14 line-18 color-blue-light">{{item.description}}</span>
+            </ion-text>
+            <ion-text class="text-center d-grid py-2 mb-2">
+              <span class="fw-400 text-align-center font-size-16 line-20 color-blue-light">{{item.about}}</span>
+            </ion-text>
+            <ion-button fill="clear" class="h-48 my-3 color-purple fw-700 font-size-14 border-10 line-18 w-100 text-align-center bg-greenpool">Visualizar perfil</ion-button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>
