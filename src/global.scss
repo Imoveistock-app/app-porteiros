@@ -136,6 +136,9 @@ ion-button {
 }
 
 /* size-fonts */
+.font-size-12 {
+    font-size: 12px;
+}
 .font-size-14 {
     font-size: 14px;
 }
@@ -182,6 +185,9 @@ ion-button {
 
 .font-size-90 {
     font-size: 90px;
+}
+.line-15 {
+    line-height: 15px !important;
 }
 
 .line-18 {
@@ -286,6 +292,10 @@ ion-button {
     height: 48px;
 }
 
+.h-fit{
+    height: fit-content !important
+}
+
 /* get-started-page */
 .d-grid {
     display: grid !important;
@@ -347,4 +357,12 @@ ion-button {
     --border-radius: 10px;
     border-radius: 10px;
 
+}
+
+
+// HOME-PAGE
+@media (max-width: 324px){
+    .font-size-14{
+        font-size: 12px !important;
+    }
 }

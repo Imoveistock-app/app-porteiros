@@ -23,6 +23,28 @@ export class HomeService {
   cards = [
     {
       status: "Em análise",
+      statustype: "status-type-analysis",
+      type: "Venda",
+      localName: "Nome do edifício grande",
+      localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
+    },
+    {
+      status: "Em andamento",
+      statustype: "status-type-progress",
+      type: "Locação",
+      localName: "Nome do edifício grande",
+      localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
+    },
+    {
+      status: "Reprovado",
+      statustype: "status-type-disapproved",
+      type: "Venda",
+      localName: "Nome do edifício grande",
+      localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
+    },
+    {
+      status: "Aprovado",
+      statustype: "status-type-approved",
       type: "Venda",
       localName: "Nome do edifício grande",
       localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
