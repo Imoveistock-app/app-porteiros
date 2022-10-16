@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HomeService } from 'src/app/service/home.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class HomePage implements OnInit {
   balance = true;
   hideeye = false;
   constructor(
-    private homeService: HomeService
+    private homeService: HomeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,22 @@ export class HomePage implements OnInit {
   changeEye() {
     this.hideeye =!this.hideeye;
     this.balance = !this.balance;
+  }
+
+  // Propenso à alterações
+  goIndicateProperty(){
+    this.router.navigate(['/Indicate-Property']);
+  }
+
+
+  // Propenso à alterações
+  goExtract(){
+    this.router.navigate(['/Extract']);
+  }
+  
+  // Propenso à alterações
+  goIndicatedProperties(){
+    this.router.navigate(['/Indicated-Properties']);
   }
 
 }
