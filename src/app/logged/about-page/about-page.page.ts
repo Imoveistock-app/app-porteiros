@@ -13,7 +13,7 @@ export class AboutPagePage implements OnInit {
   terms: any[];
   constructor(
     private termsService: TermsService,
-    private router: Router
+    private router: Router 
   ) { }
  
   ngOnInit() {

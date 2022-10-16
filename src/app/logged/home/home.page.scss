@@ -1,0 +1,44 @@
+.home-profile-pic{
+        Width: 68px;
+        border-radius: 100px;
+        border: 3px solid var(--greenpool);
+        padding: 6px;
+        right: 23px;
+        top: -20px;
+}
+
+.btn-star{
+    border-radius: 100px;
+    background-color: var(--purpura);
+    padding: 1rem 1.2rem;
+    width: 27px;
+    height: 27px;
+}
+
+.h-51{
+    height: 51px;
+}
+.change-eyes{
+    height: 51px;
+}
+
+.status-type{
+    padding: 4px 17px;
+    border-radius: 1rem; 
+}
+.status-type-analysis{
+    color: #EFB51F;
+    border: 1px solid #EFB51F;
+}
+.status-type-progress{
+    color: #3D4FF4;
+    border: 1px solid #3D4FF4;
+}
+.status-type-disapproved{
+    color: #E77E7D;
+    border: 1px solid #E77E7D;
+}
+.status-type-approved{
+    color: #00D455;
+    border: 1px solid #00D455;
+}

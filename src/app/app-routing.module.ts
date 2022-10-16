@@ -2,15 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+
   {
     path: 'splash',
     loadChildren: () => import('./auth/splash-page/splash-page.module').then( m => m.SplashPagePageModule)
@@ -26,6 +18,14 @@ const routes: Routes = [
   {
     path: 'terms-conditions',
     loadChildren: () => import('./logged/terms-conditions/terms-conditions.module').then( m => m.TermsConditionsPageModule)
+  },
+  {
+    path: 'property-list-page',
+    loadChildren: () => import('./logged/property-list-page/property-list-page.module').then( m => m.PropertyListPagePageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./logged/home/home.module').then( m => m.HomePageModule)
   },
 ];
 
