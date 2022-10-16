@@ -1,0 +1,92 @@
+<ion-app class="h-100 overflow-auto">
+  <ion-content [fullscreen]="true" class="bg-gray-light">
+    <!-- Stap -01 -->
+    <ion-row  *ngFor="let item of infoHome" class="row bg-transparent">
+      <ion-col class="col-12 px-4 pt-5">
+        <ion-text class="">
+          <span class="fw-700 font-size-24 line-32 color-purple">Olá, {{item.name}}</span>
+        </ion-text>
+      </ion-col>
+      <ion-col class="col-12 d-flex ion-align-items-center">
+        <ion-text class=" w-100">
+          <p class="fw-400 font-size-14 line-18 color-blue-light bg-light p-3 mt-2">
+            Indique imóveis e tenha ganhos <br/> de forma transparente e rápido.
+          </p>
+        </ion-text>
+        <img [src]="item.img" class="home-profile-pic position-absolute"/>
+      </ion-col>
+    </ion-row>
+    
+    <!-- Stap-01 -->
+    <ion-row class="row bg-transparent">
+      <ion-col class="col-12">
+        <ion-card class="border-10 bg-purple p-4 mx-3">
+          <ion-text class="d-flex mb-3 w-100 ion-align-items-center">
+            <ion-icon class="btn-star" color="dark" name="star-outline"></ion-icon>
+            <span class="w-100 px-3 fw-400 text-light font-size-16 line-20">indique um imóvel</span>
+          </ion-text>
+          <ion-text class="w-100 d-flex">
+            <span class=" fw-400 text-light font-size-13 line-18"> Ganhe até <b>R$350,00</b>, numa só indicação</span>
+          </ion-text>
+          <ion-button class="pl-3 fw-700 font-size-16 line-43 h-51 box-shadow-none mt-3 bg-greenpool w-100 border-10 color-purple" type="button">
+            Indicar imóvel
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+     <!-- Stap-02 -->
+     <ion-row class="row mt-3 bg-transparent">
+      <ion-col class="col-12">
+        <ion-card class="border-10 bg-light p-4 mx-3">
+          <ion-text class="d-flex mb-3 w-100 ion-align-items-center">
+            <ion-icon class="btn-star" color="dark" name="wallet-outline"></ion-icon>
+            <span class="w-100 px-3 fw-400 color-blue font-size-16 line-20">Seu saldo</span>
+            <ion-icon (click)="changeEye()"  [name]="hideeye ? 'eye-outline' : 'eye-off-outline'" class="color-purple font-size-40"></ion-icon>
+          </ion-text>
+          <ion-text class="w-100 text-right ion-justify-content-end d-grid">
+            <span class="fw-700 color-blue text-align-right font-size-28 line-36"  [ngClass]="balance ? 'text-security' : ''" *ngFor="let item of infoBalance">R${{ item.money | slice:0:3 }},{{ item.money | slice:3:5 }}</span>
+            <span class="fw-400 color-blue font-size-14 line-18" *ngFor="let item of infoBalance">Saldo previsto {{ item.date | slice:0:2 }}/{{ item.date | slice:2:4 }}/{{ item.date | slice:4:8 }}</span>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="row">
+      <ion-col class="col-12">
+        <ion-text class="">
+          <h6 class="">Último adicionado</h6>
+        </ion-text>
+        <ion-row class="row">
+          <ion-col class="col-12">
+            <ion-card *ngFor="let item of infoCards" class="">
+              <ion-text class="">
+                <strong class="">
+                  {{item.status}}
+                </strong>
+                <p class="">
+                  <b class="">{{item.type}}</b>
+                  <span class="fw-400 color-blue font-size-14 line-18" *ngFor="let item of infoBalance">Saldo previsto {{ item.date | slice:0:2 }}/{{ item.date | slice:2:4 }}/{{ item.date | slice:4:8 }}</span>
+                </p>
+              </ion-text>
+              <ion-text class="">
+                <span class="">
+                  {{item.localName}}
+                </span>
+                <span class="">
+                  {{item.localDetails}}
+                </span>
+              </ion-text>
+              <div class="">
+                <ion-text class="">
+                  <ion-icon name="add-circle-outline"></ion-icon>
+                  <span class="">Ver mais</span>
+                </ion-text>
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</ion-app>
