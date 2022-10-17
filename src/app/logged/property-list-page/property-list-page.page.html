@@ -77,12 +77,33 @@
         </ion-text>
       </ion-col>
       <ion-col class="col-12">
-        <ul class="d-flex overflow-scroll m-0 p-0 mx-2 ion-align-items-center ">
-          <li *ngFor="let item of infoFilter" class="list-group-item border-none p-0 px-2 bg-transparent">
-            <ion-button class="box-shadow-none btn-filter">
-              {{item.status}} <ion-icon class="" name="close-outline"></ion-icon>
+        <ul class="d-flex overflow-scroll m-0 p-0 mx-2 ion-align-items-center">
+          <li class="list-group-item border-none p-0 px-2 bg-transparent">
+            <ion-button *ngIf="formControl['inputEveryone'].value === true" (click)="handlerFillterListHorizon()" class="box-shadow-none btn-filter">
+              Todas <ion-icon class="" name="close-outline"></ion-icon>
             </ion-button>
           </li>
+          <li class="list-group-item border-none p-0 px-2 bg-transparent">
+            <ion-button *ngIf="inAnalysis" class="box-shadow-none btn-filter">
+              Em Análise <ion-icon class="" name="close-outline"></ion-icon>
+            </ion-button>
+          </li>
+          <li  class="list-group-item border-none p-0 px-2 bg-transparent">
+            <ion-button *ngIf="inProgress" class="box-shadow-none btn-filter">
+              Em Andamento <ion-icon class="" name="close-outline"></ion-icon>
+            </ion-button>
+          </li>
+          <li  class="list-group-item border-none p-0 px-2 bg-transparent">
+            <ion-button *ngIf="inDisapproved" class="box-shadow-none btn-filter">
+              Reprovado<ion-icon class="" name="close-outline"></ion-icon>
+            </ion-button>
+          </li>
+          <li  class="list-group-item border-none p-0 px-2 bg-transparent">
+            <ion-button *ngIf="inAproved" class="box-shadow-none btn-filter">
+              Aprovado<ion-icon class="" name="close-outline"></ion-icon>
+            </ion-button>
+          </li>
+         
         </ul>
       </ion-col>
     </ion-row>
@@ -189,7 +210,7 @@
             </ion-text>
           </div>
         </ion-card>
-        <p *ngIf="infoCardsFilter.length ===0">Sem resultados</p>
+        <p class="text-dark" *ngIf="infoCardsFilter.length === 0">Sem resultados</p>
       </ion-col>
 
     </ion-row>

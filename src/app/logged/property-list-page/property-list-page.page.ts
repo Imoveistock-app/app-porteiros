@@ -12,16 +12,22 @@ export class PropertyListPagePage implements OnInit {
 
   form: FormGroup;
 
-  infoBalance: any[];
+  infoBalance: any;
   collapsed: number[] = [];
-  infoCards: any[];
-  infoFilter: any[];
+  infoCards: any;
+  infoFilter: any;
   infoCardsFilter: any[] = [];
   balance = true;
 
 
   // logic-filter
   filterUL = true;
+  inAnalysis = true;
+  inEveryone = true;
+  inAproved = true;
+  inDisapproved = true;
+  inProgress = true;
+  
 
 
 
@@ -31,12 +37,11 @@ export class PropertyListPagePage implements OnInit {
     private homeService: HomeService,
   ) {
     this.form = this.formBuilder.group({
-      inputEveryone: ['', []],
-      inputAnalysis: ['', []],
-      inputProgress: ['', []],
-      inputDisapproved: ['', []],
-      inputApproved: ['', []],
-
+      inputEveryone: [false, []],
+      inputAnalysis: [false, []],
+      inputProgress: [false, []],
+      inputDisapproved: [false, []],
+      inputApproved: [false, []],
     });
   }
 
@@ -81,5 +86,21 @@ export class PropertyListPagePage implements OnInit {
     this.form.value.inputProgress && a.status === 'Em andamento'||
     this.form.value.inputDisapproved && a.status === 'Reprovado'||
     this.form.value.inputApproved && a.status === 'Aprovado');
+  }
+
+  handlerFillterListHorizon() {
+
+    // if (this.form.value.inputEveryone){
+    //   this.infoCardsFilter = this.infoCards; return;
+    // }
+    // this.infoCardsFilter = this.infoCards.filter
+    // (a => this.form.value.inputAnalysis && a.status === 'Em análise'||
+    // this.form.value.inputProgress && a.status === 'Em andamento'||
+    // this.form.value.inputDisapproved && a.status === 'Reprovado'||
+    // this.form.value.inputApproved && a.status === 'Aprovado');
+  }
+
+  get formControl(){
+    return this.form.controls;
   }
 }
