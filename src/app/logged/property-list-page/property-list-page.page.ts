@@ -31,8 +31,12 @@ export class PropertyListPagePage implements OnInit {
     private homeService: HomeService,
   ) {
     this.form = this.formBuilder.group({
-      inputAnalysis: ['', []],
       inputEveryone: ['', []],
+      inputAnalysis: ['', []],
+      inputProgress: ['', []],
+      inputDisapproved: ['', []],
+      inputApproved: ['', []],
+
     });
   }
 
@@ -69,9 +73,13 @@ export class PropertyListPagePage implements OnInit {
 
   // logic-filter
   handlerFillter() {
-    console.log(this.form.value.inputAnalysis)
-    if (this.form.value.inputEveryone) { this.infoCardsFilter = this.infoCards; return; }
-    this.infoCardsFilter = this.infoCards.filter(a => this.form.value.inputAnalysis && a.status === 'Em análise')
+    if (this.form.value.inputEveryone){
+      this.infoCardsFilter = this.infoCards; return;
+    }
+    this.infoCardsFilter = this.infoCards.filter
+    (a => this.form.value.inputAnalysis && a.status === 'Em análise'||
+    this.form.value.inputProgress && a.status === 'Em andamento'||
+    this.form.value.inputDisapproved && a.status === 'Reprovado'||
+    this.form.value.inputApproved && a.status === 'Aprovado');
   }
-
 }
