@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
+import { BtnsSendComponent } from './components/btns-send/btns-send.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { LoginPage } from './login.page';
     IonicModule,
     LoginPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage, BtnsSendComponent]
 })
 export class LoginPageModule {}

@@ -251,6 +251,12 @@ ion-button {
     background: var(--graylight) !important;
 }
 
+.bg-white {
+    --background: white !important;
+    background-color: white !important;
+    background:white !important;
+}
+
 .bg-purple {
     --background: var(--purple) !important;
     background-color: var(--purple) !important;
@@ -286,6 +292,9 @@ ion-button {
     color: var(--bluelight);
 }
 
+.border-purple{
+    border: 1px solid var(--purple)
+}
 /* align */
 
 .text-align-center {
