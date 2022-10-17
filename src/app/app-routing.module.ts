@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-
+  {
+    path: '',
+    loadChildren: () => import('./logged/property-list-page/property-list-page.module').then( m => m.PropertyListPagePageModule)
+  },
   {
     path: 'splash',
     loadChildren: () => import('./auth/splash-page/splash-page.module').then( m => m.SplashPagePageModule)
@@ -20,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./logged/terms-conditions/terms-conditions.module').then( m => m.TermsConditionsPageModule)
   },
   {
-    path: 'property-list-page',
+    path: 'property-list',
     loadChildren: () => import('./logged/property-list-page/property-list-page.module').then( m => m.PropertyListPagePageModule)
   },
   {
