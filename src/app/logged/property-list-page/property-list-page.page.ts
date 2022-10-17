@@ -16,22 +16,30 @@ export class PropertyListPagePage implements OnInit {
   collapsed: number[] = [];
   infoCards: any[];
   infoFilter: any[];
+  infoCardsFilter: any[] = [];
   balance = true;
+
 
   // logic-filter
   filterUL = true;
+
+
+
+
   constructor(
     private formBuilder: FormBuilder,
     private homeService: HomeService,
-  ) { 
+  ) {
     this.form = this.formBuilder.group({
-      inputAnalysis: ['', [Validators.required]],
+      inputAnalysis: ['', []],
+      inputEveryone: ['', []],
     });
   }
 
   ngOnInit() {
     this.infoBalance = this.homeService.balance;
     this.infoCards = this.homeService.cards;
+    this.infoCardsFilter = this.homeService.cards;
     this.infoFilter = this.homeService.filterCard;
   }
 
@@ -60,6 +68,10 @@ export class PropertyListPagePage implements OnInit {
   }
 
   // logic-filter
-  inAnalysis() {
+  handlerFillter() {
+    console.log(this.form.value.inputAnalysis)
+    if (this.form.value.inputEveryone) { this.infoCardsFilter = this.infoCards; return; }
+    this.infoCardsFilter = this.infoCards.filter(a => this.form.value.inputAnalysis && a.status === 'Em análise')
   }
+
 }
