@@ -1,3 +1,63 @@
 <ion-app>
-   <app-btns-send *ngIf="btnsSend"></app-btns-send>
+   <ion-content class="bg-white" [fullscreen]="true">
+      <ion-grid class=" h-100">
+        <ion-button  fill="clear" class="px-2 pt-3 box-shadow-none">
+            <ion-icon class="color-purple" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+          <div class="w-100 text-align-center pt-5">
+              <ion-img src="../../../assets/svg/logo-colorida.svg" class="logo"></ion-img>
+          </div>
+          <ion-text class="w-calc-15 text-center d-grid pt-4">
+              <span class="fw-500 font-size-18 line-24 color-purple">Acesse ou crie sua conta</span>
+              <span class="fw-400 font-size-14 line-18 color-blue-light">
+                  Digite seu celular para entrar. Seus dados estão seguros e você não precisa de senha.
+              </span>
+          </ion-text> 
+    
+          <ion-row class="row mt-4">
+              <ion-col class="col-12">
+                  <ion-button (click)="sendSMS()" class="w-calc-15 fw-500 font-size-16 line-20 border-10 text-light h-51 bg-purple box-shadow-none">
+                      Receber código por SMS
+                  </ion-button>
+              </ion-col>
+              <ion-col class="col-12">
+                  <ion-button class="w-calc-15 fw-500 border-10 mt-3 h-51 font-size-16 line-20 color-purple border-purple bg-white">
+                      Receber código por WhatsApp
+                  </ion-button>
+              </ion-col>
+              <ion-col class="col-12">
+                  <ion-card class="box-shadow-none w-calc-15 mt-5 px-3 py-4 border-10" style="background-color: #FFF9E7">
+                    <ion-text class="d-flex">
+                      <ion-icon color="warning" class="px-3 font-size-48" name="information-circle-outline"></ion-icon>
+                      <span class="fw-400 font-size-14 line-18 text-warning">
+                          Estamos espandindo, por enquanto somente no Paraná. Em breve estaremos no seu estado.
+                      </span>
+                    </ion-text>
+                  </ion-card>
+              </ion-col>
+          </ion-row>
+    
+          <ion-row  class="row mt-5">
+            <form [formGroup]="form" class="col-12 mx-4">
+                <ion-label class="fw-400 font-size-14 line-18 color-blue-light">
+                    Telefone celular
+                </ion-label>
+                <ion-input type="tel" (click)="insertTel()" [ionMask]="maskTel" (keyup.enter)="sendTel()"formControlName="tel" required class="telephone h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" placeholder="insira o número">
+                    <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
+                </ion-input>
+               
+            </form>
+             <ion-text class="text-center py-3 w-100">
+                    <span class="fw-400 font-size-14 line-18 color-purple">
+                        Um SMS será enviado para o número acima
+                    </span>
+                </ion-text>
+                <ion-text  class="text-center position-absolute bottom-0 pb-5 right-0 w-100">
+                    <span class="fw-400 font-size-14 line-18 color-blue-light">
+                        Ao continuar você concorda com os <br/> <a [routerLink]="['/#']" class="color-purple text-decoration-none">Termos de Uso</a>  e <a [routerLink]="['/#']" class="color-purple text-decoration-none">Política de Privacidade</a>. 
+                    </span>
+                </ion-text>
+          </ion-row>
+      </ion-grid>
+    </ion-content>
 </ion-app>
