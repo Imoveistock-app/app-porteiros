@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import { BtnsSendComponent } from './components/btns-send/btns-send.component';
+import { IonMaskDirective } from 'src/app/directives/mask.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     LoginPageRoutingModule
   ],
-  declarations: [LoginPage, BtnsSendComponent]
+  declarations: [
+    LoginPage,
+    IonMaskDirective,
+  ]
 })
 export class LoginPageModule {}
