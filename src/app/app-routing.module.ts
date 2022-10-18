@@ -38,6 +38,18 @@ const routes: Routes = [
     path: 'sign-up',
     loadChildren: () => import('./auth/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
+  {
+    path: 'insert-tel',
+    loadChildren: () => import('./auth/insert-tel/insert-tel.module').then( m => m.InsertTelPageModule)
+  },
+  {
+    path: 'send-tel',
+    loadChildren: () => import('./auth/send-tel/send-tel.module').then( m => m.SendTelPageModule)
+  },
+  {
+    path: 'send-code',
+    loadChildren: () => import('./auth/send-code/send-code.module').then( m => m.SendCodePageModule)
+  },
 ];
 
 @NgModule({
