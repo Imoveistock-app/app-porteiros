@@ -16,7 +16,8 @@ export class HomeService {
   balance = [
     {
       money: "35000",
-      date: '20052021'
+      date: '20052021',
+      datecard: '08052021'
     }
   ];
 
@@ -24,32 +25,44 @@ export class HomeService {
     {
       id: 1,
       status: "Em análise",
+      PersonName: 'Enéas carneiro',
+      Typebusiness: 'Direita',
       statustype: "status-type-analysis",
       type: "Venda",
       localName: "Nome do edifício grande",
+      Value: '30000',
       localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
     },
     {
       id: 2,
       status: "Em andamento",
+      PersonName: 'felipe neto',
+      Typebusiness: 'Parceira',
       statustype: "status-type-progress",
       type: "Locação",
       localName: "Nome do edifício grande",
+      Value: '30000',
       localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
     },
     {id: 3,
       status: "Reprovado",
       statustype: "status-type-disapproved",
+      PersonName: 'Arnold Alois Schwarzenegger',
+      Typebusiness: 'Direita',
       type: "Venda",
       localName: "Nome do edifício grande",
+      Value: '30000',
       localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
     },
     {
       id: 4,
       status: "Aprovado",
       statustype: "status-type-approved",
+      PersonName: 'Pedro carvalho silva barros pereira',
+      Typebusiness: 'Parceira',
       type: "Venda",
       localName: "Nome do edifício grande",
+      Value: '30000',
       localDetails: "Rua Eufrásio Correa , 456 , Bloco C"
     }
   ]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HomeService } from 'src/app/service/home.service';
 
 @Component({
@@ -21,6 +22,7 @@ export class PropertyListComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private homeService: HomeService,
+    private router: Router
   ) {
     this.form = this.formBuilder.group({
       inputEveryone: [false, []],
@@ -80,4 +82,9 @@ export class PropertyListComponent implements OnInit {
   get formControl(){
     return this.form.controls;
   }
+    // Rota ainda não definida
+    goMoreSold(){
+      this.router.navigate(['#']);
+    }
+  
 }
