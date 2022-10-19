@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { PropertyListComponent } from './pages/property-list/property-list.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
 
 @NgModule({
   
@@ -21,7 +22,8 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
     AboutComponent,
     PrivacyPolicyComponent,
     PropertyListComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    ToolbarComponent
   ],
   imports: [
     CommonModule,
