@@ -3,8 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoggedPage } from './logged.page';
 import { AboutComponent } from './pages/about/about.component';
+import { ExtractComponent } from './pages/extract/extract.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IndicateComponent } from './pages/indicate/indicate.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import { PropertyListComponent } from './pages/property-list/property-list.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 
@@ -34,6 +37,18 @@ const routes: Routes = [
         path: 'terms-conditions',
         component: TermsConditionsComponent, 
       },
+      {
+        path: 'indicate',
+        component: IndicateComponent, 
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent, 
+      }, {
+        path: 'extract',
+        component: ExtractComponent, 
+      },
+
     ],
   },
 ];

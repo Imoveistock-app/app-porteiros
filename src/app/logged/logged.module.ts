@@ -13,6 +13,9 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { PropertyListComponent } from './pages/property-list/property-list.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ExtractComponent } from './pages/extract/extract.component';
+import { IndicateComponent } from './pages/indicate/indicate.component';
 
 @NgModule({
   
@@ -23,7 +26,10 @@ import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
     PrivacyPolicyComponent,
     PropertyListComponent,
     TermsConditionsComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ProfileComponent,
+    ExtractComponent,
+    IndicateComponent
   ],
   imports: [
     CommonModule,
