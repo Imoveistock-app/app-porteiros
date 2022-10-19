@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Style } from '@capacitor/status-bar';
 
 @Component({
   selector: 'app-toolbar',
