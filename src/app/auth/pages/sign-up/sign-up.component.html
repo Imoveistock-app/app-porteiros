@@ -1,3 +1,61 @@
-<p>
-  sign-up works!
-</p>
+<ion-app class="">
+  <ion-content class="" [fullscreen]="true">
+    <ion-row class="row">
+      <ion-col class="col-9">
+        <ion-text class="">
+          <span class="">cadastre-se</span>
+          <span class-="">Insira seuis dados abaixo</span>
+        </ion-text>
+      </ion-col>
+      <ion-col class="col-3">
+        <ion-button class="">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="row">
+      <ion-col class="col-12">
+        <form [formGroup]="form" class="">
+          <ion-row class="row">
+            <ion-col class="col-12">
+              <ion-label class="">Nome completo</ion-label>
+              <ion-input type="text" class="" formControlName="name"></ion-input>
+            </ion-col>
+            <ion-col class="col-12">
+              <ion-input type="tel"  [ionMask]="maskTel" 
+             formControlName="tel" required 
+              class="telephone h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+              placeholder="insira o número">
+                  <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
+              </ion-input>
+            </ion-col>
+            <ion-col class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <ion-label class="form-check-label" for="flexCheckDefault">
+                  <p class="">Ao continuar você concorda com os <a [routerLink]="['']">Termos de Uso</a> e <a [routerLink]="['']">Política de Privacidade</a></p> 
+                </ion-label>
+              </div>
+            </ion-col>
+            <ion-col class="col-12">
+              <ion-button class="" type="submit">
+                Enviar código de acesso
+              </ion-button>
+            </ion-col>
+            <ion-col class="col-12">
+              <ion-card class="">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                <ion-text class="">
+                  <span class="">
+                    Estamos espandindo, por enquanto somente no Paraná. Em breve estaremos no seu estado.
+                  </span>
+                </ion-text>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</ion-app>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
 
+  public maskTel: Array<any> = ['(',/\d/, /\d/, ')' ,/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.form = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      cpf: ['', [Validators.required]],
+      tel: ['', [Validators.required]],
+
+    });
+  }
   ngOnInit() {}
 
 }

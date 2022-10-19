@@ -1,27 +1,28 @@
 <ion-tab-bar slot="bottom" class="bg-purple">
-  <ion-tab-button layout="icon-top" (click)="home()">
+  <ion-tab-button layout="icon-top"  (click)="selectitem('home')" (click)="home()">
     <ion-img src="../../../assets/icon/house.svg" *ngIf="homeicon" class=""></ion-img>
     <ion-img src="../../../assets/icon/house-green.svg" *ngIf="homeicongreen" class=""></ion-img>
-    <ion-label class="home">Início</ion-label>
+    <ion-label id="home" (click)="selectitem('home')" class="tab-bar-title selected">Início</ion-label>
   </ion-tab-button>
-  <ion-tab-button  layout="icon-top" (click)="hand()">
+  <ion-tab-button  layout="icon-top" (click)="selectitem('hand')"  (click)="hand()">
     <ion-img src="../../../assets/icon/hand.svg" *ngIf="handicon" class=""></ion-img>
     <ion-img src="../../../assets/icon/hand-green.svg" *ngIf="handicongreen" class=""></ion-img>
-    <ion-label class="hand">indicar</ion-label>
+    <ion-label id="hand"class="tab-bar-title">indicar</ion-label>
   </ion-tab-button>
-  <ion-tab-button  layout="icon-top" (click)="star()">
+  <ion-tab-button  layout="icon-top" (click)="selectitem('star')" (click)="star()">
     <ion-img src="../../../assets/icon/star.svg" *ngIf="staricon" class=""></ion-img>
     <ion-img src="../../../assets/icon/star-green.svg" *ngIf="staricongreen" class=""></ion-img>
-    <ion-label class="star">Status</ion-label>
+    <ion-label id="star" class="tab-bar-title">Status</ion-label>
   </ion-tab-button>
-  <ion-tab-button  layout="icon-top" (click)="tiket()">
+  <ion-tab-button  layout="icon-top" (click)="selectitem('tiket')" (click)="tiket()">
     <ion-img src="../../../assets/icon/tiket.svg" *ngIf="tiketicon" class=""></ion-img>
     <ion-img src="../../../assets/icon/tiket-green.svg" *ngIf="tiketicongreen" class=""></ion-img>
-    <ion-label class="tiket">Extrato</ion-label>
+    <ion-label id="tiket"class="tab-bar-title">Extrato</ion-label>
   </ion-tab-button>
-  <ion-tab-button layout="icon-top" (click)="user()">
+  <ion-tab-button layout="icon-top" (click)="selectitem('user')" (click)="user()">
     <ion-img src="../../../assets/icon/user.svg" *ngIf="usericon" class=""></ion-img>
     <ion-img src="../../../assets/icon/user-green.svg" *ngIf="usericongreen" class=""></ion-img>
-    <ion-label class="user">Perfil</ion-label>
+    <ion-label id="user" class="tab-bar-title">Perfil</ion-label>
   </ion-tab-button>
 </ion-tab-bar>
+

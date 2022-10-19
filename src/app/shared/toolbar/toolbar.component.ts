@@ -30,6 +30,14 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() { }
 
+  selectitem(pathName: any) {
+    document.querySelectorAll(".selected").forEach(element => {
+      element.classList.remove("selected");
+    });
+    document.getElementById(pathName)!.classList.add("selected");
+    
+  }
+
   home() {
     this.router.navigate(['logged/home']);
     this.homeicon = false;
@@ -47,26 +55,6 @@ export class ToolbarComponent implements OnInit {
     this.usericon = true;
     this.usericongreen = false;
 
-    const home = document.querySelector(
-      '.home'
-    ) as HTMLElement;
-    home.style.color = '#68F4A0';
-    const hand = document.querySelector(
-      '.hand'
-    ) as HTMLElement;
-    hand.style.color = 'white';
-    const star = document.querySelector(
-      '.star'
-    ) as HTMLElement;
-    star.style.color = 'white';
-    const tiket = document.querySelector(
-      '.tiket'
-    ) as HTMLElement;
-    tiket.style.color = 'white';
-    const user = document.querySelector(
-      '.user'
-    ) as HTMLElement;
-    user.style.color = 'white';
 
   }
   hand() {
@@ -86,27 +74,7 @@ export class ToolbarComponent implements OnInit {
   
     this.usericon = true;
     this.usericongreen = false;
-    const home = document.querySelector(
-      '.home'
-    ) as HTMLElement;
-    home.style.color = 'white';
-    const hand = document.querySelector(
-      '.hand'
-    ) as HTMLElement;
-    hand.style.color = '#68F4A0';
-    const star = document.querySelector(
-      '.star'
-    ) as HTMLElement;
-    star.style.color = 'white';
-    const tiket = document.querySelector(
-      '.tiket'
-    ) as HTMLElement;
-    tiket.style.color = 'white';
-    const user = document.querySelector(
-      '.user'
-    ) as HTMLElement;
-    user.style.color = 'white';
-
+   
   }
   star() {
     this.router.navigate(['logged/property-list']);
@@ -126,26 +94,7 @@ export class ToolbarComponent implements OnInit {
   
     this.usericon = true;
     this.usericongreen = false;
-    const home = document.querySelector(
-      '.home'
-    ) as HTMLElement;
-    home.style.color = 'white';
-    const hand = document.querySelector(
-      '.hand'
-    ) as HTMLElement;
-    hand.style.color = 'white';
-    const star = document.querySelector(
-      '.star'
-    ) as HTMLElement;
-    star.style.color = '#68F4A0';
-    const tiket = document.querySelector(
-      '.tiket'
-    ) as HTMLElement;
-    tiket.style.color = 'white';
-    const user = document.querySelector(
-      '.user'
-    ) as HTMLElement;
-    user.style.color = 'white';
+   
   }
   tiket() {
     this.router.navigate(['logged/extract']);
@@ -165,26 +114,7 @@ export class ToolbarComponent implements OnInit {
     this.usericon = true;
     this.usericongreen = false;
 
-    const home = document.querySelector(
-      '.home'
-    ) as HTMLElement;
-    home.style.color = 'white';
-    const hand = document.querySelector(
-      '.hand'
-    ) as HTMLElement;
-    hand.style.color = 'white';
-    const star = document.querySelector(
-      '.star'
-    ) as HTMLElement;
-    star.style.color = 'white';
-    const tiket = document.querySelector(
-      '.tiket'
-    ) as HTMLElement;
-    tiket.style.color = '#68F4A0';
-    const user = document.querySelector(
-      '.user'
-    ) as HTMLElement;
-    user.style.color = 'white';
+  
   }
   user() {
     this.router.navigate(['logged/profile']);
@@ -203,26 +133,6 @@ export class ToolbarComponent implements OnInit {
     this.usericon = false;
     this.usericongreen = true;
 
-    const home = document.querySelector(
-      '.home'
-    ) as HTMLElement;
-    home.style.color = 'white';
-    const hand = document.querySelector(
-      '.hand'
-    ) as HTMLElement;
-    hand.style.color = 'white';
-    const star = document.querySelector(
-      '.star'
-    ) as HTMLElement;
-    star.style.color = 'white';
-    const tiket = document.querySelector(
-      '.tiket'
-    ) as HTMLElement;
-    tiket.style.color = 'white';
-    const user = document.querySelector(
-      '.user'
-    ) as HTMLElement;
-    user.style.color = '#68F4A0';
+    
   }
-
 }
