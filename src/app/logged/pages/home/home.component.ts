@@ -46,4 +46,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['logged/property-list']);
   }
 
+  // Rota ainda não definida
+  goMoreSold(){
+    this.router.navigate(['#']);
+  }
+
 }
