@@ -1,22 +1,27 @@
-<ion-tab-bar slot="bottom">
-  <ion-tab-button   layout="icon-top">
-    <ion-img src="../../../assets/icon/house.svg" class=""></ion-img>
-    <ion-label>Início</ion-label>
+<ion-tab-bar slot="bottom" class="bg-purple">
+  <ion-tab-button layout="icon-top" (click)="home()">
+    <ion-img src="../../../assets/icon/house.svg" *ngIf="homeicon" class=""></ion-img>
+    <ion-img src="../../../assets/icon/house-green.svg" *ngIf="homeicongreen" class=""></ion-img>
+    <ion-label class="home">Início</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="about"  layout="icon-top">
-    <ion-img src="../../../assets/icon/hand.svg" class=""></ion-img>
-    <ion-label>indicar</ion-label>
+  <ion-tab-button  layout="icon-top" (click)="hand()">
+    <ion-img src="../../../assets/icon/hand.svg" *ngIf="handicon" class=""></ion-img>
+    <ion-img src="../../../assets/icon/hand-green.svg" *ngIf="handicongreen" class=""></ion-img>
+    <ion-label class="hand">indicar</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="property-list"  layout="icon-top">
-    <ion-img src="../../../assets/icon/star.svg" class=""></ion-img>
-    <ion-label>Status</ion-label>
+  <ion-tab-button  layout="icon-top" (click)="star()">
+    <ion-img src="../../../assets/icon/star.svg" *ngIf="staricon" class=""></ion-img>
+    <ion-img src="../../../assets/icon/star-green.svg" *ngIf="staricongreen" class=""></ion-img>
+    <ion-label class="star">Status</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="games"  layout="icon-top">
-    <ion-img src="../../../assets/icon/tiket.svg" class=""></ion-img>
-    <ion-label>Extrato</ion-label>
+  <ion-tab-button  layout="icon-top" (click)="tiket()">
+    <ion-img src="../../../assets/icon/tiket.svg" *ngIf="tiketicon" class=""></ion-img>
+    <ion-img src="../../../assets/icon/tiket-green.svg" *ngIf="tiketicongreen" class=""></ion-img>
+    <ion-label class="tiket">Extrato</ion-label>
   </ion-tab-button>
-  <ion-tab-button tab="games"  layout="icon-top">
-    <ion-img src="../../../assets/icon/user.svg" class=""></ion-img>
-    <ion-label>Perfil</ion-label>
+  <ion-tab-button layout="icon-top" (click)="user()">
+    <ion-img src="../../../assets/icon/user.svg" *ngIf="usericon" class=""></ion-img>
+    <ion-img src="../../../assets/icon/user-green.svg" *ngIf="usericongreen" class=""></ion-img>
+    <ion-label class="user">Perfil</ion-label>
   </ion-tab-button>
 </ion-tab-bar>
