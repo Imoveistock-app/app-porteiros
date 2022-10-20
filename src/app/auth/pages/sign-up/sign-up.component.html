@@ -1,59 +1,76 @@
 <ion-app class="">
-  <ion-content class="" [fullscreen]="true">
-    <ion-row class="row">
-      <ion-col class="col-9">
-        <ion-text class="">
-          <span class="">cadastre-se</span>
-          <span class-="">Insira seuis dados abaixo</span>
+  <ion-content class="bg-greenpool" [fullscreen]="true">
+    <ion-row class="row mx-3 mt-3">
+      <ion-col class="col-10 p-0">
+        <ion-text class="d-grid">
+          <span class="fw-700 font-size-36 line-70 color-purple">Cadastre-se</span>
+          <span class="fw-400 font-size-18 line-24 color-purple">Insira seus dados abaixo</span>
         </ion-text>
       </ion-col>
-      <ion-col class="col-3">
-        <ion-button class="">
-          <ion-icon name="close"></ion-icon>
+      <ion-col class="col-2 ion-align-self-center p-0">
+        <ion-button (click)="goLogin()" fill="clean" class="border-purple border-05 h-51">
+          <ion-icon name="close" class="color-purple font-size-24 border-10"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
-
-    <ion-row class="row">
+ 
+    <ion-row class="row mx-2 mt-6">
       <ion-col class="col-12">
-        <form [formGroup]="form" class="">
-          <ion-row class="row">
-            <ion-col class="col-12">
-              <ion-label class="">Nome completo</ion-label>
-              <ion-input type="text" class="" formControlName="name"></ion-input>
-            </ion-col>
-            <ion-col class="col-12">
-              <ion-input type="tel"  [ionMask]="maskTel" 
+        <form [formGroup]="form" class="row">
+          <ion-col class="col-12 my-2">
+            <ion-label class="fw-400 font-size-14 line-18 color-purple">
+              Nome completo
+            </ion-label>
+            <ion-input type="text" maxlength="50"
+           formControlName="name" required 
+            class="w-100 max-w-400 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            placeholder="insira seu nome">
+            </ion-input>
+          </ion-col>
+          <ion-col class="col-12 my-2">
+            <ion-label class="fw-400 font-size-14 line-18 color-purple">
+              Insira seu CPF
+            </ion-label>
+            <ion-input type="text" [ionMask]="maskCpf" maxlength="14"
+           formControlName="cpf" required 
+            class="w-100 max-w-400 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            placeholder="insira seu cpf">
+            </ion-input>
+          </ion-col>
+            <ion-col class="col-12 my-2">
+              <ion-label class="fw-400 font-size-14 line-18 color-purple">
+                Insira seu celular
+              </ion-label>
+              <ion-input type="tel" [ionMask]="maskTel" 
              formControlName="tel" required 
-              class="telephone h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+              class="w-100 max-w-400 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
               placeholder="insira o número">
                   <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
               </ion-input>
             </ion-col>
-            <ion-col class="col-12">
+            <ion-col class="col-12 mx-1 my-4">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <ion-label class="form-check-label" for="flexCheckDefault">
-                  <p class="">Ao continuar você concorda com os <a [routerLink]="['']">Termos de Uso</a> e <a [routerLink]="['']">Política de Privacidade</a></p> 
+                <input class="form-check-input" formControlName="terms" type="checkbox" value="" id="flexCheckDefault">
+                <ion-label class="form-check-label fw-400 font-size-14 line-18 color-purple" for="flexCheckDefault">
+                 Ao continuar você concorda com os <br/> <a [routerLink]="['']" class="text-decoration-none color-purple">Termos de Uso</a> e <a [routerLink]="['']" class="text-decoration-none color-purple">Política de Privacidade</a>
                 </ion-label>
               </div>
             </ion-col>
             <ion-col class="col-12">
-              <ion-button class="" type="submit">
+              <ion-button (click)="goHome()"  [disabled]="this.form.controls.terms.value === '' || this.form.controls.name.value === '' || this.form.controls.tel.value === '' || this.form.controls.cpf.value === ''" class="w-100 max-w-400 h-51 text-center fw-400 font-size-14 line-18 text-light border-10 bg-purple" type="submit">
                 Enviar código de acesso
               </ion-button>
             </ion-col>
-            <ion-col class="col-12">
-              <ion-card class="">
-                <ion-icon name="information-circle-outline"></ion-icon>
+            <ion-col class="col-12 mt-4 mb-5">
+              <ion-card class="box-shadow-none d-flex border-10 px-2 py-3" style="background-color: #FFF9E7;">
+                <ion-icon color="warning" class="font-size-36 mx-2" name="information-circle-outline"></ion-icon>
                 <ion-text class="">
-                  <span class="">
+                  <span class="text-warning fw-400 font-size-14 line-18">
                     Estamos espandindo, por enquanto somente no Paraná. Em breve estaremos no seu estado.
                   </span>
                 </ion-text>
               </ion-card>
             </ion-col>
-          </ion-row>
         </form>
       </ion-col>
     </ion-row>

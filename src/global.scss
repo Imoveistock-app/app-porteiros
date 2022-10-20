@@ -367,12 +367,16 @@ ion-button {
     bottom: 0;
 }
 
+.mt-6{
+    margin-top: 6rem;
+}
+
 .border-3 {
     --border-radius: 3px;
     border-radius: 3px;
 }
 
-.border-5 {
+.border-05 {
     --border-radius: 5px;
     border-radius: 5px;
 }
@@ -490,6 +494,7 @@ ion-button {
 .telephone{
     width: calc(100% - 12%);
 }
-.tel-icon{
-    
+// SIGN-UP
+.max-w-400{
+    max-width: 400px;
 }
