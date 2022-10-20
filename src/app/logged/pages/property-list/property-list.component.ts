@@ -15,7 +15,6 @@ export class PropertyListComponent implements OnInit {
   infoBalance: any;
   collapsed: number[] = [];
   infoCards: any;
-  infoFilter: any;
   infoCardsFilter: any[] = [];
   balance = true;
 
@@ -37,7 +36,6 @@ export class PropertyListComponent implements OnInit {
     this.infoBalance = this.homeService.balance;
     this.infoCards = this.homeService.cards;
     this.infoCardsFilter = this.homeService.cards;
-    this.infoFilter = this.homeService.filterCard;
   }
 
   changeEye() {
@@ -75,7 +73,6 @@ export class PropertyListComponent implements OnInit {
     this.form.value.inputDisapproved && a.status === 'Reprovado'||
     this.form.value.inputApproved && a.status === 'Aprovado');
   }
-
 
   get formControl(){
     return this.form.controls;
