@@ -56,7 +56,7 @@ ion-button {
     left: 6% !important;
     right: 26px !important;
     top: auto !important;
-    bottom: 70px !important;
+    bottom: 8% !important;
     width: 100% !important;
     position: fixed !important;
     opacity: 0 !important;
@@ -251,6 +251,12 @@ ion-button {
     background: var(--graylight) !important;
 }
 
+.bg-white {
+    --background: white !important;
+    background-color: white !important;
+    background:white !important;
+}
+
 .bg-purple {
     --background: var(--purple) !important;
     background-color: var(--purple) !important;
@@ -266,6 +272,8 @@ ion-button {
 /* colors */
 .color-purple {
     color: var(--purple);
+    --ion-color-base: var(--purple) !important;
+    
 }
 .color-cherry{
     color: var(--cherry);
@@ -286,6 +294,9 @@ ion-button {
     color: var(--bluelight);
 }
 
+.border-purple{
+    border: 1px solid var(--purple)
+}
 /* align */
 
 .text-align-center {
@@ -356,12 +367,16 @@ ion-button {
     bottom: 0;
 }
 
+.mt-6{
+    margin-top: 6rem;
+}
+
 .border-3 {
     --border-radius: 3px;
     border-radius: 3px;
 }
 
-.border-5 {
+.border-05 {
     --border-radius: 5px;
     border-radius: 5px;
 }
@@ -465,4 +480,21 @@ ion-button {
         opacity: 1;
         top: 0;
     }
+}
+
+
+// AUTH-LOGIN
+.logo{
+    width: 172.03px;
+}
+.w-calc-15{
+    margin-left: 5%;
+    width: calc(100% - 10%);
+}
+.telephone{
+    width: calc(100% - 12%);
+}
+// SIGN-UP
+.max-w-400{
+    max-width: 400px;
 }
