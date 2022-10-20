@@ -9,7 +9,7 @@ export class ExtractService {
     {
       money: "35000",
     }
-  ]
+  ];
   extract = [
     {
       id: 1,
@@ -71,7 +71,7 @@ export class ExtractService {
       block: "A",
       valueExtract: "8500",
     },
-  ]
+  ];
 
   Selectmounth = [
     {
@@ -122,5 +122,5 @@ export class ExtractService {
       id: 12,
       mounth: "December",
     },
-  ]
+  ];
 }
