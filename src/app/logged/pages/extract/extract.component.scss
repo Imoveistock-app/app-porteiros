@@ -1,0 +1,11 @@
+.btn-filter {
+    --background: #00000000;
+    border: 1px solid var(--bluelight);
+    color: var(--bluelight);
+    border-radius: 2rem;
+}
+
+.month-selected {
+    border: 1px solid var(--purple);
+    color: var(--purple);
+}
