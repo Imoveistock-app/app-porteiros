@@ -76,9 +76,7 @@ export class PropertyListComponent implements OnInit {
     this.form.value.inputApproved && a.status === 'Aprovado');
   }
 
-  handlerFillterListHorizon() {
-    // 
-  }
+
   get formControl(){
     return this.form.controls;
   }

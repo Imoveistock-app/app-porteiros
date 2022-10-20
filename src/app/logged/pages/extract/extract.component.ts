@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ExtractService } from 'src/app/service/extract.service';
 import { HomeService } from 'src/app/service/home.service';
 
 @Component({
@@ -16,12 +17,13 @@ export class ExtractComponent implements OnInit {
   collapsed: number[] = [];
   infoCards: any;
   infoFilter: any;
+  infoExtract: any;
   infoCardsFilter: any[] = [];
   balance = true;
 
   constructor(
     private formBuilder: FormBuilder,
-    private homeService: HomeService,
+    private extractService: ExtractService,
     private router: Router
   ) {
     this.form = this.formBuilder.group({
@@ -34,10 +36,8 @@ export class ExtractComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.infoBalance = this.homeService.balance;
-    this.infoCards = this.homeService.cards;
-    this.infoCardsFilter = this.homeService.cards;
-    this.infoFilter = this.homeService.filterCard;
+    this.infoBalance = this.extractService.balance;
+    this.infoExtract = this.extractService.extract;
   }
 
   changeEye() {
@@ -57,11 +57,12 @@ export class ExtractComponent implements OnInit {
     return !!this.collapsed.find(a => a == id);
   }
 
-
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  selectitem(pathName: any) {
+    document.querySelectorAll(".mounth-selected").forEach(element => {
+      element.classList.remove("mounth-selected");
+    });
+    document.getElementById(pathName)!.classList.add("mounth-selected");
+    
   }
 
   // logic-filter
@@ -76,9 +77,7 @@ export class ExtractComponent implements OnInit {
     this.form.value.inputApproved && a.status === 'Aprovado');
   }
 
-  handlerFillterListHorizon() {
-    // 
-  }
+
   get formControl(){
     return this.form.controls;
   }
