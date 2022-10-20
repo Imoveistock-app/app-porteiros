@@ -19,7 +19,6 @@ export class ExtractComponent implements OnInit {
   infoFilter: any;
   infoExtract: any;
   infoCardsFilter: any[] = [];
-  balance = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,10 +37,6 @@ export class ExtractComponent implements OnInit {
   ngOnInit() {
     this.infoBalance = this.extractService.balance;
     this.infoExtract = this.extractService.extract;
-  }
-
-  changeEye() {
-    this.balance = !this.balance;
   }
 
   showcard(id: number) {
