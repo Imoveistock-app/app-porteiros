@@ -1,3 +1,136 @@
-<p>
-  extract works!
-</p>
+<ion-app class="h-100 overflow-auto">
+  <ion-content [fullscreen]="true" class="bg-white">
+    <ion-row class="row mx-4 my-4">
+      <ion-col class="col-12 text-center">
+        <ion-text class="pl-2 d-grid">
+          <span class="fw-500 color-purple font-size-20 line-26">Extrato</span>
+          <span class="fw-400 color-purple font-size-14 line-43" *ngFor="let item of infoBalance">R$ <b class="fw-600 color-purple font-size-20
+              line-26">{{ item.money | slice:0:3}},{{item.money | slice:3:5 }}</b></span>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <ion-col class="col-12">
+        <form [formGroup]="form">
+          <ul class="d-flex overflow-scroll m-0 p-0 mx-2
+            ion-align-items-center">
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input id="jan" formControlName="jan" value="janeiro" (click)="selectitem('jan')"
+                type="button"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="fev"  formControlName="fev" value="Fevereiro"  (click)="selectitem('fev')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="mar"  formControlName="mar" value="Março" (click)="selectitem('mar')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="apr"  formControlName="par" value="Abril" (click)="selectitem('apr')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="may"  formControlName="may" value="Maio" (click)="selectitem('may')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="jun"  formControlName="jun" value="Junho" (click)="selectitem('jun')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="jul"  formControlName="jul" value="Julho" (click)="selectitem('jul')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="ago" formControlName="ago" value="Agosto" (click)="selectitem('ago')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="set" formControlName="set" value="Setembro"  (click)="selectitem('set')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="oct" formControlName="oct" value="Outubro"  (click)="selectitem('oct')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="nov"  formControlName="nov" value="Novembro" (click)="selectitem('nov')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <ion-input type="button" id="dec" formControlName="dec" value="Dezembro" (click)="selectitem('dec')"
+                class="box-shadow-none btn-filter">
+              </ion-input>
+            </li>
+
+          </ul>
+        </form>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="row bg-gray-light mb-5 mt-3">
+      <ion-col class="col-12 mt-4">
+        <ion-grid *ngFor="let item of infoExtract"
+          (click)="showcard(item.id)" class="px-3 mb-5">
+          <ion-row class="row">
+            <ion-col class="col-7">
+              <ion-text class="d-flex px-3 pb-2 text-left">
+                <span class="fw-400 color-purple text-left font-size-16
+                  line-15">
+                  {{item.localName}}
+                </span>
+              </ion-text>
+            </ion-col>
+            <ion-col class="col-5 ">
+              <ion-text class="d-grid px-3 text-align-right">
+                <span class="fw-400 color-blue-light font-size-12
+                  line-15">{{ item.date | slice:0:2
+                  }}/{{ item.date | slice:2:4 }}/{{ item.date |
+                  slice:4:8 }}</span>
+                <span class="fw-400 text-primary font-size-16 line-15">
+                  R$ {{ item.valueExtract |
+                  slice:0:2 }},{{ item.valueExtract | slice:2:4}}</span>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-text  class="d-grid px-3 text-left">
+            <span class="fw-400 color-blue-light text-left font-size-12
+              line-15">
+              Apartamento: {{item.apartment}}
+            </span>
+            <span class="fw-400 color-blue-light text-left font-size-12
+              line-15">
+              Torre: {{item.tower}}
+            </span>
+            <span class="fw-400 color-blue-light text-left font-size-12
+              line-15">
+              Bloco: {{item.block}}
+            </span>
+          </ion-text>
+        </ion-grid>
+        <div class="text-dark" *ngIf="infoCardsFilter.length === 0">
+          <ion-text class="text-align-center ">
+            <h1 class="fw-400 pt-2 w-100 m-0 color-blue text-left font-size-18
+              line-24">Nenhum resultado encontrado <br/> selecione um filtro por
+                favor!</h1>
+            </ion-text>
+            <ion-img src="../../../../assets/img/notfound.png" class=""></ion-img>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-content>
+  </ion-app>

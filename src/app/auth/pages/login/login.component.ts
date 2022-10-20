@@ -21,5 +21,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['auth/insert-tel']);
   }
 
+  goSignUp(){
+    this.router.navigate(['logged/sign-up']);
+  }
+
 
 }

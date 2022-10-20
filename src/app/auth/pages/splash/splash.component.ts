@@ -25,10 +25,10 @@ export class SplashComponent implements OnInit {
 
   splash = true;
   splashstaps = false;
-  count: number;
+  count = 0;
   constructor(
     private router: Router
-  ) { this.count = 0; }
+  ) { }
 
   ngOnInit() {
     setTimeout(() => {
