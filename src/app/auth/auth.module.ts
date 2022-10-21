@@ -14,6 +14,9 @@ import { SendCodeComponent } from './pages/send-code/send-code.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SplashComponent } from './pages/splash/splash.component';
 import { SwiperModule } from 'swiper/angular';
+import { UserService } from '../service/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from '../service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -32,8 +35,13 @@ import { SwiperModule } from 'swiper/angular';
     IonicModule,
     SwiperModule,
     ReactiveFormsModule,
-    AuthPageRoutingModule
+    AuthPageRoutingModule,
+    HttpClientModule,
   ],
+  providers: [
+    UserService,
+    AuthenticationService
+  ]
   
 })
 export class AuthPageModule {}
