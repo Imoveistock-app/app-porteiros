@@ -49,10 +49,9 @@ export class SignUpComponent implements OnInit {
       cpf: this.form.controls.cpf.value,
       email: this.form.controls.email.value,
       name: this.form.controls.name.value,
-      phone: `+55${this.form.controls.phone.value.replace(/\D/g, '')}`
+      phone: `+55${this.form.controls.phone.value.replace(/\D/g, '')}`,
+      profileId: 'fc68f468-9b93-4486-a92c-8d096f698987'
     };
-
-    console.log(this.request)
 
     this.userService.register(this.request).subscribe(
       async success => {
@@ -73,7 +72,7 @@ export class SignUpComponent implements OnInit {
           color: 'danger',
         });
         toast.present();
-        console.log(error)
+        console.error(error)
       }
     )
   }
