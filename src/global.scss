@@ -297,6 +297,9 @@ ion-button {
 .border-purple{
     border: 1px solid var(--purple)
 }
+.border-blue-light{
+    border: 1px solid #878dba50;
+}
 /* align */
 
 .text-align-center {
@@ -369,6 +372,9 @@ ion-button {
 
 .mt-6{
     margin-top: 6rem;
+}
+.pt-6{
+    padding-top: 5rem;
 }
 
 .border-3 {
@@ -491,7 +497,7 @@ ion-button {
     margin-left: 5%;
     width: calc(100% - 10%);
 }
-.telephone{
+.pattern-input{
     width: calc(100% - 12%);
 }
 // SIGN-UP
