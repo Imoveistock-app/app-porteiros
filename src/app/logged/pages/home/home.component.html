@@ -10,7 +10,7 @@
         </ion-text>
       </ion-col>
       <ion-col class="col-12 d-flex ion-align-items-center">
-        <ion-text class=" w-100">
+        <ion-text class="w-100">
           <p class="fw-400 font-size-14 line-18 color-blue-light bg-light p-3
             mt-2">
             Indique imóveis e tenha ganhos <br/> de forma transparente e rápido.
@@ -33,7 +33,7 @@
               <span class=" fw-400 text-light font-size-13 line-18"> Ganhe até
                 <b>R$350,00</b>, numa só indicação</span>
             </ion-text>
-            <ion-button ((click)="goIndicateProperty()" class="pl-3 fw-700
+            <ion-button (click)="goIndicateProperty()" class="pl-3 fw-700
               font-size-16 line-43 h-51 box-shadow-none mt-3 bg-greenpool w-100
               border-10 color-purple" type="button">
               Indicar imóvel
@@ -45,9 +45,9 @@
       <!-- Stap-02 -->
       <ion-row class="row mt-3 mb-4 bg-transparent">
         <ion-col class="col-12">
-          <ion-card (click)="goExtract()" class="border-10 bg-light p-4 mx-3">
-            <ion-text class="d-flex mb-3 w-100 ion-align-items-center">
-              <ion-icon class="btn-star" color="dark" name="wallet-outline"></ion-icon>
+          <ion-card  class="border-10 bg-light p-4 mx-3">
+            <ion-text  class="d-flex mb-3 w-100 ion-align-items-center">
+              <ion-icon (click)="goExtract()" class="btn-star" color="dark" name="wallet-outline"></ion-icon>
               <span class="w-100 px-3 fw-400 color-blue font-size-16 line-20">Seu
                 saldo</span>
               <ion-icon (click)="changeEye()" [name]="hideeye ? 'eye-outline' :

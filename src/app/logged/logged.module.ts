@@ -16,12 +16,14 @@ import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ExtractComponent } from './pages/extract/extract.component';
 import { IndicateComponent } from './pages/indicate/indicate.component';
+import { IonMaskDirectiveLogged } from '../directives/maskLogged.directive';
 
 @NgModule({
   
   declarations: [
     LoggedPage,
     HomeComponent,
+    IonMaskDirectiveLogged,
     AboutComponent,
     PrivacyPolicyComponent,
     PropertyListComponent,

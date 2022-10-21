@@ -25,7 +25,6 @@ export class SplashComponent implements OnInit {
 
   splash = true;
   splashstaps = false;
-  count = 0;
   constructor(
     private router: Router
   ) { }
@@ -37,12 +36,15 @@ export class SplashComponent implements OnInit {
     }, 1000
     );
   }
-  swipeNext() {
-    const co = this.count++;
+
+  goSwipeHome() {
+    let count = 0;
+    const co = count++;
     if (co < 3) {
       this.router.navigate(['logged/home'])
     }
   }
+
   goHome(){
     this.router.navigate(['logged/home'])
   }

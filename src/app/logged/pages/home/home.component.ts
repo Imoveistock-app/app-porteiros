@@ -32,13 +32,13 @@ export class HomeComponent implements OnInit {
 
   // Propenso à alterações
   goIndicateProperty(){
-    this.router.navigate(['/Indicate-Property']);
+    this.router.navigate(['logged/indicate']);
   }
 
 
   // Propenso à alterações
   goExtract(){
-    this.router.navigate(['/Extract']);
+    this.router.navigate(['logged/extract']);
   }
   
   // Propenso à alterações
