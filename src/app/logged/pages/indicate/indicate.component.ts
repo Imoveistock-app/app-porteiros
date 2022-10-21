@@ -11,10 +11,16 @@ export class IndicateComponent implements OnInit {
   formIndicate: FormGroup;
 
 
+  addContacts = 0;
+
+
+  public maskCep: Array<any> = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/,];
+  public maskTel: Array<any> = ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-  ) { 
+  ) {
     this.formIndicate = this.formBuilder.group({
       cep: ['', [Validators.required]],
       road: ['', [Validators.required]],
@@ -26,7 +32,11 @@ export class IndicateComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  addContent() {
+    this.addContacts = this.addContacts++;
+  }
 
 
 }
