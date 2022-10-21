@@ -1,0 +1,56 @@
+
+<ion-app class="h-100 overflow-auto">
+    <ion-content [fullscreen]="true" class="bg-gray-light">
+        <ion-row class="row mb-5 ">
+        <ion-col class="col-12">
+                <ion-text class="">
+                    <span class="fw-500 font-size-20 line-23 color-purple">Indique um imóvel</span>
+                </ion-text>
+                <div class="">
+                    <ion-img class="" src="../../../../assets/svg/Banner.svg"></ion-img>
+                </div>
+                <ion-text class="">
+                    <span class="fw-400 font-size-14 line-23 color-blue">insira o endereço do imóvel abaixo</span>
+                </ion-text>
+        </ion-col>
+        <ion-col class="col-12">
+            <ion-text class="">
+                <span class="fw-500 font-size-18 line-23 color-purple">Dados do imível</span>
+            </ion-text>
+            <form [formGroup]="formIndicate" class="bg-light mx-3 border-10 p-3">
+                <ion-label class="" for="cep" class="fw-400 font-size-14 line-18 color-blue">CEP</ion-label>
+                <ion-input type="tel" placeholder="Insira o cep" id="cep" formControlName="cep" class="w-100 mb-4 bg-gray-light fw-500 font-size-16 line-20 color-blue border-blue-light px-2 border-10"></ion-input>
+                <ion-label class="" for="cep" class="fw-400 font-size-14 line-18 color-blue">Rua</ion-label>
+                <ion-input type="tel" placeholder="Insira o cep" id="cep" formControlName="road" class="w-100 mb-4 bg-gray-light fw-500 font-size-16 line-20 color-blue border-blue-light px-2 border-10"></ion-input>
+                <ion-label class="" for="cep" class="fw-400 font-size-14 line-18 color-blue">Número predial</ion-label>
+                <ion-input type="tel" placeholder="Insira o cep" id="cep" formControlName="numberResidence" class="w-100 mb-4 bg-gray-light fw-500 font-size-16 line-20 color-blue border-blue-light px-2 border-10"></ion-input>
+                <ion-label class="" for="cep" class="fw-400 font-size-14 line-18 color-blue">Complemento</ion-label>
+                <ion-input type="tel" placeholder="Insira o cep" id="cep" formControlName="complement" class="w-100 mb-4 bg-gray-light fw-500 font-size-16 line-20 color-blue border-blue-light px-2 border-10"></ion-input>
+                <ion-text class="">
+                    <span class="fw-400 font-size-14 line-18 color-blue">Escolha o tipo de indicaçãol</span>
+                </ion-text>
+                <ion-row class="row d-flex">
+                    <ion-col class="col-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="location">
+                            <label class="form-check-label" for="">
+                              Locação
+                            </label>
+                          </div>
+                    </ion-col>
+                    <ion-col class="col-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">
+                              Venda
+                            </label>
+                          </div>
+                    </ion-col>
+                </ion-row>
+               
+            </form>
+        </ion-col>
+
+    </ion-row>
+    </ion-content>
+</ion-app>
