@@ -8,23 +8,33 @@
         </ion-text>
       </ion-col>
       <ion-col class="col-2 ion-align-self-center p-0">
-        <ion-button (click)="goLogin()" fill="clean" class="border-purple border-05 h-51">
+        <ion-button (click)="goLogin()" fill="clean" class="h-51 border-05 border-purple">
           <ion-icon name="close" class="color-purple font-size-24 border-10"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
  
-    <ion-row class="row mx-2 mt-6">
-      <ion-col class="col-12">
-        <form [formGroup]="form" class="row">
+    <ion-row class="row mt-6 ion-justify-content-center">
+      <ion-col class="col-md-6 mx-2">
+        <form [formGroup]="form" (ngSubmit)="confirm()" class="row mx-1">
           <ion-col class="col-12 my-2">
             <ion-label class="fw-400 font-size-14 line-18 color-purple">
               Nome completo
             </ion-label>
             <ion-input type="text" maxlength="50"
            formControlName="name" required 
-            class="w-100 max-w-400 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10 text-capitalize" 
             placeholder="insira seu nome">
+            </ion-input>
+          </ion-col>
+          <ion-col class="col-12 my-2">
+            <ion-label class="fw-400 font-size-14 line-18 color-purple">
+              E-mail
+            </ion-label>
+            <ion-input type="text" maxlength="50"
+           formControlName="email" required 
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            placeholder="insira seu e-mail">
             </ion-input>
           </ion-col>
           <ion-col class="col-12 my-2">
@@ -33,7 +43,7 @@
             </ion-label>
             <ion-input type="text" [ionMask]="maskCpf" maxlength="14"
            formControlName="cpf" required 
-            class="w-100 max-w-400 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
             placeholder="insira seu cpf">
             </ion-input>
           </ion-col>
@@ -42,22 +52,22 @@
                 Insira seu celular barra de navegação
               </ion-label>
               <ion-input type="tel" [ionMask]="maskTel" 
-             formControlName="tel" required 
-              class="w-100 max-w-400 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+             formControlName="phone" required 
+              class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
               placeholder="insira o número">
                   <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
               </ion-input>
             </ion-col>
-            <ion-col class="col-12 mx-1 my-4">
+            <ion-col class="col-12 my-4">
               <div class="form-check">
                 <input class="form-check-input" formControlName="terms" type="checkbox" value="" id="flexCheckDefault">
                 <ion-label class="form-check-label fw-400 font-size-14 line-18 color-purple" for="flexCheckDefault">
-                 Ao continuar você concorda com os <br/> <a [routerLink]="['']" class="text-decoration-none color-purple">Termos de Uso</a> e <a [routerLink]="['']" class="text-decoration-none color-purple">Política de Privacidade</a>
+                 Ao continuar você concorda com os <a [routerLink]="['']" class="text-decoration-none color-purple">Termos de Uso</a> e <a [routerLink]="['']" class="text-decoration-none color-purple">Política de Privacidade</a>
                 </ion-label>
               </div>
             </ion-col>
             <ion-col class="col-12">
-              <ion-button (click)="goHome()"  [disabled]="this.form.controls.terms.value === '' || this.form.controls.name.value === '' || this.form.controls.tel.value === '' || this.form.controls.cpf.value === ''" class="w-100 max-w-400 h-51 text-center fw-400 font-size-14 line-18 text-light border-10 bg-purple" type="submit">
+              <ion-button [disabled]="this.form.controls.terms.value === '' || form.invalid" class="w-100 h-51 text-center fw-400 font-size-14 line-18 text-light border-10 bg-purple" type="submit">
                 Enviar código de acesso
               </ion-button>
             </ion-col>

@@ -37,10 +37,11 @@ export class SplashComponent implements OnInit {
     );
   }
 
+
   goSwipeHome() {
     let count = 0;
     const co = count++;
-    if (co < 3) {
+    if (co === 0) {
       this.router.navigate(['logged/home'])
     }
   }

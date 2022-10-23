@@ -1,43 +1,50 @@
 <ion-app>
-  <ion-content class="bg-white" [fullscreen]="true">
-     <ion-grid class=" h-100">
-       <ion-button (click)="goBack()" fill="clear" class="px-2 pt-3 box-shadow-none">
-           <ion-icon class="color-purple" name="chevron-back-outline"></ion-icon>
-       </ion-button>
-         <div *ngIf="componentLogo" class="w-100 text-align-center pt-5">
-             <ion-img src="../../../assets/svg/logo-colorida.svg" class="logo"></ion-img>
-         </div>
-         <ion-text  class="w-calc-15 text-center d-grid pt-4">
-             <span class="fw-500 font-size-18 line-24 color-purple">Acesse ou crie sua conta</span>
-             <span  *ngIf="componentTxt" class="fw-400 font-size-14 line-18 color-blue-light">
-                 Digite seu celular para entrar. Seus dados estão seguros e você não precisa de senha.
-             </span>
-         </ion-text> 
+    <ion-content class="bg-white" [fullscreen]="true">
+        <ion-grid class=" h-100">
+            <ion-button (click)="goBack()" fill="clear" class="px-2 pt-3 box-shadow-none">
+                <ion-icon class="color-purple" name="chevron-back-outline"></ion-icon>
+            </ion-button>
+            <div *ngIf="componentLogo" class="w-100 text-align-center pt-5">
+                <ion-img src="../../../assets/svg/logo-colorida.svg" class="logo"></ion-img>
+            </div>
+            <ion-text class="w-calc-15 text-center d-grid pt-4">
+                <span class="fw-500 font-size-18 line-24 color-purple">Acesse ou crie sua conta</span>
+                <span *ngIf="componentTxt" class="fw-400 font-size-14 line-18 color-blue-light">
+                    Digite seu celular para entrar. Seus dados estão seguros e você não precisa de senha.
+                </span>
+            </ion-text>
 
-         <ion-row  class="row mt-5">
-           <form [formGroup]="form" class="col-12 mx-4">
-               <ion-label class="fw-400 font-size-14 line-18 color-blue-light">
-                   Telefone celular
-               </ion-label>
-               <ion-input type="tel" (click)="insertTel()" [ionMask]="maskTel" 
-               (keyup.enter)="sendSMS()"formControlName="tel" required 
-               class="pattern-input h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
-               placeholder="insira o número">
-                   <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
-               </ion-input>
-              
-           </form>
-            <ion-text  *ngIf="componentPopup" class="text-center py-3 w-100">
-                   <span class="fw-400 font-size-14 line-18 color-purple">
-                       Um SMS será enviado para o número acima
-                   </span>
-               </ion-text>
-               <ion-text  *ngIf="componentTermsPrivacy" class="text-center position-absolute bottom-0 pb-5 right-0 w-100">
-                   <span class="fw-400 font-size-14 line-18 color-blue-light">
-                       Ao continuar você concorda com os <br/> <a [routerLink]="['/#']" class="color-purple text-decoration-none">Termos de Uso</a>  e <a [routerLink]="['/#']" class="color-purple text-decoration-none">Política de Privacidade</a>. 
-                   </span>
-               </ion-text>
-         </ion-row>
-     </ion-grid>
-   </ion-content>
+            <ion-row class="row mt-5 mx-2">
+                <form [formGroup]="form" class="col-12">
+                    <ion-label class="fw-400 font-size-14 line-18 color-blue-light">
+                        Telefone celular
+                    </ion-label>
+                    <ion-input type="tel" [ionMask]="maskTel" (keyup)="insertTel($event.target.value)"
+                        formControlName="phone" required
+                        class="telephone h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
+                        placeholder="insira o número">
+                        <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
+                    </ion-input>
+
+                </form>
+                <ion-text *ngIf="componentPopup" class="text-center py-3 w-100">
+                    <span class="fw-400 font-size-14 line-18 color-purple">
+                        Um SMS será enviado para o número acima
+                    </span>
+                </ion-text>
+                <ion-text *ngIf="componentTermsPrivacy"
+                    class="text-center position-absolute bottom-0 pb-5 right-0 w-100">
+                    <span class="fw-400 font-size-14 line-18 color-blue-light">
+                        Ao continuar você concorda com os <br /> <a [routerLink]="['/#']"
+                            class="color-purple text-decoration-none">Termos de Uso</a> e <a [routerLink]="['/#']"
+                            class="color-purple text-decoration-none">Política de Privacidade</a>.
+                    </span>
+                </ion-text>
+                <ion-button *ngIf="submitContinued" (click)="confirm()" class="bg-greenpool h-51 left-0 w-100 text-center box-shadow-none position-absolute bottom-0 fw-500 font-size-16 line-20 color-purple" type="submit">
+                    <span *ngIf="continued" >Continuar</span>
+                    <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+                </ion-button>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
 </ion-app>

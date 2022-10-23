@@ -42,6 +42,7 @@
     --bluelight: #878DBA;
 }
 
+
 ion-button {
     text-transform: none !important;
     letter-spacing: 0 !important;
@@ -54,13 +55,13 @@ ion-button {
 
 .swiper-button-next {
     right: 10px !important;
-    left: 6% !important;
-    right: 26px !important;
+    left: 0% !important;
     top: auto !important;
-    bottom: 8% !important;
+    bottom: 6% !important;
     width: 100% !important;
     position: fixed !important;
     opacity: 0 !important;
+    height: 73px !important;
 }
 
 .swiper-pagination-fraction,
@@ -88,7 +89,30 @@ ion-button {
 .header-ios ion-toolbar:last-of-type {
     --border-width: 0px;
 }
+// PROFILE-PAGES
+   ion-segment-button::part(indicator-background) {
+    background: var(--purple);
+  }
+  
+  ion-segment-button.md::part(native) {
+    color: var(--bluelight);
+  }
+  
+  .segment-button-checked.md::part(native) {
+    color: var(--purple);
+  }
+  
 
+  
+  /* iOS styles */
+  ion-segment-button.ios::part(native) {
+    color: var(--bluelight);
+  }
+  
+  .segment-button-checked.ios::part(native) {
+    color: var(--purple);
+  }
+  
 * {
     margin: 0;
     padding: 0;
@@ -239,6 +263,7 @@ ion-button {
     line-height: 70px !important;
 }
 
+
 /* backgrounds */
 .bg-greenpool {
     --background: var(--greenpool) !important;
@@ -274,6 +299,12 @@ ion-button {
     background-color: var(--purpura) !important;
     background: var(--purpura) !important;
 }
+.bg-transparent{
+    --background-color: transparent !important;
+    --background: transparent !important;
+
+}
+
 
 /* colors */
 .color-purple {
@@ -303,8 +334,14 @@ ion-button {
 .border-purple{
     border: 1px solid var(--purple)
 }
+.border-greenpool{
+    border: 2px solid var(--greenpool)
+}
 .border-blue-light{
     border: 1px solid #878dba50;
+}
+.line-bottom-graylight{
+    border-bottom: 1px solid var(--graylight);
 }
 /* align */
 
@@ -327,6 +364,10 @@ ion-button {
 
 .h-fit {
     height: fit-content !important
+}
+
+.w-fit{
+    width: fit-content !important;
 }
 
 /* get-started-page */
@@ -367,6 +408,9 @@ ion-button {
 .right-0 {
     right: 0 !important;
 }
+.left-0{
+    left: 0 !important;
+}
 
 .top-0 {
     top: 0 !important;
@@ -396,7 +440,10 @@ ion-button {
 .border-10 {
     --border-radius: 10px;
     border-radius: 10px;
-
+}
+.border-100 {
+    --border-radius: 100px;
+    border-radius: 100px;
 }
 
 
@@ -418,6 +465,9 @@ ion-button {
     height: 27px;
 }
 
+.h-130{
+    height: 130px;
+}
 .h-110{
     height: 110px;
 }

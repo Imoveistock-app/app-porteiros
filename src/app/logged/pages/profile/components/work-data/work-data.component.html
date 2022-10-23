@@ -1,0 +1,152 @@
+<ion-row class="row mx-3 mt-4" *ngFor="let item of mokprofile">
+
+  <ion-col class="">
+    <ion-text class="">
+      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do trabalho</span>
+    </ion-text>
+    <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">qual sua escala</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.scale | slice:0:2}}/{{item.scale | slice:2:4}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 1</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergeday1}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 2</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergeday2}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro noite 1</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergenight1}}</p>
+
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro noite 2</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergenight2}}</p>
+
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Zelador</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.caretaker}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Recepcionista</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.receptionist}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Vigilante</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.vigilant}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Supervisor</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.supervisor}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Gerente</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.manager}}</p>
+      </ion-text>
+    </ion-card>
+    
+    <ion-text class="">
+      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Endereço do condomínio</span>
+    </ion-text>
+    <ion-card class="border-10 box-shadow-none mt-3 mb-5 my-3 bg-light py-4 px-3">
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do condomínio</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.namecondominium}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Endereç do condomínio</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.edcondominium}}
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Número do condomínio</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.numbercondominium}}
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Bairro</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.district}}
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">CEP</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.cep | slice:0:5}}-{{item.cep | slice:5:8}}
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Complemento</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.complement}}
+        </p>
+      </ion-text>
+   
+    </ion-card>
+
+    <ion-text class="">
+      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do condomínio</span>
+    </ion-text>
+    <ion-card class="border-10 box-shadow-none mt-3 mb-5 my-3 bg-light py-4 px-3">
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do sindico</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.namesyndicate}}</p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Contato do sindico</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.contactsyndicate | slice:0:2}} {{item.contactsyndicate | slice:2:7}}.{{item.contactsyndicate | slice:7:11}}  
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.category}} unidades
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Quantas torres?</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.tower}} unidades
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos andares?</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.floors}} unidades
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Complemento</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.complementsyndicate}} unidades
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Apartamentos por andar</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.apartamentfloors}} unidades
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para locação?</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.propertieslocation}} unidades
+        </p>
+      </ion-text>
+      <ion-text class="">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para venda?</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{item.propertiessold}} unidades
+        </p>
+      </ion-text>
+   
+    </ion-card>
+  </ion-col>
+</ion-row>
