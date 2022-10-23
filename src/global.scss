@@ -42,6 +42,7 @@
     --bluelight: #878DBA;
 }
 
+
 ion-button {
     text-transform: none !important;
     letter-spacing: 0 !important;
@@ -88,7 +89,30 @@ ion-button {
 .header-ios ion-toolbar:last-of-type {
     --border-width: 0px;
 }
+// PROFILE-PAGES
+   ion-segment-button::part(indicator-background) {
+    background: var(--purple);
+  }
+  
+  ion-segment-button.md::part(native) {
+    color: var(--bluelight);
+  }
+  
+  .segment-button-checked.md::part(native) {
+    color: var(--purple);
+  }
+  
 
+  
+  /* iOS styles */
+  ion-segment-button.ios::part(native) {
+    color: var(--bluelight);
+  }
+  
+  .segment-button-checked.ios::part(native) {
+    color: var(--purple);
+  }
+  
 * {
     margin: 0;
     padding: 0;
@@ -239,6 +263,7 @@ ion-button {
     line-height: 70px !important;
 }
 
+
 /* backgrounds */
 .bg-greenpool {
     --background: var(--greenpool) !important;
@@ -309,8 +334,14 @@ ion-button {
 .border-purple{
     border: 1px solid var(--purple)
 }
+.border-greenpool{
+    border: 2px solid var(--greenpool)
+}
 .border-blue-light{
     border: 1px solid #878dba50;
+}
+.line-bottom-graylight{
+    border-bottom: 1px solid var(--graylight);
 }
 /* align */
 
@@ -434,6 +465,9 @@ ion-button {
     height: 27px;
 }
 
+.h-130{
+    height: 130px;
+}
 .h-110{
     height: 110px;
 }

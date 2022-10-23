@@ -12,7 +12,9 @@ export class ExtractService {
   ];
   indicate= [
     {
-      name: "Mario Silva!"
+      name: "Mario Silva!",
+      tel: "51991179134",
+      img: "https://i.pinimg.com/originals/34/6e/1d/346e1df0044fd77dfb6f65cc086b2d5e.png",
     }
   ]
   extract = [
