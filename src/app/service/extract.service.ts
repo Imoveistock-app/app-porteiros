@@ -10,6 +10,11 @@ export class ExtractService {
       money: "35000",
     }
   ];
+  indicate= [
+    {
+      name: "Mario Silva!"
+    }
+  ]
   extract = [
     { 
       id: 1,

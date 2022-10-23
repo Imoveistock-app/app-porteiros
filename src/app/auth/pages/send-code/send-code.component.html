@@ -15,7 +15,8 @@
                 <ion-input type="tel" formControlName="coden3" placeholder="*" class="send-number mx-2 bg-gray-light color-purple fw-700 font-size-28 px-2 line-36"  #Field3 maxlength="1" (keyup)="gotoNextField(Field4)"></ion-input>
                 <ion-input type="tel" formControlName="coden4" placeholder="*" class="send-number mx-2 bg-gray-light color-purple fw-700 font-size-28 px-2 line-36"  #Field4 maxlength="1" (keyup)="finishFunction()"></ion-input>
                 <ion-button (click)="confirmCode()" *ngIf="submitContinued" class="bg-greenpool h-51 w-100 text-center position-absolute bottom-0 fw-500 font-size-16 line-20 color-purple" type="submit">
-                    <span *ngIf="continued" >Continuar </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner></ion-button>
+                    <span *ngIf="continued" >Continuar </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+                </ion-button>
             </form>
             <ion-text class="text-center py-3 w-100">
                 <span class="fw-500 font-size-16 line-20 color-purple">

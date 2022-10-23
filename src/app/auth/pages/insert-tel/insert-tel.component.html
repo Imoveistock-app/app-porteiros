@@ -14,8 +14,8 @@
                 </span>
             </ion-text>
 
-            <ion-row class="row mt-5">
-                <form [formGroup]="form" class="col-12 mx-4">
+            <ion-row class="row mt-5 mx-2">
+                <form [formGroup]="form" class="col-12">
                     <ion-label class="fw-400 font-size-14 line-18 color-blue-light">
                         Telefone celular
                     </ion-label>
@@ -40,9 +40,10 @@
                             class="color-purple text-decoration-none">Política de Privacidade</a>.
                     </span>
                 </ion-text>
-                <span *ngIf="continued">Continuar </span>
-                <ion-button *ngIf="submitContinued" (click)="confirm()" class="bg-greenpool h-51 w-100 text-center position-absolute bottom-0 fw-500 font-size-16 line-20 color-purple" type="submit">
-                    <span *ngIf="continued" >Continuar </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner></ion-button>
+                <ion-button *ngIf="submitContinued" (click)="confirm()" class="bg-greenpool h-51 left-0 w-100 text-center box-shadow-none position-absolute bottom-0 fw-500 font-size-16 line-20 color-purple" type="submit">
+                    <span *ngIf="continued" >Continuar</span>
+                    <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+                </ion-button>
             </ion-row>
         </ion-grid>
     </ion-content>
