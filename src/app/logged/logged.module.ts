@@ -17,6 +17,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ExtractComponent } from './pages/extract/extract.component';
 import { IndicateComponent } from './pages/indicate/indicate.component';
 import { IonMaskDirectiveLogged } from '../directives/maskLogged.directive';
+import { PersonalDataComponent } from './pages/profile/components/personal-data/personal-data.component';
+import { WorkDataComponent } from './pages/profile/components/work-data/work-data.component';
 
 @NgModule({
   
@@ -31,7 +33,9 @@ import { IonMaskDirectiveLogged } from '../directives/maskLogged.directive';
     ToolbarComponent,
     ProfileComponent,
     ExtractComponent,
-    IndicateComponent
+    IndicateComponent,
+    PersonalDataComponent,
+    WorkDataComponent
   ],
   imports: [
     CommonModule,
