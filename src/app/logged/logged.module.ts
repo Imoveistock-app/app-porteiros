@@ -17,8 +17,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ExtractComponent } from './pages/extract/extract.component';
 import { IndicateComponent } from './pages/indicate/indicate.component';
 import { IonMaskDirectiveLogged } from '../directives/maskLogged.directive';
-import { PersonalDataComponent } from './pages/profile/components/personal-data/personal-data.component';
-import { WorkDataComponent } from './pages/profile/components/work-data/work-data.component';
+import { PersonalDataComponent } from './pages/profile/components/view/personal-data/personal-data.component';
+import { WorkDataComponent } from './pages/profile/components/view/work-data/work-data.component';
+import { WorkFormComponent } from './pages/profile/components/forms/work-form/work-form.component';
+import { PersonalFormComponent } from './pages/profile/components/forms/personal-form/personal-form.component';
 
 @NgModule({
   
@@ -35,7 +37,9 @@ import { WorkDataComponent } from './pages/profile/components/work-data/work-dat
     ExtractComponent,
     IndicateComponent,
     PersonalDataComponent,
-    WorkDataComponent
+    PersonalFormComponent,
+    WorkDataComponent,
+    WorkFormComponent,
   ],
   imports: [
     CommonModule,

@@ -5,37 +5,36 @@
             <ion-col class="col-12 mb-3 text-center">
                 <br/>
                 <br/>
-                <ion-text class="">
+                <ion-text >
                     <span class="fw-500 font-size-20 line-23 color-purple">Indique um imóvel</span>
                 </ion-text>
                 <div class="my-4 mx-3">
-                    <ion-img class="" src="../../../../assets/svg/Banner.svg"></ion-img>
+                    <ion-img  src="../../../../assets/svg/Banner.svg"></ion-img>
                 </div>
-                <ion-text class="">
+                <ion-text >
                     <span class="fw-400 font-size-14 line-23 color-blue">insira o endereço do imóvel abaixo</span>
                 </ion-text>
             </ion-col>
             <ion-col class="col-12">
-            <form [formGroup]="formIndicate" class="">
-         
+            <form [formGroup]="formIndicate" >
             <ion-row class="row" class="mx-3 mb-5">
                 <ion-text class="mx-1">
                    <span class="fw-500 font-size-18 line-23 color-purple">Dados do imível</span>
                 </ion-text>
                 <ion-col class="col-12 bg-light mt-3 mb-5 border-10 px-3 py-4">
-                    <ion-label class=""  for="cep" class="fw-400 font-size-14 line-18 color-blue-light">CEP</ion-label>
+                    <ion-label   for="cep" class="fw-400 font-size-14 line-18 color-blue-light">CEP</ion-label>
                     <ion-input type="tel"  [(ngModel)]="cep"  [ionMask]="maskCep" maxlength="9" placeholder="Insira o cep" id="cep" formControlName="cep" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
                     
-                    <ion-label class="" for="road" class="fw-400 font-size-14 line-18 color-blue-light">Rua</ion-label>
+                    <ion-label  for="road" class="fw-400 font-size-14 line-18 color-blue-light">Rua</ion-label>
                     <ion-input type="text"   [(ngModel)]="road" placeholder="Insira o endereço" id="road" formControlName="road" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
                     
-                    <ion-label class="" for="numberResidence" class="fw-400 font-size-14 line-18 color-blue-light">Número predial</ion-label>
+                    <ion-label  for="numberResidence" class="fw-400 font-size-14 line-18 color-blue-light">Número predial</ion-label>
                     <ion-input type="tel"   [(ngModel)]="numberResidence" placeholder="Insira o número" id="numberResidence" formControlName="numberResidence" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
                     
-                    <ion-label class="" for="complement" class="fw-400 font-size-14 line-18 color-blue-light">Complemento</ion-label>
+                    <ion-label  for="complement" class="fw-400 font-size-14 line-18 color-blue-light">Complemento</ion-label>
                     <ion-input type="text"   [(ngModel)]="complement" placeholder="Apartamento, bloco C" id="complement" formControlName="complement" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
                    
-                    <ion-text class="">
+                    <ion-text >
                         <span class="fw-400 font-size-14 line-18 color-blue-light">Escolha o tipo de indicaçãol</span>
                     </ion-text>
                     <ion-row class="row mt-3 d-flex">
@@ -61,13 +60,13 @@
                     <span class="fw-500 font-size-18 line-23 color-purple">Dados do proprietário</span>
                  </ion-text>
                 <ion-col *ngIf="addContacts == 0" id="add" class="col-12 mt-3 bg-light border-10 px-3 py-4">
-                        <ion-label class="" for="ownername" class="fw-400 font-size-14 line-18 color-blue-light">Nome do proprietário</ion-label>
+                        <ion-label  for="ownername" class="fw-400 font-size-14 line-18 color-blue-light">Nome do proprietário</ion-label>
                         <ion-input type="text"   [(ngModel)]="ownername" maxlength="30" placeholder="Insira o nome do propricetário" id="ownername" formControlName="ownername" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
                         
-                        <ion-label class="" for="email" class="fw-400 font-size-14 line-18 color-blue-light">E-mail do proprietário (ocpional)</ion-label>
+                        <ion-label  for="email" class="fw-400 font-size-14 line-18 color-blue-light">E-mail do proprietário (ocpional)</ion-label>
                         <ion-input type="email"   [(ngModel)]="email" placeholder="Insira o e-mail" id="email" formControlName="email" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
                         
-                        <ion-label class="" for="telephone" class="fw-400 font-size-14 line-18 color-blue-light">Contado do proprietário</ion-label>
+                        <ion-label  for="telephone" class="fw-400 font-size-14 line-18 color-blue-light">Contado do proprietário</ion-label>
                         <ion-input type="tel"   [(ngModel)]="ownerContact" [ionMask]="maskTel" placeholder="Digite o telefone" id="telephone" formControlName="ownerContact" class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10"></ion-input>
 
                        <ion-text (click)="addContent()" class="d-flex ion-align-items-center">
@@ -100,7 +99,7 @@
                     </div>
                     <ion-text *ngFor="let item of modalIndicate"  class="fw-500 font-size-20 line-24 color-purple">
                         <p class="m-0">Parabéns</p>
-                        <span class="">{{item.name}}</span>
+                        <span >{{item.name}}</span>
                     </ion-text>
                     <ion-text  class="fw-400 font-size-14 line-18 color-blue-light">
                         <p class="mb-5">Sua indicação foi registrada e <br/> estará em análise por nossa equipe.</p>

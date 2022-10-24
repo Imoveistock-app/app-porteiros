@@ -1,57 +1,58 @@
-<ion-row class="row mx-3 mt-4" *ngFor="let item of mokprofile">
 
-  <ion-col class="">
-    <ion-text class="">
+<ion-row  class="row mx-2 mt-4">
+
+  <ion-col *ngFor="let item of mokprofile" >
+    <ion-text >
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados pessoais</span>
     </ion-text>
     <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Nome completo</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.name}}</p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">CPF</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
           {{item.cpf | slice:0:3}}.{{item.cpf | slice:3:6}}.{{item.cpf | slice:6:9}}-{{item.cpf | slice:9:11}}
         </p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Telefone celular</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
           {{item.phone | slice:0:2}}  {{item.phone | slice:2:7}}.{{item.phone | slice:7:11}} 
         </p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Data de nascimento</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
           {{item.birthdate | slice:0:2}}/{{item.birthdate | slice:2:4}}/{{item.birthdate | slice:4:8}}
         </p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Estado</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.state}}</p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Cidade</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.city}}</p>
       </ion-text>
     </ion-card>
     
-    <ion-text class="">
+    <ion-text >
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados bancarios</span>
     </ion-text>
     <ion-card class="border-10 box-shadow-none my-3 bg-light py-4 px-3">
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Banco</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.bank}}</p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Agência</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
           {{item.agency}}
         </p>
       </ion-text>
-      <ion-text class="">
+      <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Conta corrente</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
           {{item.current | slice:0:8}}-{{item.current | slice:8}}
