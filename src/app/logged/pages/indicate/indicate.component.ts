@@ -7,6 +7,7 @@ import { PropertyIndicationOwnerDto } from 'src/app/dtos/property-indication-own
 import { Cep } from 'src/app/models/cep';
 import { CepService } from 'src/app/service/cep.service';
 import { ExtractService } from 'src/app/service/extract.service';
+import { PropertyIndicationService } from 'src/app/service/property-indication.service';
 
 @Component({
   selector: 'app-indicate',
@@ -50,7 +51,8 @@ export class IndicateComponent implements OnInit {
     private extractService: ExtractService,
     private router: Router,
     private cepService: CepService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private propertyIndicationService: PropertyIndicationService
   ) {
     this.formIndicate = this.formBuilder.group({
       cep: ['', [Validators.required]],
@@ -191,11 +193,32 @@ export class IndicateComponent implements OnInit {
 
     console.log(this.request);
 
-    this.isModalOpen = true;
-    this.indicate = true;
-    this.spinnload = false;
+    this.propertyIndicationService.register(this.request).subscribe(
+      async success => {
+        const toast = await this.toastController.create({
+          message: `Propriedade indicada com sucesso!`,
+          duration: 1500,
+          position: 'top',
+          color: 'success',
+        });
+        toast.present();
 
-    this.formIndicate.reset();
+        this.isModalOpen = true;
+        this.indicate = true;
+        this.spinnload = false;
+    
+        this.formIndicate.reset();
+      },
+      async error => {
+        const toast = await this.toastController.create({
+          message: `Erro ao indicar imóvel!`,
+          duration: 1500,
+          position: 'top',
+          color: 'danger',
+        });
+        toast.present();
+      }
+    )
   }
 
   closeModal() {
