@@ -608,3 +608,31 @@ ion-segment-button.ios::part(native) {
 .mb-8 {
     margin-bottom: 8rem;
 }
+@media (max-width: 400px) {
+    .profile-img {
+        left: 36%;
+        top: -15px;
+        width: 100px;
+    }
+}
+@media (min-width: 500px) {
+    .profile-img {
+        left: 41%;
+        top: -15px;
+        width: 100px;
+    }
+}
+@media (min-width: 765px) {
+    .profile-img {
+        left: 44%;
+        top: -15px;
+        width: 100px;
+    }
+}
+@media (min-width: 1000px) {
+    .profile-img {
+        left: 45%;
+        top: -15px;
+        width: 100px;
+    }
+}
