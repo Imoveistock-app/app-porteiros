@@ -70,14 +70,21 @@ export class PersonalFormComponent implements OnInit {
  
    setClose(isOpen: boolean) {
      this.isModalConfirm = isOpen;
+     setTimeout(() =>{
+      this.perfilService.getOutEditPerson();
+    }, 100) 
    }
- 
+
    setOpenModalOk(isOpen: boolean) {
      this.isModalOk = isOpen;
    }
  
    setCloseModalOk(isOpen: boolean) {
      this.isModalOk = isOpen;
+     setTimeout(() =>{
+      this.perfilService.getOutEditPerson();
+    }, 100) 
+     
    }
  
    confirmCode(isOpen: boolean){

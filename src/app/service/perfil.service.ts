@@ -10,21 +10,22 @@ export class PerfilService {
   private subject = new Subject<any>();
   bot: any;
 
-  changeEditPerson() {
+  getOutEditPerson() {
     this.subject.next('');
   }
 
-  getChangeEditPerson(): Observable<any> {
+  getgetOutEditPerson(): Observable<any> {
     return this.subject.asObservable();
   }
 
-  changeEditWork() {
+  getOutEditWork() {
     this.subject.next('');
   }
 
-  getChangeEditWork(): Observable<any> {
+  getgetOutEditWork(): Observable<any> {
     return this.subject.asObservable();
   }
+
 
 
   card = [

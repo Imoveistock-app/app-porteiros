@@ -30,11 +30,11 @@
         </ion-grid>
       </ion-col>
       <ion-col class="col-12 px-4">
-        <ion-segment *ngIf="changedataprofile" value="personal">
+        <ion-segment *ngIf="changedataprofile" >
           <ion-segment-button (click)="personalPage()" value="personal" class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
           <ion-segment-button (click)="workPage()" value="work"  class="font-size-14 line-18 text-transform-none">Dados do trabalho</ion-segment-button>
         </ion-segment>
-        <ion-segment *ngIf="changedataprofileedit" value="personal">
+        <ion-segment *ngIf="changedataprofileedit">
           <ion-segment-button (click)="personalPageEdit()" value="personal" class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
           <ion-segment-button (click)="workPageEdit()" value="work"  class="font-size-14 line-18 text-transform-none">Dados do trabalho</ion-segment-button>
         </ion-segment>
