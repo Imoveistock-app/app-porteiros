@@ -2,7 +2,7 @@
 
   <form [formGroup]="formperson" *ngFor="let item of mokprofile" class="col-12">
     <ion-text >
-      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados pesaasoais</span>
+      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do trabalho</span>
     </ion-text>
     <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
        <ion-text >
@@ -166,10 +166,10 @@
         </ion-text>
         <ion-row class="row my-3">
           <ion-col class="col-6">
-            <ion-button (click)="setOpen(false)"  (click)="setOpenModalOk(true)"  class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white mx-2" type="button">Sim</ion-button>
+            <ion-button (click)="setOpen(false)"  (click)="setOpenModalOk(true)"  class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white " type="button">Sim</ion-button>
           </ion-col>
           <ion-col class="col-6">
-            <ion-button  (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool mx-2" type="button">Não</ion-button>
+            <ion-button  (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool " type="button">Não</ion-button>
           </ion-col>
         </ion-row>
       </ion-card>
@@ -184,7 +184,7 @@
         </ion-text>
         <ion-row class="row my-3">
           <ion-col class="col-12">
-            <ion-button  (click)="setCloseModalOk(false)" (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool mx-2" type="button">Ok, entendi</ion-button>
+            <ion-button  (click)="setCloseModalOk(false)" (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool " type="button">Ok, entendi</ion-button>
           </ion-col>
         </ion-row>
       </ion-card>

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   goSignUp(){
-    this.router.navigate(['auth/sign-up']);
+    this.router.navigate(['logged/home']);
   }
 
 
