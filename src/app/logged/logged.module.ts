@@ -19,6 +19,8 @@ import { IndicateComponent } from './pages/indicate/indicate.component';
 import { IonMaskDirectiveLogged } from '../directives/maskLogged.directive';
 import { PersonalDataComponent } from './pages/profile/components/personal-data/personal-data.component';
 import { WorkDataComponent } from './pages/profile/components/work-data/work-data.component';
+import { CepService } from '../service/cep.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   
@@ -42,8 +44,12 @@ import { WorkDataComponent } from './pages/profile/components/work-data/work-dat
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    LoggedPageRoutingModule
+    LoggedPageRoutingModule,
+    HttpClientModule,
   ],
+  providers: [
+    CepService
+  ]
   
 })
 export class LoggedPageModule {}
