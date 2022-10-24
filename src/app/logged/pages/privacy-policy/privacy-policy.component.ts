@@ -16,8 +16,7 @@ export class PrivacyPolicyComponent implements OnInit {
   }
 
   goProfile(){
-    // provavelmente alteravel
-    this.router.navigate(['/profile']);
+    this.router.navigate(['logged/profile']);
   }
 
 }

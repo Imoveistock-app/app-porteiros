@@ -457,6 +457,36 @@ ion-button {
     top: -20px;
 }
 
+.header-profile {
+    background-color: white !important;
+    height: 130px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 10px !important;
+    margin-top: 50px !important;
+}
+
+.img-fake-profile {
+    height: 80px !important;
+    width: 80px !important;
+    border-radius: 50% !important;
+    border: 3.19996px solid #68F4A0 !important;
+    position: absolute !important;
+    top: -40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2px !important;
+}
+
+.photo-profile-custom {
+    height: max-content !important;
+    width: max-content !important;
+    border-radius: 50% !important;
+}
+
 .btn-star {
     border-radius: 100px;
     background-color: var(--purpura);

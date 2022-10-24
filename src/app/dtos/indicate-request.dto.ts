@@ -5,7 +5,7 @@ export abstract class IndicateRequestDto {
     address: string;
     number: string;
     complement: string;
-    type: string;
-    businessTypeClosing: string;
+    itsLeasing: boolean;
+    itsSale: boolean;
     owners: [PropertyIndicationOwnerDto]
 }

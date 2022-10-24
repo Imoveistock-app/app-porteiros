@@ -22,6 +22,7 @@ import { WorkDataComponent } from './pages/profile/components/work-data/work-dat
 import { CepService } from '../service/cep.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertyIndicationService } from '../service/property-indication.service';
+import { UserService } from '../service/user.service';
 
 @NgModule({
   
@@ -50,7 +51,8 @@ import { PropertyIndicationService } from '../service/property-indication.servic
   ],
   providers: [
     CepService,
-    PropertyIndicationService
+    PropertyIndicationService,
+    UserService
   ]
   
 })

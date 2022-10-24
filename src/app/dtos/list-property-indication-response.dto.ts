@@ -3,9 +3,9 @@ export abstract class ListPropertyIndicationResponseDto {
     public address: string;
     public number: string;
     public complement: string;
-    public type: string;
+    public typeLease: boolean;
+    public typeSale: boolean;
     public processStatus: string;
-    public businessTypeClosing: string;
     public indicator: User;
     public owners: Owner[];
 }

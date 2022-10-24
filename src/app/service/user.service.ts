@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { UserGetResponseDto } from "../dtos/user-get-response.dto";
 import { UserRegisterRequestDto } from "../dtos/user-register-request.dto";
 import { UserRegisterResponseDto } from "../dtos/user-register-response.dto";
 import { BaseService } from "./base.service";
@@ -23,6 +24,12 @@ export class UserService extends BaseService {
     register(dto: UserRegisterRequestDto): Observable<UserRegisterResponseDto> {
         return this.httpClient 
         .post(`${this.url}`, dto, this.anonymousHeader()) 
+        .pipe(map(this.extractData), catchError(this.serviceError));
+    }
+
+    getUser(): Observable<UserGetResponseDto> {
+        return this.httpClient 
+        .get(`${this.url}/authenticated`, this.authorizedHeader()) 
         .pipe(map(this.extractData), catchError(this.serviceError));
     }
 }

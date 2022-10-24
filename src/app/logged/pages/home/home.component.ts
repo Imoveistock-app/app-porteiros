@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/service/home.service';
+import { PersonalData, UserGetResponseDto } from '../../../dtos/user-get-response.dto';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,29 @@ export class HomeComponent implements OnInit {
   infoCards: any[];
   balance = true;
   hideeye = false;
+
+  user: UserGetResponseDto = {
+    cpf: '',
+    email: '',
+    name: '',
+    personalData: {
+      birthDate: new Date,
+      state: '',
+      city: '',
+    },
+    phone: '',
+    profile: {
+      name: '',
+      description: '',
+      apiFunctions: [
+        {
+          name: ''
+        }
+      ]
+    },
+    status: ''
+  };
+
   constructor(
     private homeService: HomeService,
     private router: Router
@@ -23,31 +47,38 @@ export class HomeComponent implements OnInit {
     this.infoHome = this.homeService.home;
     this.infoBalance = this.homeService.balance;
     this.infoCards = this.homeService.cards;
+    
+    if(localStorage.getItem('userDto') === null) {
+      this.router.navigate(['/'])
+    }
+    this.user = JSON.parse(localStorage.getItem('userDto'));
+
+
   }
 
   changeEye() {
-    this.hideeye =!this.hideeye;
+    this.hideeye = !this.hideeye;
     this.balance = !this.balance;
   }
 
   // Propenso à alterações
-  goIndicateProperty(){
+  goIndicateProperty() {
     this.router.navigate(['logged/indicate']);
   }
 
 
   // Propenso à alterações
-  goExtract(){
+  goExtract() {
     this.router.navigate(['logged/extract']);
   }
-  
+
   // Propenso à alterações
-  goIndicatedProperties(){
+  goIndicatedProperties() {
     this.router.navigate(['logged/property-list']);
   }
 
   // Rota ainda não definida
-  goMoreSold(){
+  goMoreSold() {
     this.router.navigate(['#']);
   }
 

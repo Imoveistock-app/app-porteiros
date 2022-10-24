@@ -15,15 +15,8 @@ import { PropertyIndicationService } from 'src/app/service/property-indication.s
   styleUrls: ['./indicate.component.scss'],
 })
 export class IndicateComponent implements OnInit {
+  
   formIndicate: FormGroup;
-
-  cep: number;
-  road: string = "";
-  numberResidence: number;
-  complement: string = "";
-  ownername: string = "";
-  email: string = "";
-  ownerContact: number;
 
   indicate = true;
   spinnload = false;
@@ -40,10 +33,6 @@ export class IndicateComponent implements OnInit {
   ownerGroup: any = [];
 
   request: IndicateRequestDto;
-
-  typePropertie: string = '';
-
-
 
 
   constructor(
@@ -62,8 +51,8 @@ export class IndicateComponent implements OnInit {
       ownername: [''],
       email: [''],
       ownerContact: [''],
-      typeLease: [''],
-      typeSale: [''],
+      itsLeasing: [false],
+      itsSale: [false],
     });
   }
 
@@ -111,8 +100,6 @@ export class IndicateComponent implements OnInit {
         ownername: ''
       })
     }
-
-
   }
 
   removeOwner(item) {
@@ -124,10 +111,8 @@ export class IndicateComponent implements OnInit {
   }
 
   async confirmIndicate() {
-    // this.indicate = false;
-    // this.spinnload = true;
 
-    if (this.formIndicate.controls['typeLease'].value === '' && this.formIndicate.controls['typeSale'].value === '') {
+    if (this.formIndicate.controls['itsLeasing'].value === '' && this.formIndicate.controls['itsSale'].value === '') {
       const toast = await this.toastController.create({
         message: `Escolha o tipo de indicação!`,
         duration: 1500,
@@ -136,12 +121,6 @@ export class IndicateComponent implements OnInit {
       });
       toast.present();
       return
-    }
-
-    if (this.formIndicate.controls['typeLease'].value === true) {
-      this.typePropertie = 'lease'
-    } else if (this.formIndicate.controls['typeSale'].value === true) {
-      this.typePropertie = 'sale'
     }
 
     if (this.ownerGroup.length === 0) {
@@ -154,28 +133,12 @@ export class IndicateComponent implements OnInit {
         });
         toast.present();
       } else {
-        this.ownerRequest = {
-          contact: this.formIndicate.controls.ownerContact.value,
-          email: this.formIndicate.controls.email.value,
-          name: this.formIndicate.controls.ownername.value,
-        }
-
-        this.ownerGroup.push(this.ownerRequest);
+        this.addContent();
 
         this.registerIndication();
       }
     } else {
       this.registerIndication();
-    }
-
-    this.request = {
-      cep: this.formIndicate.controls['cep'].value,
-      address: this.formIndicate.controls['road'].value,
-      number: this.formIndicate.controls['numberResidence'].value,
-      complement: this.formIndicate.controls['complement'].value,
-      type: this.typePropertie,
-      businessTypeClosing: '',
-      owners: this.ownerGroup
     }
   }
 
@@ -186,12 +149,10 @@ export class IndicateComponent implements OnInit {
       address: this.formIndicate.controls['road'].value,
       number: this.formIndicate.controls['numberResidence'].value,
       complement: this.formIndicate.controls['complement'].value,
-      type: this.typePropertie,
-      businessTypeClosing: '',
+      itsLeasing: this.formIndicate.controls['itsLeasing'].value,
+      itsSale: this.formIndicate.controls['itsSale'].value,
       owners: this.ownerGroup
     }
-
-    console.log(this.request);
 
     this.propertyIndicationService.register(this.request).subscribe(
       async success => {
@@ -206,12 +167,14 @@ export class IndicateComponent implements OnInit {
         this.isModalOpen = true;
         this.indicate = true;
         this.spinnload = false;
-    
+
+        this.ownerGroup = [];
+
         this.formIndicate.reset();
       },
       async error => {
         const toast = await this.toastController.create({
-          message: `Erro ao indicar imóvel!`,
+          message: `Erro ao indicar propriedade!`,
           duration: 1500,
           position: 'top',
           color: 'danger',

@@ -20,8 +20,11 @@ export class AboutComponent implements OnInit {
   }
 
   goProfile(){
-    // provavelmente com mudança de rota
-    this.router.navigate(['/profile']);
+    this.router.navigate(['logged/profile']);
+  }
+
+  goLinkedin() {
+    window.open('https://www.linkedin.com/',' _blank')
   }
 
 }

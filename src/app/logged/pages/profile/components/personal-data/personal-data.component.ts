@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PerfilService } from 'src/app/service/perfil.service';
+import { UserGetResponseDto } from '../../../../../dtos/user-get-response.dto';
 
 @Component({
   selector: 'app-personal-data',
@@ -9,6 +10,33 @@ import { PerfilService } from 'src/app/service/perfil.service';
 export class PersonalDataComponent implements OnInit {
   mokprofile: any;
 
+  user: UserGetResponseDto = {
+    cpf: '',
+    email: '',
+    name: '',
+    personalData: {
+      birthDate: new Date,
+      state: '',
+      city: '',
+      bankInfo: {
+        name: '',
+        agencyNumber: '',
+        accountNumber: ''
+      }
+    },
+    phone: '',
+    profile: {
+      name: '',
+      description: '',
+      apiFunctions: [
+        {
+          name: ''
+        }
+      ]
+    },
+    status: ''
+  };
+
   constructor(
     private perfilService: PerfilService,
 
@@ -16,6 +44,8 @@ export class PersonalDataComponent implements OnInit {
 
   ngOnInit() {
     this.mokprofile = this.perfilService.personalData;
+
+    this.user = JSON.parse(localStorage.getItem('userDto'));
   }
 
 }

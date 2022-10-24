@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PerfilService } from 'src/app/service/perfil.service';
+import { UserGetResponseDto } from '../../../dtos/user-get-response.dto';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,14 +14,46 @@ export class ProfileComponent implements OnInit {
   personaldata = true;
   workdata = false;
 
+  user: UserGetResponseDto = {
+    cpf: '',
+    email: '',
+    name: '',
+    personalData: {
+      birthDate: new Date,
+      state: '',
+      city: '',
+    },
+    phone: '',
+    profile: {
+      name: '',
+      description: '',
+      apiFunctions: [
+        {
+          name: ''
+        }
+      ]
+    },
+    status: ''
+  };
+
   
   constructor(
     private perfilService: PerfilService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
     this.mokprofile = this.perfilService.card;
+
+    this.userService.getUser().subscribe(
+      success => {
+        this.user = success;
+      },
+      error => {
+        console.error(error)
+      }
+    )
   }
 
 
