@@ -106,20 +106,19 @@ export class PersonalFormComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('userDto'));
 
-
     let dateTotal = new Date(this.user.personalData?.birthDate);
-    let dayBirthDate: any = dateTotal.getDate();
-    let monthBirthDate: any = dateTotal.getMonth() + 1;
-    if (monthBirthDate < 10) {
-      monthBirthDate = `0${monthBirthDate}`
-    }
-    let yearBirthDate = dateTotal.getFullYear();
+      let dayBirthDate: any = dateTotal.getDate();
+      let monthBirthDate: any = dateTotal.getMonth() + 1;
+      if (monthBirthDate < 10) {
+        monthBirthDate = `0${monthBirthDate}`
+      }
+      let yearBirthDate = dateTotal.getFullYear();
 
-    if (dayBirthDate < 10) {
-      dayBirthDate = `0${dayBirthDate}`
-    }
+      if (dayBirthDate < 10) {
+        dayBirthDate = `0${dayBirthDate}`
+      }
 
-    this.dateFormated = `${dayBirthDate}/${monthBirthDate}/${yearBirthDate}`
+      this.dateFormated = `${dayBirthDate}/${monthBirthDate}/${yearBirthDate}`;
 
     if (this.user.personalData === null) {
       this.formperson.patchValue({
@@ -140,7 +139,16 @@ export class PersonalFormComponent implements OnInit {
         current: this.user.personalData?.bankInfo?.accountNumber
       })
       this.stateSelected = this.user.personalData?.state;
+
+      for (let i = 0; i < this.selectBank.length; i++) {
+        if (this.selectBank[i].bank === this.user.personalData?.bankInfo?.name) {
+          let filter = this.selectBank.indexOf(this.selectBank[i]);
+          this.selectBank.splice(filter, 1);
+        }
+      }
+      this.selectBank.unshift({bank: this.user.personalData?.bankInfo?.name})
     }
+
 
     this.formperson.patchValue({
       name: this.user.name,
@@ -164,7 +172,7 @@ export class PersonalFormComponent implements OnInit {
     if ((this.formperson.controls.name.value !== this.user.name || this.formperson.controls.phone.value.replace(/\D/g, '') !== this.user.phone.slice(2, 13) || this.formperson.controls.cpf.value.replace(/\D/g, '') !== this.user.cpf && this.formperson.controls.birthdate.value !== this.dateFormated || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber)) {
 
       this.editUserComplete();
-      
+
     } else if (this.formperson.controls.birthdate.value === '' || this.formperson.controls.state.value === '' || this.formperson.controls.city.value === '' || this.formperson.controls.nameBank.value === ''
       || this.formperson.controls.agency.value === '' || this.formperson.controls.current.value === '') {
       const toast = await this.toastController.create({
@@ -228,7 +236,7 @@ export class PersonalFormComponent implements OnInit {
     }
 
     this.userService.edit(this.userRequestEdit).subscribe(
-      async success => {},
+      async success => { },
       async error => {
         const toast = await this.toastController.create({
           message: `Erro ao alterar perfil!`,

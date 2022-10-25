@@ -133,7 +133,7 @@ export class ProfileComponent implements OnInit {
 
     setTimeout(() => {
       this.router.navigate(['auth/login']);
-    }, 5000);
+    }, 1000);
 
   }
 
