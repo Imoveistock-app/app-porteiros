@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import { BalanceResponseDto } from "../dtos/balance-response.dto";
 import { IndicateRequestDto } from "../dtos/indicate-request.dto";
 import { ListPropertyIndicationResponseDto } from "../dtos/list-property-indication-response.dto";
 import { PaginateQuerryRequestDto } from "../dtos/paginate-querry-request.dto";
@@ -33,6 +34,12 @@ export class PropertyIndicationService extends BaseService {
     list(dto: PaginateQuerryRequestDto): Observable<ListPropertyIndicationResponseDto[]> {
         return this.httpClient
             .get(`${this.url}?take=${dto.take}&skip=${dto.skip}`, this.authorizedHeader())
+            .pipe(map(this.extractData), catchError(this.serviceError));
+    }
+
+    getBalance(): Observable<BalanceResponseDto> {
+        return this.httpClient
+            .get(`${this.url}/balance`, this.authorizedHeader())
             .pipe(map(this.extractData), catchError(this.serviceError));
     }
 }

@@ -56,8 +56,7 @@
             <ion-text class="w-100 text-right ion-justify-content-end d-grid">
               <span class="fw-700 color-blue text-align-right font-size-28
                 line-36" [ngClass]="balance ? 'text-security' : ''" *ngFor="let
-                item of infoBalance">R${{ item.money | slice:0:3 }},{{
-                item.money | slice:3:5 }}</span>
+                item of infoBalance">{{myBalance.balance}}</span>
               <span class="fw-400 color-blue font-size-14 line-18" *ngFor="let
                 item of infoBalance">Saldo previsto {{ item.date | slice:0:2
                 }}/{{ item.date | slice:2:4 }}/{{ item.date | slice:4:8 }}</span>

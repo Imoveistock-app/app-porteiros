@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/service/home.service';
+import { BalanceResponseDto } from '../../../dtos/balance-response.dto';
 import { PersonalData, UserGetResponseDto } from '../../../dtos/user-get-response.dto';
+import { PropertyIndicationService } from '../../../service/property-indication.service';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,10 @@ export class HomeComponent implements OnInit {
   infoCards: any[];
   balance = true;
   hideeye = false;
+
+  myBalance: BalanceResponseDto = {
+    balance: 0
+  };
 
   user: UserGetResponseDto = {
     cpf: '',
@@ -40,7 +46,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    private router: Router
+    private router: Router,
+    private propertyIndicationService: PropertyIndicationService
   ) { }
 
   ngOnInit() {
@@ -53,6 +60,15 @@ export class HomeComponent implements OnInit {
     }
     this.user = JSON.parse(localStorage.getItem('userDto'));
 
+    this.propertyIndicationService.getBalance().subscribe(
+      success => {
+        this.myBalance = success;
+        console.log(this.myBalance)
+      },
+      error => {
+        console.log(error)
+      }
+    )
 
   }
 
