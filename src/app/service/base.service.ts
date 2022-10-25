@@ -17,7 +17,7 @@ export abstract class BaseService {
       return {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${user?.accessToken}`
+          'Authorization': `Bearer ${user?.token}`
         })
       };
     }

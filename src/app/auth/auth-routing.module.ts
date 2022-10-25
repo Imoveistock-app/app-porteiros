@@ -33,10 +33,6 @@ const routes: Routes = [
         path: 'sign-up',
         component: SignUpComponent, 
       },
-      {
-        path: 'splash',
-        component: SplashComponent, 
-      }
     ],
   }
 ];

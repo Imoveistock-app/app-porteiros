@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/service/home.service';
+import { PropertyIndicationService } from 'src/app/service/property-indication.service';
 
 @Component({
   selector: 'app-property-list',
@@ -21,7 +22,8 @@ export class PropertyListComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private homeService: HomeService,
-    private router: Router
+    private router: Router,
+    private propertyIndicationService: PropertyIndicationService
   ) {
     this.form = this.formBuilder.group({
       inputEveryone: [false, []],
@@ -38,9 +40,14 @@ export class PropertyListComponent implements OnInit {
     this.infoCardsFilter = this.homeService.cards;
   }
 
+  ionViewWillEnter() {
+    // this.propertyIndicationService.list()
+  }
+
   changeEye() {
     this.balance = !this.balance;
   }
+
 
   showcard(id: number) {
     const exist = this.collapsed.find(a => a == id);

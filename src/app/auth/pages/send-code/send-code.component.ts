@@ -5,7 +5,9 @@ import { ToastController } from '@ionic/angular';
 import { SendTelService } from 'src/app/service/send-tel.service';
 import { AuthetincatedUserDto } from '../../../dtos/authenticated-user.dto';
 import { AuthenticateCodeConfirmationRequestDto } from '../../../dtos/authentication-code-confirmation-request.dto';
+import { UserGetResponseDto } from '../../../dtos/user-get-response.dto';
 import { AuthenticationService } from '../../../service/authentication.service';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-send-code',
@@ -24,12 +26,15 @@ export class SendCodeComponent implements OnInit {
 
   request: AuthenticateCodeConfirmationRequestDto;
 
+  user: UserGetResponseDto;
+
   constructor(
     private formBuilder: FormBuilder,
     private sendTelService: SendTelService,
     private router: Router,
     private authenticationService: AuthenticationService,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private userService: UserService
   ) {
     this.form = this.formBuilder.group({
       coden1: ['', [Validators.required]],
@@ -80,11 +85,21 @@ export class SendCodeComponent implements OnInit {
 
     this.authenticationService.authenticateCodeConfirmation(this.request).subscribe(
       success => {
-        this.router.navigate(['auth/splash']);
+        this.router.navigate(['logged/home']);
         localStorage.removeItem('phone');
         this.authenticationService.setAuthenticatedUser(
           new AuthetincatedUserDto(success.userId, success.phone, success.token, success.profileId, success.apiFunctionsId),
         );
+
+        this.userService.getUser().subscribe(
+          success => {
+            let user = JSON.stringify(success);
+            localStorage.setItem('userDto', user)
+          },
+          error => {
+            console.error(error)
+          }
+        )
       },
       async error => {
         const toast = await this.toastController.create({

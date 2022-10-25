@@ -362,6 +362,19 @@ ion-button {
     width: fit-content !important;
 }
 
+.circle-pencil-edit-profile-pick {
+    height: 15px !important;
+    width: 15px !important;
+    border-radius: 50% !important;
+    background-color: #00D455 !important;
+    position: absolute !important;
+    bottom: -3px !important;
+    right: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* get-started-page */
 .d-grid {
     display: grid !important;
@@ -450,6 +463,50 @@ ion-button {
     padding: 6px;
     right: 23px;
     top: -20px;
+}
+
+.img-default-home {
+    position: absolute !important;
+    top: -40px !important;
+    right: 20px !important;
+    height: 86px !important;
+    width: 86px !important;
+    border-radius: 50% !important;
+    border: 3.19996px solid #68F4A0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2px !important;
+}
+
+.header-profile {
+    background-color: white !important;
+    height: 130px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 10px !important;
+    margin-top: 50px !important;
+}
+
+.img-fake-profile {
+    height: 80px !important;
+    width: 80px !important;
+    border-radius: 50% !important;
+    border: 3.19996px solid #68F4A0 !important;
+    position: absolute !important;
+    top: -40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2px !important;
+}
+
+.photo-profile-custom {
+    height: max-content !important;
+    width: max-content !important;
+    border-radius: 50% !important;
 }
 
 .btn-star {
