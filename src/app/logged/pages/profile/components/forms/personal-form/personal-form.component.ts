@@ -27,7 +27,7 @@ export class PersonalFormComponent implements OnInit {
   cities: any[];
   states: any[];
 
-
+  public maskBirthDate: Array<any> = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
   public maskCep: Array<any> = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
   public maskCpf: Array<any> = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
   public maskTel: Array<any> = ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
@@ -69,6 +69,18 @@ export class PersonalFormComponent implements OnInit {
 
   userPersonalDataRequest: UserEditPersonalDataRequestDto;
 
+  dateFormated: string = '';
+
+  selectBank = [
+    { bank: 'Nubank S.A' },
+    { bank: 'Santander' },
+    { bank: 'Bradesco' },
+    { bank: 'Caixa' },
+    { bank: 'Itaú' },
+    { bank: 'C6 bank' },
+    { bank: 'PagBank' },
+  ]
+
 
   constructor(
     private perfilService: PerfilService,
@@ -92,37 +104,52 @@ export class PersonalFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mokprofile = this.perfilService.personalData;
-
     this.user = JSON.parse(localStorage.getItem('userDto'));
 
-    
+
     let dateTotal = new Date(this.user.personalData?.birthDate);
-    let dayBirthDate = dateTotal.getDate();
+    let dayBirthDate: any = dateTotal.getDate();
     let monthBirthDate: any = dateTotal.getMonth() + 1;
-    if(monthBirthDate < 10) {
+    if (monthBirthDate < 10) {
       monthBirthDate = `0${monthBirthDate}`
     }
     let yearBirthDate = dateTotal.getFullYear();
-    
-    let dateFormated = `${dayBirthDate}/${monthBirthDate}/${yearBirthDate}`
-    
-    console.log(dateFormated)
-    
+
+    if (dayBirthDate < 10) {
+      dayBirthDate = `0${dayBirthDate}`
+    }
+
+    this.dateFormated = `${dayBirthDate}/${monthBirthDate}/${yearBirthDate}`
+
+    if (this.user.personalData === null) {
+      this.formperson.patchValue({
+        birthdate: '',
+        state: '',
+        city: '',
+        nameBank: '',
+        agency: '',
+        current: ''
+      })
+    } else if (this.user.personalData) {
+      this.formperson.patchValue({
+        birthdate: this.dateFormated.toString(),
+        state: this.user.personalData?.state,
+        city: this.user.personalData?.city,
+        nameBank: this.user.personalData?.bankInfo?.name,
+        agency: this.user.personalData?.bankInfo?.agencyNumber,
+        current: this.user.personalData?.bankInfo?.accountNumber
+      })
+      this.stateSelected = this.user.personalData?.state;
+    }
+
     this.formperson.patchValue({
       name: this.user.name,
       email: this.user.email,
       cpf: this.user.cpf,
       phone: this.user.phone.slice(2, 13),
-      birthdate: dateFormated,
-      state: this.user.personalData?.state,
-      city: this.user.personalData?.city,
-      nameBank: this.user.personalData?.bankInfo?.name,
-      agency: this.user.personalData?.bankInfo?.agencyNumber,
-      current: this.user.personalData?.bankInfo?.accountNumber
     })
 
-    console.log(this.formperson.controls.state.value)
+
 
     this.states = states();
   }
@@ -131,45 +158,30 @@ export class PersonalFormComponent implements OnInit {
     this.cities = cities(this.stateSelected);
   }
 
-  confirm() {
+  async confirm() {
 
 
-    console.log(this.formperson.controls.nameBank.value)
+    if ((this.formperson.controls.name.value !== this.user.name || this.formperson.controls.phone.value.replace(/\D/g, '') !== this.user.phone.slice(2, 13) || this.formperson.controls.cpf.value.replace(/\D/g, '') !== this.user.cpf && this.formperson.controls.birthdate.value !== this.dateFormated || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber)) {
 
-    if (this.formperson.controls.name.value !== this.user.name || this.formperson.controls.phone.value.replace(/\D/g, '') !== this.user.phone.slice(2, 13) || this.formperson.controls.cpf.value.replace(/\D/g, '') !== this.user.cpf) {
+      this.editUserComplete();
+      
+    } else if (this.formperson.controls.birthdate.value === '' || this.formperson.controls.state.value === '' || this.formperson.controls.city.value === '' || this.formperson.controls.nameBank.value === ''
+      || this.formperson.controls.agency.value === '' || this.formperson.controls.current.value === '') {
+      const toast = await this.toastController.create({
+        message: `Preencha todos os campos para alterar perfil!`,
+        duration: 1500,
+        position: 'top',
+        color: 'danger',
+      });
+      toast.present();
 
-      if (this.formperson.controls.cpf.value.length < 14) {
-        let cpfMask = `${this.formperson.controls.cpf.value[0]}${this.formperson.controls.cpf.value[1]}${this.formperson.controls.cpf.value[2]}.${this.formperson.controls.cpf.value[3]}${this.formperson.controls.cpf.value[4]}${this.formperson.controls.cpf.value[5]}.${this.formperson.controls.cpf.value[6]}${this.formperson.controls.cpf.value[7]}${this.formperson.controls.cpf.value[8]}-${this.formperson.controls.cpf.value[9]}${this.formperson.controls.cpf.value[10]}`
-        this.userRequestEdit = {
-          cpf: cpfMask,
-          name: this.formperson.controls.name.value,
-          phone: `55${this.formperson.controls.phone.value}`,
-        }
-      } else {
-        this.userRequestEdit = {
-          cpf: this.formperson.controls.cpf.value,
-          name: this.formperson.controls.name.value,
-          phone: `55${this.formperson.controls.phone.value}`,
-        }
-      }
+    } else if (this.formperson.controls.birthdate.value !== this.dateFormated || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber) {
 
-      this.userService.edit(this.userRequestEdit).subscribe(
-        async success => {
-          this.editSuccess('user')
-        },
-        async error => {
-          const toast = await this.toastController.create({
-            message: `Erro ao alterar perfil!`,
-            duration: 1500,
-            position: 'top',
-            color: 'danger',
-          });
-          toast.present();
-        }
-      )
-    } else if (this.formperson.controls.birthdate.value !== this.user.personalData?.birthDate || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber) {
+      let date: Date = new Date(this.formperson.controls.birthdate.value);
+
+
       this.userPersonalDataRequest = {
-        birthDate: this.formperson.controls.birthdate.value,
+        birthDate: date,
         city: this.formperson.controls.city.value,
         state: this.formperson.controls.state.value,
         bankInfo: {
@@ -178,8 +190,6 @@ export class PersonalFormComponent implements OnInit {
           agencyNumber: this.formperson.controls.agency.value,
         },
       }
-
-      console.log(this.userPersonalDataRequest)
       this.userService.editPersonalData(this.userPersonalDataRequest).subscribe(
         success => {
           this.editSuccess('personalData')
@@ -192,9 +202,73 @@ export class PersonalFormComponent implements OnInit {
             color: 'danger',
           });
           toast.present();
+          console.log(error)
         }
       )
     }
+  }
+
+  editUserComplete() {
+
+    /* edit user */
+
+    if (this.formperson.controls.cpf.value.length < 14) {
+      let cpfMask = `${this.formperson.controls.cpf.value[0]}${this.formperson.controls.cpf.value[1]}${this.formperson.controls.cpf.value[2]}.${this.formperson.controls.cpf.value[3]}${this.formperson.controls.cpf.value[4]}${this.formperson.controls.cpf.value[5]}.${this.formperson.controls.cpf.value[6]}${this.formperson.controls.cpf.value[7]}${this.formperson.controls.cpf.value[8]}-${this.formperson.controls.cpf.value[9]}${this.formperson.controls.cpf.value[10]}`
+      this.userRequestEdit = {
+        cpf: cpfMask,
+        name: this.formperson.controls.name.value,
+        phone: `55${this.formperson.controls.phone.value}`,
+      }
+    } else {
+      this.userRequestEdit = {
+        cpf: this.formperson.controls.cpf.value,
+        name: this.formperson.controls.name.value,
+        phone: `55${this.formperson.controls.phone.value}`,
+      }
+    }
+
+    this.userService.edit(this.userRequestEdit).subscribe(
+      async success => {},
+      async error => {
+        const toast = await this.toastController.create({
+          message: `Erro ao alterar perfil!`,
+          duration: 1500,
+          position: 'top',
+          color: 'danger',
+        });
+        toast.present();
+      }
+    )
+
+    /* edit personal data */
+    let date: Date = new Date(this.formperson.controls.birthdate.value);
+
+
+    this.userPersonalDataRequest = {
+      birthDate: date,
+      city: this.formperson.controls.city.value,
+      state: this.formperson.controls.state.value,
+      bankInfo: {
+        name: this.formperson.controls.nameBank.value,
+        accountNumber: this.formperson.controls.current.value,
+        agencyNumber: this.formperson.controls.agency.value,
+      },
+    }
+    this.userService.editPersonalData(this.userPersonalDataRequest).subscribe(
+      success => {
+        this.editSuccess('personalData')
+      },
+      async error => {
+        const toast = await this.toastController.create({
+          message: `Erro ao alterar perfil!`,
+          duration: 1500,
+          position: 'top',
+          color: 'danger',
+        });
+        toast.present();
+        console.error(error)
+      }
+    )
   }
 
   async editSuccess(value) {
@@ -284,27 +358,5 @@ export class PersonalFormComponent implements OnInit {
     }, 700);
 
   }
-
-
-  // SELECT STATE
-  selectStates = [
-    { states: 'DF' },
-  ]
-
-  // SELECT CITY
-  selectCity = [
-    { cities: 'Brasília' },
-  ]
-
-  // SELECT BANK
-  selectBank = [
-    { bank: 'Nubank S.A' },
-    { bank: 'Santander' },
-    { bank: 'Bradesco' },
-    { bank: 'Caixa' },
-    { bank: 'Itaú' },
-    { bank: 'C6 bank' },
-    { bank: 'PagBank' },
-  ]
 
 }

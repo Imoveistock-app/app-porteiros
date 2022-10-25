@@ -8,6 +8,7 @@ import { Cep } from 'src/app/models/cep';
 import { CepService } from 'src/app/service/cep.service';
 import { ExtractService } from 'src/app/service/extract.service';
 import { PropertyIndicationService } from 'src/app/service/property-indication.service';
+import { UserGetResponseDto } from '../../../dtos/user-get-response.dto';
 
 @Component({
   selector: 'app-indicate',
@@ -34,6 +35,32 @@ export class IndicateComponent implements OnInit {
 
   request: IndicateRequestDto;
 
+  user: UserGetResponseDto = {
+    cpf: '',
+    email: '',
+    name: '',
+    personalData: {
+      birthDate: new Date,
+      state: '',
+      city: '',
+    },
+    phone: '',
+    photo: {
+      key: '',
+      location: ''
+    },
+    profile: {
+      name: '',
+      description: '',
+      apiFunctions: [
+        {
+          name: ''
+        }
+      ]
+    },
+    status: ''
+  };
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -58,6 +85,8 @@ export class IndicateComponent implements OnInit {
 
   ngOnInit() {
     this.modalIndicate = this.extractService.indicate;
+
+    this.user = JSON.parse(localStorage.getItem('userDto'));
   }
 
   buscarCep(event) {

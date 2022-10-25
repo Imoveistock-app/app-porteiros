@@ -458,6 +458,20 @@ ion-button {
     top: -20px;
 }
 
+.img-default-home {
+    position: absolute !important;
+    top: -40px !important;
+    right: 20px !important;
+    height: 86px !important;
+    width: 86px !important;
+    border-radius: 50% !important;
+    border: 3.19996px solid #68F4A0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2px !important;
+}
+
 .header-profile {
     background-color: white !important;
     height: 130px !important;

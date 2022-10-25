@@ -84,7 +84,7 @@ export class ProfileComponent implements OnInit {
       success => {
         this.user = success;
         console.log(success)
-        if (this.user.photo.location) {
+        if (this.user?.photo?.location) {
           this.urls.push(this.user.photo.location)
         }
       },
@@ -100,8 +100,13 @@ export class ProfileComponent implements OnInit {
 
   goLogout() {
     this.isModalOpen = false;
+    
     localStorage.removeItem('user');
-    this.router.navigate(['auth/login']);
+
+    setTimeout(() => {
+      this.router.navigate(['auth/login']);
+    }, 5000);
+
   }
 
   closeModalLogout() {

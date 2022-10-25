@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
       city: '',
     },
     phone: '',
+    photo: {
+      key: '',
+      location: ''
+    },
     profile: {
       name: '',
       description: '',

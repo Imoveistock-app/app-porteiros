@@ -1,6 +1,6 @@
 <ion-row class="row mx-2 mb-8 mt-4" >
 
-  <form [formGroup]="formperson" *ngFor="let item of mokprofile" class="col-12">
+  <form [formGroup]="formperson" class="col-12">
     <ion-text >
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados pessoais</span>
     </ion-text>
@@ -32,7 +32,7 @@
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Data de nascimento</label>
         <ion-input class="w-100 bg-white-light my-2 fw-500 px-3 font-size-16 color-purple line-20 border-10" 
-          formControlName="birthdate" type="text">
+          formControlName="birthdate" type="text" [ionMask]="maskBirthDate">
           <label >
             <img src="../../../../../../assets/icon/date.svg" />
           </label>
