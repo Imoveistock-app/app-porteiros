@@ -56,16 +56,12 @@ export class HomeComponent implements OnInit {
     this.infoHome = this.homeService.home;
     this.infoBalance = this.homeService.balance;
     this.infoCards = this.homeService.cards;
-    
-    if(localStorage.getItem('userDto') === null) {
-      this.router.navigate(['/'])
-    }
+
     this.user = JSON.parse(localStorage.getItem('userDto'));
 
     this.propertyIndicationService.getBalance().subscribe(
       success => {
         this.myBalance = success;
-        console.log(this.myBalance)
       },
       error => {
         console.log(error)

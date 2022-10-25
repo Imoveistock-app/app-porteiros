@@ -6,6 +6,7 @@ export abstract class UserGetResponseDto {
     status: string;
     profile: Profile;
     personalData: PersonalData;
+    photo?: Photo;
 }
 
 export abstract class Profile {
@@ -29,4 +30,9 @@ export abstract class BankInfo {
     name: string;
     agencyNumber: string;
     accountNumber: string;
+}
+
+class Photo {
+    key: string;
+    location: string;
 }

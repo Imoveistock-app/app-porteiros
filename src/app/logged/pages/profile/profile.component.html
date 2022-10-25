@@ -8,38 +8,50 @@
           <span class="fw-500 font-size-20 line-23 color-purple">Perfil</span>
         </ion-text>
         <div class="my-4 w-27px mx-3">
-          <ion-img class="" src="../../../../assets/icon/edit.svg"></ion-img>
+          <ion-img class="" src="../../../../assets/icon/edit.svg" (click)="editProfile()"></ion-img>
         </div>
       </ion-col>
       <ion-col class="col-12 px-4">
         <div class="header-profile position-relative">
           <div class="img-fake-profile">
-            <div *ngIf="!user.photo" class="h-100 w-100 d-flex ion-align-items-center ion-justify-content-center" style="background-color: #4C3778 !important;border-radius: 50% !important;">
+            <div *ngIf="urls.length === 0" class="h-100 w-100 d-flex ion-align-items-center ion-justify-content-center"
+              style="background-color: #4C3778 !important;border-radius: 50% !important;">
               <span class="text-dark ion-text-capitalize text-white">{{user.name[0]}}</span>
             </div>
-            <img *ngIf="user.photo" [src]="user.photo" class="photo-profile-custom">
+            <div *ngFor="let url of urls">
+              <img [src]="urls" class="photo-profile-custom">
+            </div>
+            <label class="circle-pencil-edit-profile-pick" for="selecao-foto">
+              <ion-icon name="pencil-sharp" style="font-size: 10px; color: #4C3778;"></ion-icon>
+            </label>
           </div>
           <h5 class="text-center color-purple ion-text-capitalize mb-0 mt-5">{{user.name}}</h5>
-          <p class="text-muted text-center">{{user.phone}}</p>
+          <p class="text-muted text-center">({{user.phone | slice:2:4}}){{user.phone | slice:4:13}}</p>
+          <form [formGroup]="form">
+            <input id='selecao-foto' (change)="onSelectFile($event)" formControlName="image" type='file'
+              accept="image/png, image/jpeg">
+          </form>
         </div>
       </ion-col>
       <ion-col class="col-12 px-4">
-        <ion-segment value="personal">
+        <ion-segment *ngIf="changedataprofile">
           <ion-segment-button (click)="personalPage()" value="personal"
             class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
           <ion-segment-button (click)="workPage()" value="work" class="font-size-14 line-18 text-transform-none">Dados
             do trabalho</ion-segment-button>
         </ion-segment>
         <ion-segment *ngIf="changedataprofileedit">
-          <ion-segment-button (click)="personalPageEdit()" value="personal" class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
-          <ion-segment-button (click)="workPageEdit()" value="work"  class="font-size-14 line-18 text-transform-none">Dados do trabalho</ion-segment-button>
+          <ion-segment-button (click)="personalPageEdit()" value="personal"
+            class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
+          <ion-segment-button (click)="workPageEdit()" value="work" class="font-size-14 line-18 text-transform-none">
+            Dados do trabalho</ion-segment-button>
         </ion-segment>
       </ion-col>
       <ion-col class="col-12">
-        <app-personal-data *ngIf="personaldata" ></app-personal-data>
-        <app-work-data *ngIf="workdata" ></app-work-data>
-        <app-work-form *ngIf="workform" ></app-work-form>
-        <app-personal-form *ngIf="personalform" ></app-personal-form>
+        <app-personal-data *ngIf="personaldata"></app-personal-data>
+        <app-work-data *ngIf="workdata"></app-work-data>
+        <app-work-form *ngIf="workform"></app-work-form>
+        <app-personal-form *ngIf="personalform"></app-personal-form>
       </ion-col>
       <ion-col class="col-12 mt-4 mb-5 px-4">
 
@@ -74,22 +86,28 @@
           </ion-item>
         </ion-card>
       </ion-col>
-      <ion-col *ngIf="logoutbtn" (click)="setOpen(true)" class="col-12 mt-4 px-4">
-        <ion-button class="fw-500 font-size-16 line-20 border-purple color-purple border-10 box-shadow-none h-51 w-100 mb-8 bg-gray-light" type="button">Sair</ion-button>
+      <ion-col *ngIf="logoutbtn" (click)="openModalLogout()" class="col-12 mt-4 px-4">
+        <ion-button
+          class="fw-500 font-size-16 line-20 border-purple color-purple border-10 box-shadow-none h-51 w-100 mb-8 bg-gray-light"
+          type="button">Sair</ion-button>
       </ion-col>
       <ion-modal [isOpen]="isModalOpen" class="bg-transparent">
         <ng-template>
           <ion-card class="ion-padding bg-light border-10 position-absolute bottom-0 w-100">
-            <br/>
+            <br />
             <ion-text class="w-100 text-align-center">
-              <p class="fw-500 font-size-16 line-20 color-purple">Tem certeza que <br/> deseja sair?</p>
+              <p class="fw-500 font-size-16 line-20 color-purple">Tem certeza que <br /> deseja sair?</p>
             </ion-text>
             <ion-row class="row my-3">
               <ion-col class="col-6">
-                <ion-button (click)="goLogout(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white" type="button">Sim</ion-button>
+                <ion-button (click)="goLogout()"
+                  class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white"
+                  type="button">Sim</ion-button>
               </ion-col>
               <ion-col class="col-6">
-                <ion-button  (click)="setOpen(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool" type="button">Não</ion-button>
+                <ion-button (click)="closeModalLogout()"
+                  class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool"
+                  type="button">Não</ion-button>
               </ion-col>
             </ion-row>
           </ion-card>

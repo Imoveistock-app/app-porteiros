@@ -19,29 +19,24 @@
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Telefone celular</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{user.phone}}
+          ({{user.phone | slice:2:4}}){{user.phone | slice:4:13}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Data de nascimento</label>
-        <p *ngIf="user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{user.personalData.birthday | date: 'dd/MM/yyyy'}}
-        </p>
-        <p *ngIf="!user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          -
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{user?.personalData?.birthDate | date: 'dd/MM/yyyy' || '-' }}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Estado</label>
-        <p *ngIf="user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20 ion-text-capitalize">
-          {{user.personalData.state}}</p>
-        <p *ngIf="!user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20 ion-text-capitalize">-</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20 ion-text-capitalize">
+          {{user?.personalData?.state || '-'}}</p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Cidade</label>
-        <p *ngIf="user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20 ion-text-capitalize">
-          {{user.personalData.city}}</p>
-        <p *ngIf="!user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20 ion-text-capitalize">-</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20 ion-text-capitalize">
+          {{user?.personalData?.city || '-'}}</p>
       </ion-text>
     </ion-card>
     
@@ -51,26 +46,19 @@
     <ion-card class="border-10 box-shadow-none my-3 bg-light py-4 px-3">
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Banco</label>
-        <p *ngIf="user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{user.personalData.bankInfo.name}}</p>
-        <p *ngIf="!user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">-</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{user?.personalData?.bankInfo?.name || '-'}}</p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Agência</label>
-        <p *ngIf="user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{user.personalData.bankInfo.agencyNumber}}
-        </p>
-        <p *ngIf="!user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          -
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{user?.personalData?.bankInfo?.agencyNumber || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Conta corrente</label>
-        <p *ngIf="user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{user.personalData.bankInfo.accountNumber}}
-        </p>
-        <p *ngIf="!user.personalData" class="fw-500 pb-3 font-size-16 color-purple line-20">
-          -
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">
+          {{user?.personalData?.bankInfo?.accountNumber || '-'}}
         </p>
       </ion-text>
     </ion-card>

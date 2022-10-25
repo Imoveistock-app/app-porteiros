@@ -355,6 +355,19 @@ ion-button {
     width: fit-content !important;
 }
 
+.circle-pencil-edit-profile-pick {
+    height: 15px !important;
+    width: 15px !important;
+    border-radius: 50% !important;
+    background-color: #00D455 !important;
+    position: absolute !important;
+    bottom: -3px !important;
+    right: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* get-started-page */
 .d-grid {
     display: grid !important;

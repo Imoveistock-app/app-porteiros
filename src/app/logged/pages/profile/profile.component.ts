@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
+import { UserEditPhotoRequestDto } from 'src/app/dtos/user-edit-photo-request.dto';
 import { PerfilService } from 'src/app/service/perfil.service';
 import { UserGetResponseDto } from '../../../dtos/user-get-response.dto';
 import { UserService } from '../../../service/user.service';
@@ -29,6 +32,7 @@ export class ProfileComponent implements OnInit {
   newImgUp: any;
   isModalOpen: boolean = false;
 
+  urls: any = [];
 
   user: UserGetResponseDto = {
     cpf: '',
@@ -38,6 +42,11 @@ export class ProfileComponent implements OnInit {
       birthDate: new Date,
       state: '',
       city: '',
+      bankInfo: {
+        name: '',
+        agencyNumber: '',
+        accountNumber: ''
+      }
     },
     phone: '',
     profile: {
@@ -52,12 +61,21 @@ export class ProfileComponent implements OnInit {
     status: ''
   };
 
-  
+  form: FormGroup;
+
+  requestPhoto: UserEditPhotoRequestDto;
+
   constructor(
     private perfilService: PerfilService,
     private router: Router,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private toastController: ToastController
+  ) {
+    this.form = this.formBuilder.group({
+      image: [''],
+    })
+  }
 
   ngOnInit() {
     this.mokprofile = this.perfilService.card;
@@ -65,27 +83,85 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser().subscribe(
       success => {
         this.user = success;
+        console.log(success)
+        if (this.user.photo.location) {
+          this.urls.push(this.user.photo.location)
+        }
       },
       error => {
         console.error(error)
       }
-    )
+    );
   }
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  openModalLogout() {
+    this.isModalOpen = true;
   }
-  goLogout(isOpen: boolean) {
-    setTimeout(() => {
-      this.router.navigate(['auth/login']);
-    }, 500);
-    this.isModalOpen = isOpen;
+
+  goLogout() {
+    this.isModalOpen = false;
+    localStorage.removeItem('user');
+    this.router.navigate(['auth/login']);
+  }
+
+  closeModalLogout() {
+    this.isModalOpen = false;
+  }
+
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+
+        reader.onload = (event: any) => {
+          this.urls = [];
+          this.urls.push(event.target.result);
+
+          this.requestPhoto = {
+            photo: event.target.result
+          };
+          console.log(this.requestPhoto)
+          this.userService.editPhoto(this.requestPhoto).subscribe(
+            async success => {
+              this.userService.getUser().subscribe(
+                success => {
+                  let user = JSON.stringify(success);
+                  localStorage.setItem('userDto', user)
+                  window.location.reload();
+                },
+                error => {
+                  console.error(error)
+                }
+              )
+              const toast = await this.toastController.create({
+                message: `Foto do perfil alterada com sucesso!`,
+                duration: 1500,
+                position: 'top',
+                color: 'success',
+              });
+              toast.present();
+            },
+            async error => {
+              const toast = await this.toastController.create({
+                message: `Erro ao alterar foto do perfil!`,
+                duration: 1500,
+                position: 'top',
+                color: 'danger',
+              });
+              toast.present();
+            }
+          )
+        }
+        reader.readAsDataURL(event.target.files[i]);
+      }
+    }
   }
 
   editProfile() {
-     this.changedataprofileedit = true;
-     this.changedataprofile = false;
-     if (this.personaldata === true) {
+    this.changedataprofileedit = true;
+    this.changedataprofile = false;
+    if (this.personaldata === true) {
       this.logoutbtn = false;
       this.geralzone = false;
       this.cameraprofile = true;
