@@ -7,12 +7,15 @@ import { PerfilService } from 'src/app/service/perfil.service';
   styleUrls: ['./work-data.component.scss'],
 })
 export class WorkDataComponent implements OnInit {
+  
+  
   mokprofile: any;
 
   constructor(
     private perfilService: PerfilService,
 
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
     this.mokprofile = this.perfilService.workData;

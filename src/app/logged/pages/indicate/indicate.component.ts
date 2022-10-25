@@ -41,7 +41,7 @@ export class IndicateComponent implements OnInit {
       road: ['', [Validators.required]],
       numberResidence: ['', [Validators.required]],
       complement: ['', [Validators.required]],
-      ownerName: ['', [Validators.required]],
+      ownername: ['', [Validators.required]],
       email: ['', [Validators.required]],
       ownerContact: ['', [Validators.required]]
     });
