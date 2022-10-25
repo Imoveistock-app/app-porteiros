@@ -108,9 +108,6 @@ export class WorkFormComponent implements OnInit {
 
   setCloseModalOk(isOpen: boolean) {
     this.isModalOk = isOpen;
-    setTimeout(() =>{
-      this.perfilService.getOutEditWork();
-    }, 100) 
   }
 
   confirmCode(isOpen: boolean) {
