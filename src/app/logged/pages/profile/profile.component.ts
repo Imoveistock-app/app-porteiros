@@ -9,7 +9,9 @@ import { PerfilService } from 'src/app/service/perfil.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  changeSubscription: Subscription;
+  changeSubscriptionPerson: Subscription;
+  changeSubscriptionWork: Subscription;
+
 
 
   mokprofile: any;
@@ -32,7 +34,7 @@ export class ProfileComponent implements OnInit {
     private perfilService: PerfilService,
     private router: Router
   ) {
-    this.changeSubscription = this.perfilService.getgetOutEditPerson().subscribe(() => {
+    this.changeSubscriptionPerson = this.perfilService.getgetOutEditPerson().subscribe(() => {
       this.logoutbtn = true;
       this.geralzone = true;
       this.cameraprofile = false;
@@ -45,7 +47,7 @@ export class ProfileComponent implements OnInit {
       this.changedataprofileedit = false;
       this.changedataprofile = true;
     });
-    this.changeSubscription = this.perfilService.getgetOutEditWork().subscribe(() => {
+    this.changeSubscriptionWork = this.perfilService.getgetOutEditWork().subscribe(() => {
       this.logoutbtn = true;
       this.changedataprofileedit = false;
       this.changedataprofile = true;
