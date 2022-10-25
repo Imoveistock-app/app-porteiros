@@ -1,4 +1,4 @@
-<ion-app class="">
+<ion-app>
   <ion-content [fullscreen]="true" class="bg-gray-light">
     <ion-row class="row">
       <ion-col class="col-12 ion-justify-content-between mb-3 d-flex ion-align-items-center">
@@ -30,10 +30,16 @@
           <ion-segment-button (click)="workPage()" value="work" class="font-size-14 line-18 text-transform-none">Dados
             do trabalho</ion-segment-button>
         </ion-segment>
+        <ion-segment *ngIf="changedataprofileedit">
+          <ion-segment-button (click)="personalPageEdit()" value="personal" class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
+          <ion-segment-button (click)="workPageEdit()" value="work"  class="font-size-14 line-18 text-transform-none">Dados do trabalho</ion-segment-button>
+        </ion-segment>
       </ion-col>
       <ion-col class="col-12">
-        <app-personal-data *ngIf="personaldata" class=""></app-personal-data>
-        <app-work-data *ngIf="workdata" class=""></app-work-data>
+        <app-personal-data *ngIf="personaldata" ></app-personal-data>
+        <app-work-data *ngIf="workdata" ></app-work-data>
+        <app-work-form *ngIf="workform" ></app-work-form>
+        <app-personal-form *ngIf="personalform" ></app-personal-form>
       </ion-col>
       <ion-col class="col-12 mt-4 mb-5 px-4">
 
@@ -68,6 +74,27 @@
           </ion-item>
         </ion-card>
       </ion-col>
+      <ion-col *ngIf="logoutbtn" (click)="setOpen(true)" class="col-12 mt-4 px-4">
+        <ion-button class="fw-500 font-size-16 line-20 border-purple color-purple border-10 box-shadow-none h-51 w-100 mb-8 bg-gray-light" type="button">Sair</ion-button>
+      </ion-col>
+      <ion-modal [isOpen]="isModalOpen" class="bg-transparent">
+        <ng-template>
+          <ion-card class="ion-padding bg-light border-10 position-absolute bottom-0 w-100">
+            <br/>
+            <ion-text class="w-100 text-align-center">
+              <p class="fw-500 font-size-16 line-20 color-purple">Tem certeza que <br/> deseja sair?</p>
+            </ion-text>
+            <ion-row class="row my-3">
+              <ion-col class="col-6">
+                <ion-button (click)="goLogout(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white" type="button">Sim</ion-button>
+              </ion-col>
+              <ion-col class="col-6">
+                <ion-button  (click)="setOpen(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool" type="button">Não</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ng-template>
+      </ion-modal>
     </ion-row>
   </ion-content>
 </ion-app>

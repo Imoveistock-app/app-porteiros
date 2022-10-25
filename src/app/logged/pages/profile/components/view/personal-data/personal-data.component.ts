@@ -8,6 +8,8 @@ import { UserGetResponseDto } from '../../../../../dtos/user-get-response.dto';
   styleUrls: ['./personal-data.component.scss'],
 })
 export class PersonalDataComponent implements OnInit {
+
+
   mokprofile: any;
 
   user: UserGetResponseDto = {
@@ -39,13 +41,17 @@ export class PersonalDataComponent implements OnInit {
 
   constructor(
     private perfilService: PerfilService,
-
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.mokprofile = this.perfilService.personalData;
 
     this.user = JSON.parse(localStorage.getItem('userDto'));
   }
+
+
+
+
 
 }

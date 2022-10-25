@@ -1,0 +1,119 @@
+<ion-row class="row mx-2 mb-8 mt-4" >
+
+  <form [formGroup]="formperson" *ngFor="let item of mokprofile" class="col-12">
+    <ion-text >
+      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados pessoais</span>
+    </ion-text>
+    <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Nome completo</label>
+        <ion-input formControlName="name"  type="text" maxlength="30" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      </ion-text>
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">email</label>
+        <ion-input formControlName="email" type="email" maxlength="30" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      </ion-text>
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">CPF</label>
+        <ion-input class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" 
+          formControlName="cpf" type="text"  [ionMask]="maskCpf">
+        </ion-input>
+      </ion-text>
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Telefone celular</label>
+        <ion-input class="w-100 bg-white-light my-2 fw-500 px-2 font-size-16 color-purple line-20 border-10" 
+          formControlName="phone" type="tel" [ionMask]="maskTel">
+          <label >
+            <img src="../../../../../../assets/icon/smartphone.png" class="px-2"/>
+          </label>
+        </ion-input>
+      </ion-text>
+
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Data de nascimento</label>
+        <ion-input class="w-100 bg-white-light my-2 fw-500 px-3 font-size-16 color-purple line-20 border-10" 
+          formControlName="birthdate" type="date">
+          <label >
+            <img src="../../../../../../assets/icon/date.svg" />
+          </label>
+        </ion-input>
+      </ion-text>
+      <ion-text class="d-grid text-left">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Estado</label>
+        <select formControlName="state" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectStates">{{item.states}}</option>
+        </select>
+      </ion-text>
+      <ion-text class="d-grid text-left">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Cidade</label>
+        <select formControlName="state" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectCity">{{item.cities}}</option>
+        </select>
+      </ion-text>
+    </ion-card>
+    
+    <ion-text class="ion-justify-content-between w-100 d-flex">
+      <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados bancarios</span>
+      <ion-icon (click)="hideDataBank()"  *ngIf="lessbank" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
+      <ion-icon (click)="showDataBank()" *ngIf="plusbank" class="color-blue-light font-size-28" name="add-circle-outline"></ion-icon>
+    </ion-text>
+    <ion-card *ngIf="databank" class="border-10 box-shadow-none my-3 bg-light py-4 px-3">
+      <ion-text class="d-grid text-left">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Banco</label>
+        <select formControlName="state" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectBank">{{item.bank}}</option>
+        </select>
+      </ion-text>
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Agência</label>
+        <ion-input maxlength="4" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" 
+          formControlName="agency" type="text">
+        </ion-input>
+      </ion-text>
+      <ion-text >
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Conta corrent</label>
+        <ion-input maxlength="10" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" 
+          formControlName="current" type="text"  [ionMask]="maskCurrent">
+        </ion-input>
+      </ion-text>
+    </ion-card>
+
+    <ion-button (click)="confirmCode(true)" class="bg-greenpool box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple" type="submit">
+      <span *ngIf="continued" >Salvar alterações </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+  </ion-button>
+  </form>
+
+  <ion-modal [isOpen]="isModalConfirm" class="bg-transparent">
+    <ng-template>
+      <ion-card class="ion-padding bg-light border-10 position-absolute bottom-0 w-100">
+        <br/>
+        <ion-text class="w-100 text-align-center">
+          <p class="fw-500 font-size-16 line-20 color-purple">Deseja salvar<br/>as alterações?</p>
+        </ion-text>
+        <ion-row class="row my-3">
+          <ion-col class="col-6">
+            <ion-button (click)="setOpen(false)"  (click)="setOpenModalOk(true)"  class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white" type="button">Sim</ion-button>
+          </ion-col>
+          <ion-col class="col-6">
+            <ion-button  (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool" type="button">Não</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ng-template>
+  </ion-modal>
+  <ion-modal [isOpen]="isModalOk" class="bg-transparent">
+    <ng-template>
+      <ion-card class="ion-padding bg-light border-10 position-absolute bottom-0 w-100">
+        <br/>
+        <ion-text class="w-100 text-align-center">
+          <p class="fw-500 font-size-16 line-20 color-purple">Alterações salvas<br/>com sucesso!</p>
+        </ion-text>
+        <ion-row class="row my-3">
+          <ion-col class="col-12">
+            <ion-button  (click)="setCloseModalOk(false)" (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool" type="button">Ok, entendi</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ng-template>
+  </ion-modal>
+</ion-row>

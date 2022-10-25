@@ -89,30 +89,7 @@ ion-button {
 .header-ios ion-toolbar:last-of-type {
     --border-width: 0px;
 }
-// PROFILE-PAGES
-   ion-segment-button::part(indicator-background) {
-    background: var(--purple);
-  }
-  
-  ion-segment-button.md::part(native) {
-    color: var(--bluelight);
-  }
-  
-  .segment-button-checked.md::part(native) {
-    color: var(--purple);
-  }
-  
 
-  
-  /* iOS styles */
-  ion-segment-button.ios::part(native) {
-    color: var(--bluelight);
-  }
-  
-  .segment-button-checked.ios::part(native) {
-    color: var(--purple);
-  }
-  
 * {
     margin: 0;
     padding: 0;
@@ -276,6 +253,7 @@ ion-button {
     background-color: var(--graylight) !important;
     background: var(--graylight) !important;
 }
+
 .bg-white-light {
     --background: var(--whitelight) !important;
     background-color: var(--whitelight) !important;
@@ -285,7 +263,7 @@ ion-button {
 .bg-white {
     --background: white !important;
     background-color: white !important;
-    background:white !important;
+    background: white !important;
 }
 
 .bg-purple {
@@ -299,7 +277,8 @@ ion-button {
     background-color: var(--purpura) !important;
     background: var(--purpura) !important;
 }
-.bg-transparent{
+
+.bg-transparent {
     --background-color: transparent !important;
     --background: transparent !important;
 
@@ -310,11 +289,13 @@ ion-button {
 .color-purple {
     color: var(--purple);
     --ion-color-base: var(--purple) !important;
-    
+
 }
-.color-cherry{
+
+.color-cherry {
     color: var(--cherry);
 }
+
 .color-purpura {
     color: var(--purpura);
 }
@@ -331,18 +312,22 @@ ion-button {
     color: var(--bluelight);
 }
 
-.border-purple{
+.border-purple {
     border: 1px solid var(--purple)
 }
-.border-greenpool{
+
+.border-greenpool {
     border: 2px solid var(--greenpool)
 }
-.border-blue-light{
+
+.border-blue-light {
     border: 1px solid #878dba50;
 }
-.line-bottom-graylight{
+
+.line-bottom-graylight {
     border-bottom: 1px solid var(--graylight);
 }
+
 /* align */
 
 .text-align-center {
@@ -366,7 +351,7 @@ ion-button {
     height: fit-content !important
 }
 
-.w-fit{
+.w-fit {
     width: fit-content !important;
 }
 
@@ -408,7 +393,8 @@ ion-button {
 .right-0 {
     right: 0 !important;
 }
-.left-0{
+
+.left-0 {
     left: 0 !important;
 }
 
@@ -420,10 +406,11 @@ ion-button {
     bottom: 0;
 }
 
-.mt-6{
+.mt-6 {
     margin-top: 6rem;
 }
-.pt-6{
+
+.pt-6 {
     padding-top: 5rem;
 }
 
@@ -441,6 +428,7 @@ ion-button {
     --border-radius: 10px;
     border-radius: 10px;
 }
+
 .border-100 {
     --border-radius: 100px;
     border-radius: 100px;
@@ -495,10 +483,11 @@ ion-button {
     height: 27px;
 }
 
-.h-130{
+.h-130 {
     height: 130px;
 }
-.h-110{
+
+.h-110 {
     height: 110px;
 }
 
@@ -506,7 +495,7 @@ ion-button {
     height: 51px;
 }
 
-.h-21{
+.h-21 {
     height: 21px;
 }
 
@@ -546,11 +535,12 @@ ion-button {
 }
 
 // MODAL-PROPERTY-LIST
-.modal-grid{
+.modal-grid {
     margin-left: 5%;
     width: calc(100% - 10%);
 }
-.transition-updown{
+
+.transition-updown {
     animation-name: updown;
     animation-duration: .5s;
 }
@@ -560,14 +550,14 @@ ion-button {
     border-color: var(--purple) !important;
 }
 
-@keyframes updown{
-    0%{
+@keyframes updown {
+    0% {
         opacity: 0;
         top: -30px;
         position: relative;
     }
-  
-    100%{
+
+    100% {
         position: relative;
         opacity: 1;
         top: 0;
@@ -576,17 +566,103 @@ ion-button {
 
 
 // AUTH-LOGIN
-.logo{
+.logo {
     width: 172.03px;
 }
-.w-calc-15{
+
+.w-calc-15 {
     margin-left: 5%;
     width: calc(100% - 10%);
 }
-.pattern-input{
+
+.pattern-input {
     width: calc(100% - 12%);
 }
+
 // SIGN-UP
-.max-w-400{
+.max-w-400 {
     max-width: 400px;
+}
+
+// PROFILE-PAGE
+ion-segment-button::part(indicator-background) {
+    background: var(--purple);
+}
+
+ion-segment-button.md::part(native) {
+    color: var(--bluelight);
+}
+
+.segment-button-checked.md::part(native) {
+    color: var(--purple);
+}
+
+
+
+/* iOS styles */
+ion-segment-button.ios::part(native) {
+    color: var(--bluelight);
+}
+
+.segment-button-checked.ios::part(native) {
+    color: var(--purple);
+}
+
+.camera-icon {
+    padding: 10px 11px 5px 10px;
+}
+
+.camera-input {
+    height: 30px;
+    opacity: 0;
+}
+
+.w-27px {
+    width: 27px;
+}
+
+.pl-3 {
+    padding-left: 3rem;
+}
+
+.profile-img {
+    left: 39%;
+    top: -15px;
+    width: 100px;
+}
+
+.text-transform-none {
+    text-transform: none !important;
+}
+
+.mb-8 {
+    margin-bottom: 8rem;
+}
+@media (max-width: 400px) {
+    .profile-img {
+        left: 36%;
+        top: -15px;
+        width: 100px;
+    }
+}
+@media (min-width: 500px) {
+    .profile-img {
+        left: 41%;
+        top: -15px;
+        width: 100px;
+    }
+}
+@media (min-width: 765px) {
+    .profile-img {
+        left: 44%;
+        top: -15px;
+        width: 100px;
+    }
+}
+@media (min-width: 1000px) {
+    .profile-img {
+        left: 45%;
+        top: -15px;
+        width: 100px;
+    }
 }

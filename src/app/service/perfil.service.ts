@@ -1,10 +1,33 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PerfilService {
   
+
+  private subject = new Subject<any>();
+  bot: any;
+
+  getOutEditPerson() {
+    this.subject.next('');
+  }
+
+  getgetOutEditPerson(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+  getOutEditWork() {
+    this.subject.next('');
+  }
+
+  getgetOutEditWork(): Observable<any> {
+    return this.subject.asObservable();
+  }
+
+
+
   card = [
     {
       name: "Mario Silva!",
@@ -53,7 +76,6 @@ export class PerfilService {
       category: "Apartamentos",
       tower: "4",
       floors: "25",
-      complementsyndicate: "25",
       apartamentfloors: "4",
       propertieslocation: "4",
       propertiessold: "9"
