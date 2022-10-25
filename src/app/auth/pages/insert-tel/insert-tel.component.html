@@ -23,7 +23,7 @@
                         formControlName="phone" required
                         class="telephone h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
                         placeholder="insira o número">
-                        <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
+                        <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon px-2"></ion-img>
                     </ion-input>
 
                 </form>
@@ -40,10 +40,7 @@
                             class="color-purple text-decoration-none">Política de Privacidade</a>.
                     </span>
                 </ion-text>
-                <ion-button *ngIf="submitContinued" (click)="confirm()" class="bg-greenpool h-51 left-0 w-100 text-center box-shadow-none position-absolute bottom-0 fw-500 font-size-16 line-20 color-purple" type="submit">
-                    <span *ngIf="continued" >Continuar</span>
-                    <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
-                </ion-button>
+                
             </ion-row>
         </ion-grid>
     </ion-content>

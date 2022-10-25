@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   infoCards: any[];
   balance = true;
   hideeye = false;
+
+  isModalOpen = true;
   constructor(
     private homeService: HomeService,
     private router: Router
@@ -25,29 +27,34 @@ export class HomeComponent implements OnInit {
     this.infoCards = this.homeService.cards;
   }
 
+
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   changeEye() {
-    this.hideeye =!this.hideeye;
+    this.hideeye = !this.hideeye;
     this.balance = !this.balance;
   }
 
   // Propenso à alterações
-  goIndicateProperty(){
+  goIndicateProperty() {
     this.router.navigate(['logged/indicate']);
   }
 
 
   // Propenso à alterações
-  goExtract(){
+  goExtract() {
     this.router.navigate(['logged/extract']);
   }
-  
+
   // Propenso à alterações
-  goIndicatedProperties(){
+  goIndicatedProperties() {
     this.router.navigate(['logged/property-list']);
   }
 
   // Rota ainda não definida
-  goMoreSold(){
+  goMoreSold() {
     this.router.navigate(['#']);
   }
 

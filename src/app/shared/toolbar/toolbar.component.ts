@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
 
-  homeicon = true;
-  homeicongreen = false;
+  homeicon = false;
+  homeicongreen = true;
 
   handicon = true;
   handicongreen = false;

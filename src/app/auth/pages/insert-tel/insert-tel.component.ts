@@ -17,10 +17,6 @@ export class InsertTelComponent implements OnInit {
   componentTermsPrivacy = true;
   componentPopup = false;
 
-  spinnload = false;
-  continued = true;
-  submitContinued = false;
-
   form: FormGroup;
 
   request: AuthenticateRequestDto;
@@ -39,8 +35,9 @@ export class InsertTelComponent implements OnInit {
   }
   ngOnInit() { }
 
-  insertTel(value) {
+ 
 
+  insertTel(value) {
     let phone = value.replace(/\D/g, '')
 
     if (phone.length === 11) {
@@ -48,13 +45,7 @@ export class InsertTelComponent implements OnInit {
       this.componentTermsPrivacy = false;
       this.componentTxt = false;
       this.componentLogo = false;
-      this.submitContinued = true;
     }
-
-  }
-
-  confirm() {
-
     this.request = {
       phone: `55${this.form.controls['phone'].value}`.replace(/\D/g, '')
     }

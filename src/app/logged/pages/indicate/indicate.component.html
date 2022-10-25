@@ -100,16 +100,16 @@
                     <ion-text *ngFor="let item of modalIndicate"  class="fw-500 font-size-20 line-24 color-purple">
                         <p class="m-0">Parabéns</p>
                         <span >{{item.name}}</span>
+                    </ion-text> 
+                    <ion-text  class="">
+                        <p class="fw-400 font-size-14 line-18 color-blue-light mb-5 mt-3">Sua indicação foi registrada e <br/> estará em análise por nossa equipe.</p>
                     </ion-text>
-                    <ion-text  class="fw-400 font-size-14 line-18 color-blue-light">
-                        <p class="mb-5">Sua indicação foi registrada e <br/> estará em análise por nossa equipe.</p>
-                    </ion-text>
-                    <ion-text  class="fw-400 font-size-14 line-18 color-blue-light">
-                        <p class="mb-5">Se tudo estiver correto, seu <br/> imóvel aparecerá no <b>menu de Status</b><br/> em até um dia útil.</p>
+                    <ion-text class="">
+                        <p class="fw-400 font-size-14 line-18 mb-5 color-purple">Se tudo estiver correto, seu <br/> imóvel aparecerá no <b>menu de Status</b><br/> em até um dia útil.</p>
                     </ion-text>
                 </ion-col>
                 <ion-col class="col-12">
-                    <ion-button class="fw-500 font-size-20 line-24 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100" type="button" (click)="confirmIndicate(false)">
+                    <ion-button class="fw-700 font-size-16 line-20 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100" type="button" (click)="confirmIndicate(false)">
                         Ok, entendi
                     </ion-button>
                 </ion-col>
