@@ -26,8 +26,6 @@ import { AuthenticationService } from '../service/authentication.service';
     LoginComponent,
     SendCodeComponent,
     SignUpComponent,
-    SplashComponent
-
   ],
   imports: [
     CommonModule,
@@ -40,7 +38,8 @@ import { AuthenticationService } from '../service/authentication.service';
   ],
   providers: [
     UserService,
-    AuthenticationService
+    AuthenticationService,
+    UserService
   ]
   
 })

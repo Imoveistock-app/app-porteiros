@@ -30,6 +30,11 @@ export class SplashComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    if(localStorage.getItem('user') !== null) {
+      this.router.navigate(['auth/login'])
+    }
+
     setTimeout(() => {
       this.splash = false;
       this.splashstaps = true;
@@ -42,11 +47,11 @@ export class SplashComponent implements OnInit {
     let count = 0;
     const co = count++;
     if (co === 0) {
-      this.router.navigate(['logged/home'])
+      this.router.navigate(['auth/login'])
     }
   }
 
   goHome(){
-    this.router.navigate(['logged/home'])
+    this.router.navigate(['auth/login'])
   }
 }
