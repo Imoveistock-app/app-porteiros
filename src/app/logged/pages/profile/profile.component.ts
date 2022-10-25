@@ -14,7 +14,9 @@ import { UserService } from '../../../service/user.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  changeSubscription: Subscription;
+  changeSubscriptionPerson: Subscription;
+  changeSubscriptionWork: Subscription;
+
 
 
   mokprofile: any;
@@ -75,6 +77,32 @@ export class ProfileComponent implements OnInit {
     this.form = this.formBuilder.group({
       image: [''],
     })
+    this.changeSubscriptionPerson = this.perfilService.getgetOutEditPerson().subscribe(() => {
+      this.logoutbtn = true;
+      this.geralzone = true;
+      this.cameraprofile = false;
+      this.backeditprofile = false;
+      this.editprofile = true;
+      this.personaldata = true;
+      this.personalform = false;
+      this.workform = false;
+      this.workdata = false;
+      this.changedataprofileedit = false;
+      this.changedataprofile = true;
+    });
+    this.changeSubscriptionWork = this.perfilService.getgetOutEditWork().subscribe(() => {
+      this.logoutbtn = true;
+      this.changedataprofileedit = false;
+      this.changedataprofile = true;
+      this.geralzone = true;
+      this.cameraprofile = false;
+      this.backeditprofile = false;
+      this.editprofile = true;
+      this.personaldata = false;
+      this.personalform = false;
+      this.workform = false;
+      this.workdata = true;
+    });
   }
 
   ngOnInit() {
