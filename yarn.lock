@@ -218,7 +218,7 @@
     "uuid" "8.3.2"
     "yargs" "17.5.1"
 
-"@angular/common@^14.0.0", "@angular/common@14.2.5":
+"@angular/common@^14.0.0", "@angular/common@>= 12.x.x", "@angular/common@14.2.5":
   "integrity" "sha512-v2fIK6imfMkUvYNjZQO+drE39QO3eSS95Yy7UN+6inb47DkAfzx6hipA9zKrMENjsS3kDv1d7cgDHE7WuOCzIw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.2.5.tgz"
   "version" "14.2.5"
@@ -248,7 +248,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@>=12.0.0", "@angular/core@14.2.5":
+"@angular/core@^14.0.0", "@angular/core@>= 12.x.x", "@angular/core@>=12.0.0", "@angular/core@14.2.5":
   "integrity" "sha512-Ok78Abq0puMGlolvNVzKFvsX7ePDkyxpZzztDzXDdRA4x4o6bAuuDG9Y7Wab2+wsdY6NktO+dFQjq1UBWClgSg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.2.5.tgz"
   "version" "14.2.5"
@@ -6003,6 +6003,13 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"ng2-currency-mask@^13.0.3":
+  "integrity" "sha512-ZTaY7sO2vFTfGtjfdu7SrHIeaRzb3oDSVHKvtcb9sYiF4ez8vzRPNjnzcmsk71RjMWl24XMFtmBDPyx/NxXsFg=="
+  "resolved" "https://registry.npmjs.org/ng2-currency-mask/-/ng2-currency-mask-13.0.3.tgz"
+  "version" "13.0.3"
+  dependencies:
+    "tslib" ">= 2.3.0"
+
 "node-addon-api@^3.2.1":
   "integrity" "sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A=="
   "resolved" "https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz"
@@ -8225,7 +8232,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.0", "tslib@^2.0.1", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@^2.3.0", "tslib@^2.4.0", "tslib@2.4.0":
+"tslib@^2.0.0", "tslib@^2.0.1", "tslib@^2.1.0", "tslib@^2.2.0", "tslib@^2.3.0", "tslib@^2.4.0", "tslib@>= 2.3.0", "tslib@2.4.0":
   "integrity" "sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   "version" "2.4.0"

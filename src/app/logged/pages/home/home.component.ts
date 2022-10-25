@@ -44,6 +44,8 @@ export class HomeComponent implements OnInit {
     status: ''
   };
 
+  requestDate: Date = new Date;
+
   constructor(
     private homeService: HomeService,
     private router: Router,

@@ -56,10 +56,9 @@
             <ion-text class="w-100 text-right ion-justify-content-end d-grid">
               <span class="fw-700 color-blue text-align-right font-size-28
                 line-36" [ngClass]="balance ? 'text-security' : ''" *ngFor="let
-                item of infoBalance">{{myBalance.balance}}</span>
+                item of infoBalance">{{myBalance.balance | currency: 'R$'}}</span>
               <span class="fw-400 color-blue font-size-14 line-18" *ngFor="let
-                item of infoBalance">Saldo previsto {{ item.date | slice:0:2
-                }}/{{ item.date | slice:2:4 }}/{{ item.date | slice:4:8 }}</span>
+                item of infoBalance">Saldo previsto {{requestDate | date: 'dd/MM/yyyy'}}</span>
             </ion-text>
           </ion-card>
         </ion-col>

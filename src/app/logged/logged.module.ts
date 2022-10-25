@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import ptBr from '@angular/common/locales/pt';
 import { IonicModule } from '@ionic/angular';
 
 import { LoggedPageRoutingModule } from './logged-routing.module';
@@ -23,6 +23,9 @@ import { CepService } from '../service/cep.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertyIndicationService } from '../service/property-indication.service';
 import { UserService } from '../service/user.service';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+
+registerLocaleData(ptBr);
 
 @NgModule({
   
@@ -48,11 +51,13 @@ import { UserService } from '../service/user.service';
     ReactiveFormsModule,
     LoggedPageRoutingModule,
     HttpClientModule,
+    CurrencyMaskModule,
   ],
   providers: [
     CepService,
     PropertyIndicationService,
-    UserService
+    UserService,
+    { provide: LOCALE_ID, useValue: 'pt' },
   ]
   
 })
