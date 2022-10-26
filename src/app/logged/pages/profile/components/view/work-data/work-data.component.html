@@ -6,45 +6,33 @@
     <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">qual sua escala</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.scale | slice:0:2}}/{{item.scale | slice:2:4}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.workSchedule || '-'}}</p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 1</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergeday1}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.morningPorter1 || '-'}}</p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 2</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergeday2}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.morningPorter2 || '-'}}</p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro noite 1</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergenight1}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.nigthPorter1 || '-'}}</p>
 
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro noite 2</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.conciergenight2}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.nigthPorter2 || '-'}}</p>
 
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Zelador</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.caretaker}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.janitor || '-'}}</p>
       </ion-text>
       <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Recepcionista</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.receptionist}}</p>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Vigilante</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.vigilant}}</p>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Supervisor</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.supervisor}}</p>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Gerente</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.manager}}</p>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Folguista</label>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.extraPorter || '-'}}</p>
       </ion-text>
     </ion-card>
     
@@ -54,36 +42,36 @@
     <ion-card class="border-10 box-shadow-none mt-3 mb-5 my-3 bg-light py-4 px-3">
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do condomínio</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.namecondominium}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.condominium?.name || '-'}}</p>
       </ion-text>
       <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Endereç do condomínio</label>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Endereço do condomínio</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.edcondominium}}
+          {{response?.workData?.condominium?.addressStreet || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Número do condomínio</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.numbercondominium}}
+          {{response?.workData?.condominium?.addressNumber || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Bairro</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.district}}
+          {{response?.workData?.condominium?.addressDistrict || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">CEP</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.cep | slice:0:5}}-{{item.cep | slice:5:8}}
+          {{response?.workData?.condominium?.addressCep || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Complemento</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.complement}}
+          {{response?.workData?.condominium?.addressComplement || '-'}}
         </p>
       </ion-text>
    
@@ -95,54 +83,54 @@
     <ion-card class="border-10 box-shadow-none mt-3 mb-5 my-3 bg-light py-4 px-3">
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do sindico</label>
-        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{item.namesyndicate}}</p>
+        <p class="fw-500 pb-3 font-size-16 color-purple line-20">{{response?.workData?.condominium?.syndic || '-'}}</p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Contato do sindico</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.contactsyndicate | slice:0:2}} {{item.contactsyndicate | slice:2:7}}.{{item.contactsyndicate | slice:7:11}}  
+          {{response?.workData?.condominium?.syndicContact || '-'}}  
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.category}} unidades
+          {{response?.workData?.condominium?.category || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantas torres?</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.tower}} unidades
+          {{response?.workData?.condominium?.numberOfTowers || '-'}} unidades
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos andares?</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.floors}} unidades
+          {{response?.workData?.condominium?.howManyFloors || '-'}} unidades
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Complemento</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.complementsyndicate}} unidades
+          {{response?.workData?.condominium?.complement || '-'}}
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Apartamentos por andar</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.apartamentfloors}} unidades
+          {{response?.workData?.condominium?.apartmentsPerrFloor || '-'}} unidades
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para locação?</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.propertieslocation}} unidades
+          {{response?.workData?.condominium?.howManyApartmentsForLease || '-'}} unidades
         </p>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para venda?</label>
         <p class="fw-500 pb-3 font-size-16 color-purple line-20">
-          {{item.propertiessold}} unidades
+          {{response?.workData?.condominium?.howManyApartmentsForSale || '-'}} unidades
         </p>
       </ion-text>
    

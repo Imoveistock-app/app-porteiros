@@ -72,6 +72,72 @@ export class WorkFormComponent implements OnInit {
 
   ngOnInit() {
     this.mokprofile = this.perfilService.personalData;
+
+    let user: any = localStorage.getItem('userDto');
+    user = JSON.parse(user);
+
+    if (user.workData !== null) {
+      if (user.workData.workSchedule === '12x36') {
+        this.formperson.patchValue({
+          workSchedule: user.workData.workSchedule,
+
+          morningPorter1: user.workData.morningPorter1,
+
+          morningPorter2: user.workData.morningPorter2,
+
+          nigthPorter1: user.workData.nigthPorter1,
+
+          nigthPorter2: user.workData.nigthPorter2,
+
+          janitor: user.workData.janitor,
+        })
+      } else if (user.workData.workSchedule === '5x1') {
+        this.formperson.patchValue({
+          workSchedule: user.workData.workSchedule,
+
+          morningPorter1: user.workData.morningPorter1,
+
+          afternoonPorter1: user.workData.morningPorter1,
+
+          nigthPorter1: user.workData.nigthPorter1,
+
+          janitor: user.workData.janitor,
+
+          extraPorter: user.workData.extraPorter,
+        })
+      }
+      this.formperson.patchValue({
+        name: user.workData.condominium.name,
+
+        addressStreet: user.workData.condominium.addressStreet,
+
+        addressNumber: user.workData.condominium.addressNumber,
+
+        addressDistrict: user.workData.condominium.addressDistrict,
+
+        addressCep: user.workData.condominium.addressCep,
+
+        addressComplement: user.workData.condominium.addressComplement,
+
+        syndic: user.workData.condominium.syndic,
+
+        syndicContact: user.workData.condominium.syndicContact,
+
+        category: user.workData.condominium.category,
+
+        numberOfTowers: user.workData.condominium.numberOfTowers,
+
+        howManyFloors: user.workData.condominium.howManyFloors,
+
+        complement: user.workData.condominium.complement,
+
+        apartmentsPerrFloor: user.workData.condominium.apartmentsPerrFloor,
+
+        howManyApartmentsForLease: user.workData.condominium.howManyApartmentsForLease,
+
+        howManyApartmentsForSale: user.workData.condominium.howManyApartmentsForSale,
+      })
+    }
   }
 
   hideDataEd() {
