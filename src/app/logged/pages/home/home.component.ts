@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
         this.myBalance = success;
       },
       error => {
-        console.log(error)
+        console.error(error)
       }
     );
 

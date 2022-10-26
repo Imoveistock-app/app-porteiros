@@ -183,8 +183,6 @@ export class IndicateComponent implements OnInit {
       owners: this.ownerGroup
     }
 
-    console.log(this.request)
-
     this.propertyIndicationService.register(this.request).subscribe(
       async success => {
         const toast = await this.toastController.create({
