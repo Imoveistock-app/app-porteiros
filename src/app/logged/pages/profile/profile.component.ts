@@ -111,7 +111,6 @@ export class ProfileComponent implements OnInit {
     this.userService.getUser().subscribe(
       success => {
         this.user = success;
-        console.log(success)
         if (this.user?.photo?.location) {
           this.urls.push(this.user.photo.location)
         }
@@ -154,7 +153,6 @@ export class ProfileComponent implements OnInit {
           this.requestPhoto = {
             photo: event.target.result
           };
-          console.log(this.requestPhoto)
           this.userService.editPhoto(this.requestPhoto).subscribe(
             async success => {
               this.userService.getUser().subscribe(

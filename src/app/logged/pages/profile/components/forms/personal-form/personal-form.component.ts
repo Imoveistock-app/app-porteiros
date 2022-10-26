@@ -210,7 +210,7 @@ export class PersonalFormComponent implements OnInit {
             color: 'danger',
           });
           toast.present();
-          console.log(error)
+          console.error(error)
         }
       )
     }

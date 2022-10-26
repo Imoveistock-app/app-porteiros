@@ -200,6 +200,7 @@ export class IndicateComponent implements OnInit {
         this.ownerGroup = [];
 
         this.formIndicate.reset();
+        this.router.navigate(['logged/property-list']);
       },
       async error => {
         const toast = await this.toastController.create({
