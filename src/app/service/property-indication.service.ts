@@ -37,6 +37,12 @@ export class PropertyIndicationService extends BaseService {
             .pipe(map(this.extractData), catchError(this.serviceError));
     }
 
+    listByStatus(dto: PaginateQuerryRequestDto): Observable<ListPropertyIndicationResponseDto[]> {
+        return this.httpClient
+            .get(`${this.url}/status?take=${dto.take}&skip=${dto.skip}&processStatus=${dto.processStatus}`, this.authorizedHeader())
+            .pipe(map(this.extractData), catchError(this.serviceError));
+    }
+
     getBalance(): Observable<BalanceResponseDto> {
         return this.httpClient
             .get(`${this.url}/balance`, this.authorizedHeader())
