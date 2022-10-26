@@ -150,9 +150,7 @@ export class WorkFormComponent implements OnInit {
   // SELECT 
   selectScale = [
     { scale: '12/36' },
-    { scale: '12/24' },
-    { scale: '12/12' },
-    { scale: '6/1' },
+    { scale: '5/1' },
 
 
   ]
