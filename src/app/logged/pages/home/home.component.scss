@@ -7,10 +7,10 @@
 .ion-row-modal{
     margin: 0;
     position: absolute;
-    margin-top: 50% !important;
-    margin-left: 50% !important;
-    -ms-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
+    top: 50% !important;
+    left: 50% !important;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 92%;
     max-width: 600px;
 }
