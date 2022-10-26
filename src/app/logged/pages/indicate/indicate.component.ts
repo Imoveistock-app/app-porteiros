@@ -213,7 +213,8 @@ export class IndicateComponent implements OnInit {
     )
   }
 
-  closeModal() {
-    this.isModalOpen = false;
+  closeModal(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
+
 }

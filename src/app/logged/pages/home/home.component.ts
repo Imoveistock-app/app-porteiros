@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ExtractService } from 'src/app/service/extract.service';
 import { HomeService } from 'src/app/service/home.service';
 import { BalanceResponseDto } from '../../../dtos/balance-response.dto';
 import { PersonalData, UserGetResponseDto } from '../../../dtos/user-get-response.dto';
@@ -11,14 +12,16 @@ import { PropertyIndicationService } from '../../../service/property-indication.
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   infoHome: any[];
   infoBalance: any[];
   infoCards: any[];
   balance = true;
   hideeye = false;
+  closemodalwelcome = true;
+  modalWellcome: any;
 
-  isModalOpen = true;
+
+
   myBalance: BalanceResponseDto = {
     balance: 0
   };
@@ -53,6 +56,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
+    private extractService: ExtractService,
     private router: Router,
     private propertyIndicationService: PropertyIndicationService
   ) { }
@@ -60,7 +64,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.infoHome = this.homeService.home;
     this.infoBalance = this.homeService.balance;
+    this.modalWellcome = this.extractService.indicate;
     this.infoCards = this.homeService.cards;
+
 
     this.user = JSON.parse(localStorage.getItem('userDto'));
 
@@ -77,31 +83,34 @@ export class HomeComponent implements OnInit {
 
 
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
+ 
   changeEye() {
     this.hideeye = !this.hideeye;
     this.balance = !this.balance;
   }
 
-  // Propenso à alterações
   goIndicateProperty() {
     this.router.navigate(['logged/indicate']);
   }
+  closeModal(){
+    this.closemodalwelcome = false;
+    
+  }
 
 
-  // Propenso à alterações
   goExtract() {
     this.router.navigate(['logged/extract']);
   }
 
-  // Propenso à alterações
+  goProfile(){
+    this.router.navigate(['logged/profile']);
+
+  }
+
   goIndicatedProperties() {
     this.router.navigate(['logged/property-list']);
   }
 
-  // Rota ainda não definida
   goMoreSold() {
     this.router.navigate(['#']);
   }

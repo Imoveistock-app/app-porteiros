@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
+
+  private subject = new Subject<any>();
+  bot: any;
+
+  hideModal() {
+    this.subject.next('');
+  }
+
+  gethideModal(): Observable<any> {
+    return this.subject.asObservable();
+  }
 
 
   home = [

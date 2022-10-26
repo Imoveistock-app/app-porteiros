@@ -48,7 +48,7 @@ export class SendCodeComponent implements OnInit {
     this.numberTel = phone;
 
     if(this.numberTel === null) {
-      // this.router.navigate(['auth/insert-tel'])
+      this.router.navigate(['auth/insert-tel'])
     }
   }
 

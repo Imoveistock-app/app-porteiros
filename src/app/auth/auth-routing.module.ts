@@ -6,7 +6,6 @@ import { InsertTelComponent } from './pages/insert-tel/insert-tel.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SendCodeComponent } from './pages/send-code/send-code.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { SplashComponent } from './pages/splash/splash.component';
 
 const routes: Routes = [
   {

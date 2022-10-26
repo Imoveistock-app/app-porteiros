@@ -2,7 +2,7 @@
   <ion-tab-button layout="icon-top"  (click)="selectitem('home')" (click)="home()">
     <ion-img src="../../../assets/icon/house.svg" *ngIf="homeicon" ></ion-img>
     <ion-img src="../../../assets/icon/house-green.svg" *ngIf="homeicongreen" ></ion-img>
-    <ion-label id="home" (click)="selectitem('home')" class="tab-bar-title fw-400 font-size-12 line-15 pt-2 selected">Início</ion-label>
+    <ion-label id="home" class="tab-bar-title fw-400 font-size-12 line-15 pt-2 selected">Início</ion-label>
   </ion-tab-button>
   <ion-tab-button  layout="icon-top" (click)="selectitem('hand')"  (click)="hand()">
     <ion-img src="../../../assets/icon/hand.svg" *ngIf="handicon" ></ion-img>
@@ -19,9 +19,10 @@
     <ion-img src="../../../assets/icon/tiket-green.svg" *ngIf="tiketicongreen" ></ion-img>
     <ion-label id="tiket"class="tab-bar-title fw-400 font-size-12 line-15 pt-2">Extrato</ion-label>
   </ion-tab-button>
+  
   <ion-tab-button layout="icon-top" (click)="selectitem('user')" (click)="user()">
-    <ion-img src="../../../assets/icon/user.svg" *ngIf="usericon" ></ion-img>
-    <ion-img src="../../../assets/icon/user-green.svg" *ngIf="usericongreen" ></ion-img>
+    <ion-img src="../../../assets/icon/user.svg" *ngIf="profileicon" ></ion-img>
+    <ion-img src="../../../assets/icon/user-green.svg" *ngIf="profileicongreen" ></ion-img>
     <ion-label id="user" class="tab-bar-title fw-400 font-size-12 line-15 pt-2">Perfil</ion-label>
   </ion-tab-button>
 </ion-tab-bar>

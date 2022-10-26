@@ -1,0 +1,16 @@
+.ion-grid-modal{
+    z-index: 999999;
+    backdrop-filter: blur(2px);
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.485);
+}
+.ion-row-modal{
+    margin: 0;
+    position: absolute;
+    margin-top: 50% !important;
+    margin-left: 50% !important;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    width: 92%;
+    max-width: 600px;
+}

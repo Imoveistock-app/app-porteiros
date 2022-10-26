@@ -91,14 +91,13 @@
 
 
         <ion-modal [isOpen]="isModalOpen" class="bg-transparent">
-            <ng-template>
-              <ion-row class="row position-absolute bottom-0  py-5 px-3 bg-light">
+              <ion-row class="row position-absolute bottom-0 py-5 px-3 bg-light">
                 <ion-col  class="col-12 text-align-center">
                     <div style=" padding: 13px 16px 8px 14px;" class="border-100 mb-4 bg-white-light w-fit ">
                         <ion-icon class="color-purple font-size-48" name="checkmark-circle-outline"></ion-icon>
                     </div>
                     <ion-text *ngFor="let item of modalIndicate"  class="fw-500 font-size-20 line-24 color-purple">
-                        <p class="m-0">Parabéns</p>
+                        <p class="m-0">Parabéns!</p>
                         <span >{{item.name}}</span>
                     </ion-text> 
                     <ion-text  class="">
@@ -109,12 +108,11 @@
                     </ion-text>
                 </ion-col>
                 <ion-col class="col-12">
-                    <ion-button class="fw-700 font-size-16 line-20 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100" type="button" (click)="confirmIndicate(false)">
+                    <ion-button (click)="closeModal(false)" class="fw-700 font-size-16 line-20 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100" type="button" >
                         Ok, entendi
                     </ion-button>
                 </ion-col>
               </ion-row>
-            </ng-template>
           </ion-modal>
     </ion-content>
 </ion-app>

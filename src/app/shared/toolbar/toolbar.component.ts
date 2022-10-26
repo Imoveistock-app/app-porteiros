@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
 
-  homeicon = false;
-  homeicongreen = true;
+  homeicon = true;
+  homeicongreen = false;
 
   handicon = true;
   handicongreen = false;
@@ -20,8 +20,8 @@ export class ToolbarComponent implements OnInit {
   tiketicon = true;
   tiketicongreen = false;
 
-  usericon = true;
-  usericongreen = false;
+  profileicon = true;
+  profileicongreen = false;
   
 
   constructor(
@@ -40,7 +40,8 @@ export class ToolbarComponent implements OnInit {
 
   home() {
     this.router.navigate(['logged/home']);
-    this.homeicon = false;
+
+  this.homeicon = false;
     this.homeicongreen = true;
   
     this.handicon = true;
@@ -52,15 +53,15 @@ export class ToolbarComponent implements OnInit {
     this.tiketicon = true;
     this.tiketicongreen = false;
   
-    this.usericon = true;
-    this.usericongreen = false;
+    this.profileicon = true;
+    this.profileicongreen = false;
 
+  
 
   }
   hand() {
     this.router.navigate(['logged/indicate']);
-
-    this.homeicon = true;
+      this.homeicon = true;
     this.homeicongreen = false;
   
     this.handicon = false;
@@ -72,14 +73,15 @@ export class ToolbarComponent implements OnInit {
     this.tiketicon = true;
     this.tiketicongreen = false;
   
-    this.usericon = true;
-    this.usericongreen = false;
+    this.profileicon = true;
+    this.profileicongreen = false;
    
+
+  
   }
   star() {
     this.router.navigate(['logged/property-list']);
-  
-
+    
     this.homeicon = true;
     this.homeicongreen = false;
   
@@ -92,14 +94,15 @@ export class ToolbarComponent implements OnInit {
     this.tiketicon = true;
     this.tiketicongreen = false;
   
-    this.usericon = true;
-    this.usericongreen = false;
+    this.profileicon = true;
+    this.profileicongreen = false;
+  
+
    
   }
   tiket() {
     this.router.navigate(['logged/extract']);
-
-    this.homeicon = true;
+          this.homeicon = true;
     this.homeicongreen = false;
   
     this.handicon = true;
@@ -111,14 +114,18 @@ export class ToolbarComponent implements OnInit {
     this.tiketicon = false;
     this.tiketicongreen = true;
   
-    this.usericon = true;
-    this.usericongreen = false;
+    this.profileicon = true;
+    this.profileicongreen = false;
+   
+
+
 
   
   }
   user() {
+    
     this.router.navigate(['logged/profile']);
-    this.homeicon = true;
+          this.homeicon = true;
     this.homeicongreen = false;
   
     this.handicon = true;
@@ -127,12 +134,14 @@ export class ToolbarComponent implements OnInit {
     this.staricon = true;
     this.staricongreen = false;
   
-    this.tiketicon = true;
-    this.tiketicongreen = false;
+    this.tiketicon = false;
+    this.tiketicongreen = true;
   
-    this.usericon = false;
-    this.usericongreen = true;
-
+    this.profileicon = true;
+    this.profileicongreen = false;
+   
+   
     
+   
   }
 }
