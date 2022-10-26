@@ -10,6 +10,7 @@ import { UserEditResponseDto } from "../dtos/user-edit-response.dto";
 import { UserGetResponseDto } from "../dtos/user-get-response.dto";
 import { UserRegisterRequestDto } from "../dtos/user-register-request.dto";
 import { UserRegisterResponseDto } from "../dtos/user-register-response.dto";
+import { UserUpdateWorkDataRequestDto } from "../dtos/user-update-work-data-request.dto";
 import { BaseService } from "./base.service";
 
 @Injectable({
@@ -52,6 +53,12 @@ export class UserService extends BaseService {
     editPersonalData(dto: UserEditPersonalDataRequestDto): Observable<UserGetResponseDto> {
         return this.httpClient
             .patch(`${this.url}/personal-data`, dto, this.authorizedHeader())
+            .pipe(map(this.extractData), catchError(this.serviceError));
+    }
+
+    editWorkData(dto: UserUpdateWorkDataRequestDto): Observable<UserGetResponseDto> {
+        return this.httpClient
+            .patch(`${this.url}/work-data`, dto, this.authorizedHeader())
             .pipe(map(this.extractData), catchError(this.serviceError));
     }
 
