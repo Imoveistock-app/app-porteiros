@@ -138,42 +138,42 @@
         <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
         <select formControlName="category"
           class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectCategory">{{item.category}}</option>
+          <option *ngFor="let item of selectCategory" [value]="item.category">{{item.category}}</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantas torres?</label>
         <select formControlName="numberOfTowers"
           class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos andares?</label>
         <select formControlName="howManyFloors"
           class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Apartamento por andar</label>
         <select formControlName="apartmentsPerrFloor"
           class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para locação?</label>
         <select formControlName="howManyApartmentsForLease"
           class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para venda?</label>
         <select formControlName="howManyApartmentsForSale"
           class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
 
