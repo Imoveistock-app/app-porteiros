@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/service/home.service';
 import { BalanceResponseDto } from '../../../dtos/balance-response.dto';
+import { ListPropertyIndicationResponseDto } from '../../../dtos/list-property-indication-response.dto';
+import { PaginateQuerryRequestDto } from '../../../dtos/paginate-querry-request.dto';
 import { PersonalData, UserGetResponseDto } from '../../../dtos/user-get-response.dto';
 import { PropertyIndicationService } from '../../../service/property-indication.service';
 
@@ -50,6 +52,10 @@ export class HomeComponent implements OnInit {
 
   requestDate: Date = new Date;
 
+  propertyListAll: ListPropertyIndicationResponseDto[];
+
+  paginateQuerryRequest: PaginateQuerryRequestDto;
+
   constructor(
     private homeService: HomeService,
     private router: Router,
@@ -69,6 +75,20 @@ export class HomeComponent implements OnInit {
       },
       error => {
         console.log(error)
+      }
+    );
+
+    this.paginateQuerryRequest = {
+      skip: 0,
+      take: 0
+    }
+
+    this.propertyIndicationService.list(this.paginateQuerryRequest).subscribe(
+      success => {
+        this.propertyListAll = success
+      },
+      error => {
+        console.error(error)
       }
     )
 
@@ -95,9 +115,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['logged/property-list']);
   }
 
-  // Rota ainda não definida
   goMoreSold() {
-    this.router.navigate(['#']);
+    // Rota ainda não definida
   }
 
 }

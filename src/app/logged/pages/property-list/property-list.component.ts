@@ -210,7 +210,7 @@ export class PropertyListComponent implements OnInit {
 
   // Rota ainda não definida
   goMoreSold() {
-    this.router.navigate(['#']);
+    // Rota ainda não definida
   }
 
 }
