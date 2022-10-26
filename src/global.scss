@@ -692,9 +692,6 @@ ion-button {
 }
 
 // PROFILE-PAGE
-ion-segment-button::part(indicator-background) {
-    background: var(--purple);
-}
 
 ion-segment-button.md::part(native) {
     color: var(--bluelight);
@@ -703,16 +700,26 @@ ion-segment-button.md::part(native) {
 .segment-button-checked.md::part(native) {
     color: var(--purple);
 }
-
+.border-bottom-gray-light{
+    border-bottom: 1px solid white;
+}
 
 
 /* iOS styles */
+ion-segment-button.ios::part(indicator-background) {
+    background: var(--purple);
+}
 ion-segment-button.ios::part(native) {
     color: var(--bluelight);
 }
 
 .segment-button-checked.ios::part(native) {
-    color: var(--purple);
+    color: var(--white);
+}
+
+.native-input.sc-ion-input-ios{
+    padding: 0 10px !important;
+    height: 38px;
 }
 
 .camera-icon {
@@ -779,8 +786,3 @@ ion-segment-button.ios::part(native) {
     }
 }
 
-
-// ios
-.native-input.sc-ion-input-ios{
-    padding: 0 !important;
-}

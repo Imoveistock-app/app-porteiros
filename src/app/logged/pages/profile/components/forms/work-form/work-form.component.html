@@ -1,13 +1,18 @@
 <ion-row class="row mx-2 mb-8 mt-4" >
 
   <form [formGroup]="formperson" *ngFor="let item of mokprofile" class="col-12">
-    <ion-text >
+    <ion-text class="ion-justify-content-between w-100 d-flex">
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do trabalho</span>
+      <ion-icon (click)="hideDataWork()"  *ngIf="lesswork" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
+      <ion-icon (click)="showDataWork()" *ngIf="pluswork" class="color-blue-light font-size-28" name="add-circle-outline"></ion-icon>
     </ion-text>
-    <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
-       <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Qual sua escala</label>
-        <ion-input formControlName="scale" [ionMask]="maskScale" type="text" placeholder="número da escala" maxlength="5" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+    <ion-card *ngIf="datawork" class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
+   
+      <ion-text class="d-grid text-left">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Qual sua escala?</label>
+        <select formControlName="scale" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectScale">{{item.scale}}</option>
+        </select>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 1</label>
@@ -57,6 +62,12 @@
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do condomínio</label>
         <ion-input formControlName="namecondominium"  type="text" placeholder="insira o condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      </ion-text>
+      <ion-text class="d-grid">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
+        <select formControlName="category" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectCategory">{{item.category}}</option>
+        </select>  
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Endereço do condomínio</label>
@@ -113,12 +124,7 @@
         <label class="fw-400 font-size-14 line-18 color-blue-light">Contato do sindico</label>
         <ion-input formControlName="contactsyndicate"  type="text" placeholder="insira a endereço do condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
-      <ion-text class="d-grid text-left">
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
-        <select formControlName="category" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectCategory">{{item.category}}</option>
-        </select>
-      </ion-text>
+     
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantas torres?</label>
         <select formControlName="tower" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
@@ -150,7 +156,7 @@
         </select>
       </ion-text>
     
-    </ion-card>
+    </ion-card> 
 
     <ion-button  (click)="confirmCode(true)" class="bg-greenpool box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple" type="submit">
       <span *ngIf="continued" >Salvar alterações </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>

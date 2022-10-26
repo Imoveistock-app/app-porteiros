@@ -168,7 +168,7 @@ export class PersonalFormComponent implements OnInit {
 
   async confirm() {
 
-
+   
     if ((this.formperson.controls.name.value !== this.user.name || this.formperson.controls.phone.value.replace(/\D/g, '') !== this.user.phone.slice(2, 13) || this.formperson.controls.cpf.value.replace(/\D/g, '') !== this.user.cpf && this.formperson.controls.birthdate.value !== this.dateFormated || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber)) {
 
       this.editUserComplete();
@@ -214,6 +214,8 @@ export class PersonalFormComponent implements OnInit {
         }
       )
     }
+
+  
   }
 
   editUserComplete() {
@@ -333,6 +335,8 @@ export class PersonalFormComponent implements OnInit {
   }
 
 
+
+
   setOpen(isOpen: boolean) {
     this.isModalConfirm = isOpen;
   }
@@ -345,26 +349,20 @@ export class PersonalFormComponent implements OnInit {
   }
 
   setOpenModalOk(isOpen: boolean) {
-    this.isModalOk = isOpen;
+   this.isModalOk = isOpen
   }
 
-  setCloseModalOk(isOpen: boolean) {
+  setCloseModalOk(isOpen: boolean){
+    // close modal
     this.isModalOk = isOpen;
     setTimeout(() => {
       this.perfilService.getOutEditPerson();
-    }, 100)
-
+    }, 100) 
   }
 
-  confirmCode(isOpen: boolean) {
-    this.continued = false;
-    this.spinnload = true;
-    setTimeout(() => {
-      this.isModalConfirm = isOpen;
-      this.continued = true;
-      this.spinnload = false;
-    }, 700);
 
+  confirmCode(isOpen: boolean) {
+      this.isModalConfirm = isOpen;
   }
 
 }

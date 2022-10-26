@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
   hideeye = false;
   closemodalwelcome = true;
   modalWellcome: any;
-
+  // ?
+  cardindicate = true;
 
 
   myBalance: BalanceResponseDto = {

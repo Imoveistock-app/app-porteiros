@@ -98,10 +98,10 @@ export class ProfileComponent implements OnInit {
       this.cameraprofile = false;
       this.backeditprofile = false;
       this.editprofile = true;
-      this.personaldata = false;
+      this.personaldata = true;
       this.personalform = false;
       this.workform = false;
-      this.workdata = true;
+      this.workdata = false;
     });
   }
 

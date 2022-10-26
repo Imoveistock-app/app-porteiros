@@ -218,7 +218,7 @@
     "uuid" "8.3.2"
     "yargs" "17.5.1"
 
-"@angular/common@^14.0.0", "@angular/common@>= 12.x.x", "@angular/common@14.2.5":
+"@angular/common@^14.0.0", "@angular/common@>= 12.x.x", "@angular/common@>=13.0.0", "@angular/common@14.2.5":
   "integrity" "sha512-v2fIK6imfMkUvYNjZQO+drE39QO3eSS95Yy7UN+6inb47DkAfzx6hipA9zKrMENjsS3kDv1d7cgDHE7WuOCzIw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-14.2.5.tgz"
   "version" "14.2.5"
@@ -248,7 +248,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^14.0.0", "@angular/core@>= 12.x.x", "@angular/core@>=12.0.0", "@angular/core@14.2.5":
+"@angular/core@^14.0.0", "@angular/core@>= 12.x.x", "@angular/core@>=12.0.0", "@angular/core@>=13.0.0", "@angular/core@14.2.5":
   "integrity" "sha512-Ok78Abq0puMGlolvNVzKFvsX7ePDkyxpZzztDzXDdRA4x4o6bAuuDG9Y7Wab2+wsdY6NktO+dFQjq1UBWClgSg=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-14.2.5.tgz"
   "version" "14.2.5"
@@ -6014,6 +6014,13 @@
   "version" "13.0.3"
   dependencies:
     "tslib" ">= 2.3.0"
+
+"ngx-pagination@^6.0.2":
+  "integrity" "sha512-7N4FA244ls7h/977EqvcDXuyB/U5rPJI+FD0Zj9orrXb+kX2SOX0WP+yQw50Gm/Dy9aPOE91FkgoYzGyRSPY0A=="
+  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-6.0.2.tgz"
+  "version" "6.0.2"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "node-addon-api@^3.2.1":
   "integrity" "sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A=="
