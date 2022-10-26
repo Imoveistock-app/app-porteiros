@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import ptBr from '@angular/common/locales/pt';
@@ -26,6 +26,7 @@ import { PersonalDataComponent } from './pages/profile/components/view/personal-
 import { WorkDataComponent } from './pages/profile/components/view/work-data/work-data.component';
 import { WorkFormComponent } from './pages/profile/components/forms/work-form/work-form.component';
 import { PersonalFormComponent } from './pages/profile/components/forms/personal-form/personal-form.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 registerLocaleData(ptBr);
 
@@ -56,12 +57,16 @@ registerLocaleData(ptBr);
     LoggedPageRoutingModule,
     HttpClientModule,
     CurrencyMaskModule,
+    NgxPaginationModule,
   ],
   providers: [
     CepService,
     PropertyIndicationService,
     UserService,
     { provide: LOCALE_ID, useValue: 'pt' },
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ]
   
 })

@@ -50,8 +50,6 @@ export class PersonalDataComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('userDto'));
 
-    console.log(this.user?.personalData?.birthDate)
-
   }
 
 

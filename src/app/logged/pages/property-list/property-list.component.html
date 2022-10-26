@@ -12,8 +12,7 @@
         </ion-text>
       </ion-col>
       <ion-col class="col-2">
-        <ion-img (click)="setOpen(true)" src="../../../assets/icon/filter.svg"
-          class="h-21"></ion-img>
+        <ion-img (click)="setOpen(true)" src="../../../assets/icon/filter.svg" class="h-21"></ion-img>
         <ion-modal [isOpen]="isModalOpen" class="bg-transparent">
           <ng-template>
             <form [formGroup]="form" class="ion-padding bg-light border-10
@@ -24,28 +23,23 @@
                 </span>
               </ion-text>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputEveryone"
-                  formControlName="inputEveryone"
-                 
-                  type="checkbox" value="" id="confirmFilterAll">
+                <input class="form-check-input InputEveryone" formControlName="filter" type="radio" value="all"
+                  id="confirmFilterAll">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterAll">
                   Todos
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input
-                  formControlName="inputAnalysis" class="InputAnalysis
-                  form-check-input" type="checkbox" value=""
-                  id="confirmFilterAnalysis">
+                <input formControlName="filter" class="InputAnalysis
+                  form-check-input" type="radio" value="underAnalysis" id="confirmFilterAnalysis">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterAnalysis">
                   Em análise
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputProgress"
-                  formControlName="inputProgress" type="checkbox" value=""
+                <input class="form-check-input InputProgress" formControlName="filter" type="radio" value="inProgress"
                   id="confirmFilterProgress">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterProgress">
@@ -53,17 +47,15 @@
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputDisapproved"
-                  formControlName="inputDisapproved" type="checkbox" value=""
-                  id="confirmFilterDisapproved">
+                <input class="form-check-input InputDisapproved" formControlName="filter" type="radio"
+                  value="disapproved" id="confirmFilterDisapproved">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterDisapproved">
                   Reprovado
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputAproved"
-                  formControlName="inputApproved" type="checkbox" value=""
+                <input class="form-check-input InputAproved" formControlName="filter" type="radio" value="approved"
                   id="confirmFilterApproved">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterApproved">
@@ -72,7 +64,7 @@
               </div>
               <ion-row class="row mt-5">
                 <ion-col class="col-12">
-                  <ion-button (click)="setOpen(false)" (click)="handlerFillter()" class="bg-greenpool
+                  <ion-button (click)="handlerFillter()" class="bg-greenpool
                     box-shadow-none modal-grid border-10 h-51
                     ion-align-items-center color-purple fw-500 font-size-16
                     line-20" type="button">
@@ -101,76 +93,82 @@
             aplicados</span>
         </ion-text>
       </ion-col>
-      <ion-col class="col-12">
+      <!-- <ion-col class="col-12">
         <form [formGroup]="form">
           <ul class="d-flex overflow-scroll m-0 p-0 mx-2
             ion-align-items-center">
             <li class="list-group-item border-none p-0 px-2 bg-transparent">
-              <ion-button
-                type="button"
-                *ngIf="formControl['inputEveryone'].value === true"
-             
+              <ion-button type="button" *ngIf="formControl['inputEveryone'].value === true"
                 class="box-shadow-none btn-filter">
-                Todas <ion-icon  name="close-outline"></ion-icon>
+                Todas <ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </li>
             <li class="list-group-item border-none p-0 px-2 bg-transparent">
-              <ion-button type="button"
-                *ngIf="formControl['inputAnalysis'].value === true"
+              <ion-button type="button" *ngIf="formControl['inputAnalysis'].value === true"
                 class="box-shadow-none btn-filter">
-                Em Análise <ion-icon  name="close-outline"></ion-icon>
+                Em Análise <ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </li>
             <li class="list-group-item border-none p-0 px-2 bg-transparent">
-              <ion-button type="button"
-                *ngIf="formControl['inputProgress'].value === true"
+              <ion-button type="button" *ngIf="formControl['inputProgress'].value === true"
                 class="box-shadow-none btn-filter">
-                Em Andamento <ion-icon  name="close-outline"></ion-icon>
+                Em Andamento <ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </li>
             <li class="list-group-item border-none p-0 px-2 bg-transparent">
-              <ion-button type="button"
-                *ngIf="formControl['inputDisapproved'].value === true"
+              <ion-button type="button" *ngIf="formControl['inputDisapproved'].value === true"
                 class="box-shadow-none btn-filter">
-                Reprovado<ion-icon  name="close-outline"></ion-icon>
+                Reprovado<ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </li>
             <li class="list-group-item border-none p-0 px-2 bg-transparent">
-              <ion-button type="button"
-                *ngIf="formControl['inputApproved'].value === true"
+              <ion-button type="button" *ngIf="formControl['inputApproved'].value === true"
                 class="box-shadow-none btn-filter">
-                Aprovado<ion-icon  name="close-outline"></ion-icon>
+                Aprovado<ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </li>
 
           </ul>
         </form>
 
-      </ion-col>
+      </ion-col> -->
     </ion-row>
     <ion-row class="row mx-2 mb-5 mt-3">
       <ion-col class="col-12">
-        <ion-card *ngFor="let item of infoCardsFilter"
-          (click)="showcard(item.id)" class="bg-light border-10
+        <ion-card *ngFor="let item of propertyListAll?.result | paginate: { itemsPerPage: 3, currentPage:pagination}" class="bg-light border-10
           mb-4">
 
           <ion-text class="d-flex px-3 pt-4 ion-justify-content-between">
             <p class="d-grid w-auto text-left">
-              <b class="text-align-left fw-700 color-blue font-size-18
-                line-24">{{item.type}}</b>
+              <b *ngIf="item.itsLeasing" class="text-align-left fw-700 color-blue font-size-18
+                line-24">Aluguel</b>
+              <b *ngIf="item.itsSale" class="text-align-left fw-700 color-blue font-size-18
+                line-24">Venda</b>
             </p>
-            <strong class="w-auto {{item.statustype}} h-fit status-type fw-400
-              text-left font-size-14 line-18">
-              {{item.status}}
-            </strong>
+            <div *ngIf="item.processStatus === 'underAnalysis'" class="status-property-list-underAnalysis">
+              <span>Em Analise</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'disapproved'" class="status-property-list-disapproved">
+              <span>Reprovado</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'approved'" class="status-property-list-approved">
+              <span>Aprovado</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'inProgress'" class="status-property-list-inProgress">
+              <span>Em andamento</span>
+            </div>
           </ion-text>
           <ion-row class="row">
             <ion-col class="col-8">
               <ion-text class="d-flex px-3 text-left">
                 <span class="fw-400 color-blue text-left font-size-16
-                  line-20">
-                  {{item.PersonName}}
+                  line-20 ion-text-capitalize">
+                  {{item.owners[0].name}}
                 </span>
+
               </ion-text>
             </ion-col>
             <ion-col class="col-4 ">
@@ -179,20 +177,18 @@
                   Data
                 </span>
                 <span class="fw-400 color-blue-light font-size-12
-                line-15" *ngFor="let
-                item of infoBalance">{{ item.datecard | slice:0:2
-                }}/{{ item.datecard | slice:2:4 }}/{{ item.datecard | slice:4:8 }}</span>
+                line-15">{{ item.owners[0].createdAt | date: 'dd/MM/yyyy'}}</span>
               </ion-text>
             </ion-col>
           </ion-row>
           <ion-text class="d-grid px-3 text-left">
             <span class="fw-400 color-blue-light text-left font-size-12
               line-15">
-              {{item.localName}}
+              {{item.address}}
             </span>
             <span class="fw-400 color-blue-light text-left font-size-12
               line-15">
-              {{item.localDetails}}
+              {{item.complement}}
             </span>
           </ion-text>
           <ion-row class="row mt-2">
@@ -201,7 +197,7 @@
                 <span class="fw-400 color-blue text-left font-size-16 line-20">
                   Tipo de negócio
                 </span>
-                <span class="fw-400 color-blue-light font-size-12 line-15">{{item.Typebusiness}}</span>
+                <span class="fw-400 color-blue-light font-size-12 line-15">Direta ou Parceria</span>
               </ion-text>
             </ion-col>
             <ion-col class="col-4 ">
@@ -210,19 +206,16 @@
                   Receber
                 </span>
                 <span class="fw-400 color-blue-light font-size-12 line-15">
-                  R$ {{ item.Value |
-                  slice:0:3 }},{{ item.Value | slice:3:5}}</span>
+                  {{item.indicationValue | currency: 'R$'}}</span>
               </ion-text>
             </ion-col>
           </ion-row>
-          <ion-row *ngIf="item.status === 'Reprovado' && handler(item.id)"
-            class="row">
+          <!-- <ion-row *ngIf="item.status === 'Reprovado' && handler(item.id)" class="row">
             <ion-col class="col-12">
               <ion-grid style="background-color: #FFF4F8;" class="modal-grid
                 transition-updown h-110 p-3 my-2 border-10">
                 <ion-text class="w-100 d-flex ion-align-items-center">
-                  <ion-icon color="danger" class="mx-2 font-size-28"
-                    name="close-circle-outline"></ion-icon>
+                  <ion-icon color="danger" class="mx-2 font-size-28" name="close-circle-outline"></ion-icon>
                   <ion-text class="d-grid">
                     <span class="fw-700 font-size-12 color-cherry line-15">
                       Ops!
@@ -243,21 +236,19 @@
               </ion-grid>
             </ion-col>
             <ion-col class="col-12 text-center mt-2">
-              <ion-text >
+              <ion-text>
                 <span class="fw-400 font-size-12 color-blue-light line-15">
                   Esse imóvel sairá da sua lista em até 3 dias úteis
                 </span>
               </ion-text>
             </ion-col>
           </ion-row>
-          <ion-row *ngIf="item.status === 'Aprovado' && handler(item.id)"
-            class="row">
+          <ion-row *ngIf="item.status === 'Aprovado' && handler(item.id)" class="row">
             <ion-col class="col-12">
               <ion-grid style="background-color: #F2FFF5;" class="modal-grid
                 transition-updown h-110 p-3 my-2 border-10">
                 <ion-text class="w-100 d-flex ion-align-items-center">
-                  <ion-icon color="success" class="mx-2 font-size-28"
-                    name="checkmark-circle-outline"></ion-icon>
+                  <ion-icon color="success" class="mx-2 font-size-28" name="checkmark-circle-outline"></ion-icon>
                   <ion-text class="d-grid">
                     <span class="fw-700 font-size-14 text-success line-15">
                       Parabéns!
@@ -278,31 +269,35 @@
               </ion-grid>
             </ion-col>
             <ion-col class="col-12 text-center mt-2">
-              <ion-text >
+              <ion-text>
                 <span class="fw-400 font-size-12 color-blue-light line-15">
                   Esse imóvel sairá da sua lista em até 3 dias úteis
                 </span>
               </ion-text>
             </ion-col>
-          </ion-row>
+          </ion-row> -->
 
           <div class="bg-gray-light">
             <ion-text (click)="goMoreSold()" class="ion-align-items-center px-3 py-2 mt-3 d-flex">
-              <ion-icon class="color-blue font-size-22"
-                name="add-circle-outline"></ion-icon>
+              <ion-icon class="color-blue font-size-22" name="add-circle-outline"></ion-icon>
               <h6 class="fw-400 m-0 color-blue text-left font-size-14 line-18">&nbsp;
                 Ver mais</h6>
             </ion-text>
           </div>
         </ion-card>
-        <div class="text-dark" *ngIf="infoCardsFilter.length === 0">
+        <div class="text-dark" *ngIf="propertyListAll?.count === 0">
           <ion-text class="text-align-center ">
-            <h1 class="fw-400 pt-2 w-100 m-0 color-blue text-left font-size-18 line-24">Nenhum resultado encontrado <br/> selecione um filtro por favor!</h1>
+            <h1 class="fw-400 pt-2 w-100 m-0 color-blue text-left font-size-18 line-24">Nenhum resultado encontrado
+              <br /> selecione um filtro por favor!
+            </h1>
           </ion-text>
-          <ion-img src="../../../../assets/img/notfound.png" ></ion-img>
+          <ion-img src="../../../../assets/img/notfound.png"></ion-img>
         </div>
       </ion-col>
-
     </ion-row>
+    <div *ngIf="propertyListAll?.count > 3" class="d-flex ion-align-items-center ion-justify-content-center mb-5 pb-5">
+      <pagination-controls class="paginator" previousLabel="Prev" nextLabel="Next" (pageChange)="pagination = $event;">
+      </pagination-controls>
+    </div>
   </ion-content>
 </ion-app>

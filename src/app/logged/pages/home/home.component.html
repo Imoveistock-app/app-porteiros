@@ -118,25 +118,40 @@
     </ion-text>
     <ion-row class="row mx-2 mb-5 mt-3">
       <ion-col class="col-12">
-        <ion-card *ngFor="let item of infoCards" class="bg-light border-10
-            mb-4">
+        <ion-card *ngFor="let item of propertyListAll?.result | slice:0:2" class="bg-light border-10
+          mb-4">
+
           <ion-text class="d-flex px-3 pt-4 ion-justify-content-between">
             <p class="d-grid w-auto text-left">
-              <b class="text-align-left fw-700 color-blue font-size-18
-                  line-24">{{item.type}}</b>
+              <b *ngIf="item.itsLeasing" class="text-align-left fw-700 color-blue font-size-18
+                line-24">Aluguel</b>
+              <b *ngIf="item.itsSale" class="text-align-left fw-700 color-blue font-size-18
+                line-24">Venda</b>
             </p>
-            <strong class="w-auto {{item.statustype}} h-fit status-type fw-400
-                text-left font-size-14 line-18">
-              {{item.status}}
-            </strong>
+            <div *ngIf="item.processStatus === 'underAnalysis'" class="status-property-list-underAnalysis">
+              <span>Em Analise</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'disapproved'" class="status-property-list-disapproved">
+              <span>Reprovado</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'approved'" class="status-property-list-approved">
+              <span>Aprovado</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'inProgress'" class="status-property-list-inProgress">
+              <span>Em andamento</span>
+            </div>
           </ion-text>
           <ion-row class="row">
             <ion-col class="col-8">
               <ion-text class="d-flex px-3 text-left">
                 <span class="fw-400 color-blue text-left font-size-16
-                    line-20">
-                  {{item.PersonName}}
+                  line-20 ion-text-capitalize">
+                  {{item.owners[0].name}}
                 </span>
+
               </ion-text>
             </ion-col>
             <ion-col class="col-4 ">
@@ -145,20 +160,18 @@
                   Data
                 </span>
                 <span class="fw-400 color-blue-light font-size-12
-                  line-15" *ngFor="let
-                  item of infoBalance">{{ item.datecard | slice:0:2
-                  }}/{{ item.datecard | slice:2:4 }}/{{ item.datecard | slice:4:8 }}</span>
+                line-15">{{ item.owners[0].createdAt | date: 'dd/MM/yyyy'}}</span>
               </ion-text>
             </ion-col>
           </ion-row>
           <ion-text class="d-grid px-3 text-left">
             <span class="fw-400 color-blue-light text-left font-size-12
-                line-15">
-              {{item.localName}}
+              line-15">
+              {{item.address}}
             </span>
             <span class="fw-400 color-blue-light text-left font-size-12
-                line-15">
-              {{item.localDetails}}
+              line-15">
+              {{item.complement}}
             </span>
           </ion-text>
           <ion-row class="row mt-2">
@@ -167,7 +180,7 @@
                 <span class="fw-400 color-blue text-left font-size-16 line-20">
                   Tipo de negócio
                 </span>
-                <span class="fw-400 color-blue-light font-size-12 line-15">{{item.Typebusiness}}</span>
+                <span class="fw-400 color-blue-light font-size-12 line-15">Direta ou Parceria</span>
               </ion-text>
             </ion-col>
             <ion-col class="col-4 ">
@@ -176,17 +189,82 @@
                   Receber
                 </span>
                 <span class="fw-400 color-blue-light font-size-12 line-15">
-                  R$ {{ item.Value |
-                  slice:0:3 }},{{ item.Value | slice:3:5}}</span>
+                  {{item.indicationValue | currency: 'R$'}}</span>
               </ion-text>
             </ion-col>
           </ion-row>
+          <!-- <ion-row *ngIf="item.status === 'Reprovado' && handler(item.id)" class="row">
+            <ion-col class="col-12">
+              <ion-grid style="background-color: #FFF4F8;" class="modal-grid
+                transition-updown h-110 p-3 my-2 border-10">
+                <ion-text class="w-100 d-flex ion-align-items-center">
+                  <ion-icon color="danger" class="mx-2 font-size-28" name="close-circle-outline"></ion-icon>
+                  <ion-text class="d-grid">
+                    <span class="fw-700 font-size-12 color-cherry line-15">
+                      Ops!
+                    </span>
+                    <span class="fw-400 font-size-12 color-cherry line-15">
+                      Sua indicação foi reprovada!
+                    </span>
+                  </ion-text>
+                </ion-text>
+                <ion-text class="w-100 mx-2">
+                  <p class="fw-400 m-0 mx-2 p-0 font-size-12 color-purple
+                    line-15">
+                    O proprietário finalizou a venda com outra imobiliária
+                  </p>
+                </ion-text>
+
+
+              </ion-grid>
+            </ion-col>
+            <ion-col class="col-12 text-center mt-2">
+              <ion-text>
+                <span class="fw-400 font-size-12 color-blue-light line-15">
+                  Esse imóvel sairá da sua lista em até 3 dias úteis
+                </span>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="item.status === 'Aprovado' && handler(item.id)" class="row">
+            <ion-col class="col-12">
+              <ion-grid style="background-color: #F2FFF5;" class="modal-grid
+                transition-updown h-110 p-3 my-2 border-10">
+                <ion-text class="w-100 d-flex ion-align-items-center">
+                  <ion-icon color="success" class="mx-2 font-size-28" name="checkmark-circle-outline"></ion-icon>
+                  <ion-text class="d-grid">
+                    <span class="fw-700 font-size-14 text-success line-15">
+                      Parabéns!
+                    </span>
+                    <span class="fw-400 font-size-12 text-success line-15">
+                      Sua indicação foi aprovada!
+                    </span>
+                  </ion-text>
+                </ion-text>
+                <ion-text class="w-100 mx-2">
+                  <p class="fw-400 m-0 mx-2 p-0 font-size-12 color-purple
+                    line-15">
+                    Valor disponível no saldo <b>R$150,00</b>
+                  </p>
+                </ion-text>
+
+
+              </ion-grid>
+            </ion-col>
+            <ion-col class="col-12 text-center mt-2">
+              <ion-text>
+                <span class="fw-400 font-size-12 color-blue-light line-15">
+                  Esse imóvel sairá da sua lista em até 3 dias úteis
+                </span>
+              </ion-text>
+            </ion-col>
+          </ion-row> -->
 
           <div class="bg-gray-light">
             <ion-text (click)="goMoreSold()" class="ion-align-items-center px-3 py-2 mt-3 d-flex">
               <ion-icon class="color-blue font-size-22" name="add-circle-outline"></ion-icon>
-              <h6 class="fw-400 m-0 color-blue text-left font-size-14
-                  line-18">&nbsp; Ver mais</h6>
+              <h6 class="fw-400 m-0 color-blue text-left font-size-14 line-18">&nbsp;
+                Ver mais</h6>
             </ion-text>
           </div>
         </ion-card>
