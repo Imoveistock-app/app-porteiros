@@ -22,7 +22,11 @@ export class PersonalFormComponent implements OnInit {
   lessbank = true;
   plusbank = false;
   databank = true;
+  continued = true;
+  spinnload = false;
 
+  isModalConfirm: boolean = false;
+  isModalOk: boolean = false;
   stateSelected: string;
   cities: any[];
   states: any[];
@@ -32,11 +36,7 @@ export class PersonalFormComponent implements OnInit {
   public maskCpf: Array<any> = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
   public maskTel: Array<any> = ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public maskCurrent: Array<any> = [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/];
-  continued = true;
-  spinnload = false;
 
-  isModalConfirm: boolean = false;
-  isModalOk: boolean = false;
 
   user: UserGetResponseDto = {
     cpf: '',
@@ -166,9 +166,13 @@ export class PersonalFormComponent implements OnInit {
     this.cities = cities(this.stateSelected);
   }
 
-  async confirm() {
+  async confirm(isOpen: boolean) {
+    this.isModalOk = isOpen;
 
-
+    setTimeout(() => {
+      this.perfilService.getOutEditPerson();
+    }, 100)
+    
     if ((this.formperson.controls.name.value !== this.user.name || this.formperson.controls.phone.value.replace(/\D/g, '') !== this.user.phone.slice(2, 13) || this.formperson.controls.cpf.value.replace(/\D/g, '') !== this.user.cpf && this.formperson.controls.birthdate.value !== this.dateFormated || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber)) {
 
       this.editUserComplete();
@@ -348,23 +352,8 @@ export class PersonalFormComponent implements OnInit {
     this.isModalOk = isOpen;
   }
 
-  setCloseModalOk(isOpen: boolean) {
-    this.isModalOk = isOpen;
-    setTimeout(() => {
-      this.perfilService.getOutEditPerson();
-    }, 100)
 
-  }
 
-  confirmCode(isOpen: boolean) {
-    this.continued = false;
-    this.spinnload = true;
-    setTimeout(() => {
-      this.isModalConfirm = isOpen;
-      this.continued = true;
-      this.spinnload = false;
-    }, 700);
 
-  }
 
 }

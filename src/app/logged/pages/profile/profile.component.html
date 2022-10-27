@@ -1,15 +1,22 @@
 <ion-app>
   <ion-content [fullscreen]="true" class="bg-gray-light">
     <ion-row class="row">
-      <ion-col class="col-12 ion-justify-content-between mb-3 d-flex ion-align-items-center">
-        <br />
-        <br />
-        <ion-text class="w-100 pl-3 text-center">
-          <span class="fw-500 font-size-20 line-23 color-purple">Perfil</span>
-        </ion-text>
-        <div class="my-4 w-27px mx-3">
-          <ion-img class="" src="../../../../assets/icon/edit.svg" (click)="editProfile()"></ion-img>
-        </div>
+      <ion-col class="col-12 ">
+        <ion-row class="row-cols-auto h-51 ion-align-items-center">
+          <ion-col (click)="backEdit()" class="col-2 text-align-center">
+            <ion-icon *ngIf="backeditprofile" class="color-purple font-size-20" name="chevron-back-outline"></ion-icon>
+          </ion-col>
+          <ion-col class="col-8 text-align-center">
+            <ion-text>
+              <span class="fw-500 font-size-20 line-23 color-purple">Perfil</span>
+            </ion-text>
+          </ion-col>
+          <ion-col class="col-2">
+            <div class="w-27px mx-3">
+              <ion-img *ngIf="editprofile" class="" src="../../../../assets/icon/edit.svg" (click)="editProfile()"></ion-img>
+            </div>
+          </ion-col>
+        </ion-row>
       </ion-col>
       <ion-col class="col-12 px-4">
         <div class="header-profile position-relative">
@@ -33,17 +40,17 @@
           </form>
         </div>
       </ion-col>
-      <ion-col class="col-12 px-4">
-        <ion-segment *ngIf="changedataprofile">
+      <ion-col class="col-12 px-4 pt-5 pt-2">
+        <ion-segment class="border-bottom-gray-light" *ngIf="changedataprofile">
           <ion-segment-button (click)="personalPage()" value="personal"
             class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
           <ion-segment-button (click)="workPage()" value="work" class="font-size-14 line-18 text-transform-none">Dados
             do trabalho</ion-segment-button>
         </ion-segment>
-        <ion-segment *ngIf="changedataprofileedit">
-          <ion-segment-button (click)="personalPageEdit()" value="personal"
+        <ion-segment  class="border-bottom-gray-light"*ngIf="changedataprofileedit">
+          <ion-segment-button (click)="changePageEdit('personal')" value="personal"
             class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
-          <ion-segment-button (click)="workPageEdit()" value="work" class="font-size-14 line-18 text-transform-none">
+          <ion-segment-button (click)="changePageEdit('work')" value="work" class="font-size-14 line-18 text-transform-none">
             Dados do trabalho</ion-segment-button>
         </ion-segment>
       </ion-col>
@@ -53,14 +60,14 @@
         <app-work-form *ngIf="workform"></app-work-form>
         <app-personal-form *ngIf="personalform"></app-personal-form>
       </ion-col>
-      <ion-col class="col-12 mt-4 mb-5 px-4">
+      <ion-col *ngIf="geralzone" class="col-12 mt-4 mb-5 px-4">
 
         <ion-text class="px-3">
           <span class="fw-600 pb-3 font-size-20 color-purple line-20">Geral</span>
         </ion-text>
         <ion-card class="border-10 box-shadow-none mt-3 mb-5 mx-2 bg-white py-4 px-2">
 
-          <ion-item (click)="goAbout()" class="bg-white box-shadow-none line-bottom-graylight" lines="none">
+          <ion-item (click)="goAbout()" class="bg-white my-3 box-shadow-none" lines="none">
             <ion-icon name="cube-outline" class="color-purple font-size-20" slot="start"></ion-icon>
             <ion-label class="px-2">
               <span class="fw-600 font-size-16 color-purple line-20">Sobre</span>
@@ -68,7 +75,7 @@
             <ion-icon name="caret-forward-outline" class="color-purple font-size-16" slot="end"></ion-icon>
           </ion-item>
 
-          <ion-item (click)="goPrivacyPolicy()" class="bg-white my-2 box-shadow-none line-bottom-graylight"
+          <ion-item (click)="goPrivacyPolicy()" class="bg-white my-3  box-shadow-none"
             lines="none">
             <ion-icon name="shield-checkmark-outline" class="color-purple font-size-20" slot="start"></ion-icon>
             <ion-label class="px-2">
@@ -77,7 +84,7 @@
             <ion-icon name="caret-forward-outline" class="color-purple font-size-16" slot="end"></ion-icon>
           </ion-item>
 
-          <ion-item (click)="goTermsConditions()" class="bg-white box-shadow-none " lines="none">
+          <ion-item (click)="goTermsConditions()" class="bg-white my-3 box-shadow-none " lines="none">
             <ion-icon name="document-outline" class="color-purple font-size-20" slot="start"></ion-icon>
             <ion-label class="px-2">
               <span class="fw-600 font-size-16 color-purple line-20">Termos e condições</span>
@@ -113,6 +120,6 @@
           </ion-card>
         </ng-template>
       </ion-modal>
-    </ion-row>
+    </ion-row> 
   </ion-content>
-</ion-app>
+</ion-app> 

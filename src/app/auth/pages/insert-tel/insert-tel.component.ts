@@ -41,7 +41,7 @@ export class InsertTelComponent implements OnInit {
 
   insertTel(value) {
 
-    let phone = value.replace(/\D/g, '')
+    let phone = value.target.value.replace(/\D/g, '')
 
     if (phone.length === 11) {
       this.componentPopup = true;
