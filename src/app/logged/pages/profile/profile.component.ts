@@ -108,17 +108,17 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.mokprofile = this.perfilService.card;
 
-    // this.userService.getUser().subscribe(
-    //   success => {
-    //     this.user = success;
-    //     if (this.user?.photo?.location) {
-    //       this.urls.push(this.user.photo.location)
-    //     }
-    //   },
-    //   error => {
-    //     console.error(error)
-    //   }
-    // );
+    this.userService.getUser().subscribe(
+      success => {
+        this.user = success;
+        if (this.user?.photo?.location) {
+          this.urls.push(this.user.photo.location)
+        }
+      },
+      error => {
+        console.error(error)
+      }
+    );
   }
 
   openModalLogout() {
