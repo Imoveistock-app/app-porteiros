@@ -1,99 +1,100 @@
-<ion-row class="row mx-2 mb-8 mt-4" >
+<ion-row class="row mx-2 mb-8 mt-4">
 
   <form [formGroup]="formwork" *ngFor="let item of mokprofile" class="col-12">
-    <ion-text class="ion-justify-content-between w-100 d-flex">
+    <ion-text>
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do trabalho</span>
       <ion-icon (click)="hideDataWork()"  *ngIf="lesswork" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
       <ion-icon (click)="showDataWork()" *ngIf="pluswork" class="color-blue-light font-size-28" name="add-circle-outline"></ion-icon>
     </ion-text>
-    <ion-card *ngIf="datawork" class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
-   
-      <ion-text class="d-grid text-left">
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Qual sua escala?</label>
-        <select formControlName="scale" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectScale">{{item.scale}}</option>
+    <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
+      <ion-text>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Qual sua escala</label>
+        <select class="form-select select-custom" formControlName="workSchedule">
+          <option selected value="" disabled class="mt-3">Selecione</option>
+          <option value="12x36">12x36</option>
+          <option value="5x1">5x1</option>
         </select>
       </ion-text>
-      <ion-text class="d-grid text-left">
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Função</label>
-        <select formControlName="scale" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectScale">{{item.scale}}</option>
-        </select>
-      </ion-text>
-      <ion-text >
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 1</label>
-        <ion-input formControlName="conciergeday1"  type="text" placeholder="insira o porteiro da manhã 1" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="morningPorter1" type="text" placeholder="insira o porteiro da manhã 1"
+          maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10">
+        </ion-input>
       </ion-text>
-      <ion-text >
+      <ion-text *ngIf="this.formwork.controls['workSchedule'].value === '12x36'">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro manhã 2</label>
-        <ion-input formControlName="conciergeday2"  type="text" placeholder="insira o porteiro da manhã 2" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="morningPorter2" type="text" placeholder="insira o porteiro da manhã 2"
+          maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10">
+        </ion-input>
       </ion-text>
-      <ion-text >
+      <ion-text *ngIf="this.formwork.controls['workSchedule'].value === '5x1'">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro tarde</label>
+        <ion-input formControlName="afternoonPorter1" type="text" placeholder="insira Porteiro tarde" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      </ion-text>
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro noite 1</label>
-        <ion-input formControlName="conciergenight1"  type="text" placeholder="insira o Porteiro noite 1" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="nigthPorter1" type="text" placeholder="insira o Porteiro noite 1" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
-      <ion-text >
+      <ion-text *ngIf="this.formwork.controls['workSchedule'].value === '12x36'">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Porteiro noite 2</label>
-        <ion-input formControlName="conciergenight2"  type="text" placeholder="insira Porteiro noite 2" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="nigthPorter2" type="text" placeholder="insira Porteiro noite 2" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
-      <ion-text >
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">Zelador</label>
-        <ion-input formControlName="caretaker"  type="text" placeholder="insira o Zelador" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="janitor" type="text" placeholder="insira o Zelador" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Recepcionista</label>
-        <ion-input formControlName="receptionist"  type="text" placeholder="insira a Recepcionista" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Vigilante</label>
-        <ion-input formControlName="vigilant"  type="text" placeholder="insira o Vigilante" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Supervisor</label>
-        <ion-input formControlName="supervisor"  type="text" placeholder="insira o Supervisor" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Gerente</label>
-        <ion-input formControlName="manager" type="text" placeholder="insira o Gerente" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      <ion-text *ngIf="this.formwork.controls['workSchedule'].value === '5x1'">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Folguista</label>
+        <ion-input formControlName="extraPorter" type="text" placeholder="insira Folguista" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
     </ion-card>
 
 
     <ion-text class="ion-justify-content-between w-100 d-flex">
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Endereço do condominío</span>
-      <ion-icon (click)="hideDataEd()"  *ngIf="lessed" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
-      <ion-icon (click)="showDataEd()" *ngIf="plused" class="color-blue-light font-size-28" name="add-circle-outline"></ion-icon>
+      <ion-icon (click)="hideDataEd()" *ngIf="lessed" class="color-blue-light font-size-28"
+        name="remove-circle-outline"></ion-icon>
+      <ion-icon (click)="showDataEd()" *ngIf="plused" class="color-blue-light font-size-28" name="add-circle-outline">
+      </ion-icon>
     </ion-text>
     <ion-card *ngIf="dataed" class="border-10 box-shadow-none mt-2 mb-5 bg-light py-4 px-3">
-      <ion-text >
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do condomínio</label>
-        <ion-input formControlName="namecondominium"  type="text" placeholder="insira o condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="name" type="text" placeholder="insira o condomínio" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
-      <ion-text class="d-grid">
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
-        <select formControlName="category" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectCategory">{{item.category}}</option>
-        </select>  
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Endereço do condomínio</label>
-        <ion-input formControlName="edcondominium"  type="text" placeholder="insira a endereço do condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Número do condomínio</label>
-        <ion-input formControlName="numbercondominium"  type="text" placeholder="insira o número do condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
-      </ion-text>
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Bairro</label>
-        <ion-input formControlName="district"  type="text" placeholder="insira o bairro" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
-      </ion-text>
-      <ion-text >
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">CEP</label>
-        <ion-input formControlName="cep"  [ionMask]="maskCep"  type="text" placeholder="insira o CEP" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="addressCep" (keyup)="buscarCep($event)" [ionMask]="maskCep" type="text" placeholder="insira o CEP"
+          maxlength="9" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10">
+        </ion-input>
       </ion-text>
-      <ion-text >
+      <ion-text>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Endereço do condomínio</label>
+        <ion-input formControlName="addressStreet" type="text" placeholder="insira a endereço do condomínio"
+          maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10">
+        </ion-input>
+      </ion-text>
+      <ion-text>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Número do condomínio</label>
+        <ion-input formControlName="addressNumber" type="text" placeholder="insira o número do condomínio"
+          maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10">
+        </ion-input>
+      </ion-text>
+      <ion-text>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Bairro</label>
+        <ion-input formControlName="addressDistrict" type="text" placeholder="insira o bairro" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      </ion-text>
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">Complemento</label>
-        <ion-input formControlName="complement" type="text" placeholder="insira o complemento" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="addressComplement" type="text" placeholder="insira o complemento" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
       <!-- <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Banco</label>
@@ -118,70 +119,92 @@
 
     <ion-text class="ion-justify-content-between w-100 d-flex">
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do condominío</span>
-      <ion-icon (click)="hideDataCondominium()"  *ngIf="lesscondominium" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
-      <ion-icon (click)="showDataCondominium()" *ngIf="pluscondominium" class="color-blue-light font-size-28" name="add-circle-outline"></ion-icon>
+      <ion-icon (click)="hideDataCondominium()" *ngIf="lesscondominium" class="color-blue-light font-size-28"
+        name="remove-circle-outline"></ion-icon>
+      <ion-icon (click)="showDataCondominium()" *ngIf="pluscondominium" class="color-blue-light font-size-28"
+        name="add-circle-outline"></ion-icon>
     </ion-text>
     <ion-card *ngIf="datacondominium" class="border-10 box-shadow-none mt-2 mb-4 bg-light py-4 px-3">
-      <ion-text >
-        <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do condomínio</label>
-        <ion-input formControlName="namesyndicate"  type="text" placeholder="insira o condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+      <ion-text>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Nome do Sindico</label>
+        <ion-input formControlName="syndic" type="text" placeholder="insira o nome do Sindico" maxlength="30"
+          class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
       </ion-text>
-      <ion-text >
+      <ion-text>
         <label class="fw-400 font-size-14 line-18 color-blue-light">Contato do sindico</label>
-        <ion-input formControlName="contactsyndicate"  type="text" placeholder="insira a endereço do condomínio" maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10"></ion-input>
+        <ion-input formControlName="syndicContact" type="text" placeholder="insira a endereço do condomínio"
+          maxlength="30" class="w-100 bg-white-light mt-2 mb-4 fw-500 font-size-16 color-purple line-20 border-10">
+        </ion-input>
       </ion-text>
-     
+      <ion-text class="d-grid text-left">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Categoria</label>
+        <select formControlName="category"
+          class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectCategory" [value]="item.category">{{item.category}}</option>
+        </select>
+      </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantas torres?</label>
-        <select formControlName="tower" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+        <select formControlName="numberOfTowers"
+          class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos andares?</label>
-        <select formControlName="floors" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+        <select formControlName="howManyFloors"
+          class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Apartamento por andar</label>
-        <select formControlName="apartamentfloors" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+        <select formControlName="apartmentsPerrFloor"
+          class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para locação?</label>
-        <select formControlName="propertieslocation" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+        <select formControlName="howManyApartmentsForLease"
+          class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Quantos imóveis são para venda?</label>
-        <select formControlName="propertiessold" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
-          <option *ngFor="let item of selectUnity">{{item.unity}} unidades</option>
+        <select formControlName="howManyApartmentsForSale"
+          class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectUnity" [value]="item.unity">{{item.unity}} unidades</option>
         </select>
       </ion-text>
-    
-    </ion-card> 
 
-    <ion-button  (click)="confirmCode(true)" class="bg-greenpool box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple" type="submit">
-      <span *ngIf="continued" >Salvar alterações </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
-  </ion-button>
+    </ion-card>
+
+    <ion-button (click)="confirm()"
+      class="bg-greenpool box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple" type="submit">
+      <span *ngIf="continued">Salvar alterações </span>
+      <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+    </ion-button>
   </form>
 
   <ion-modal [isOpen]="isModalConfirm" class="bg-transparent">
     <ng-template>
       <ion-card class="ion-padding bg-light border-10 position-absolute bottom-0 w-100">
-        <br/>
+        <br />
         <ion-text class="w-100 text-align-center">
-          <p class="fw-500 font-size-16 line-20 color-purple">Deseja salvar<br/>as alterações?</p>
+          <p class="fw-500 font-size-16 line-20 color-purple">Deseja salvar<br />as alterações?</p>
         </ion-text>
         <ion-row class="row my-3">
           <ion-col class="col-6">
-            <ion-button (click)="setOpen(false)"  (click)="setOpenModalOk(true)"  class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white " type="button">Sim</ion-button>
+            <ion-button (click)="setOpen(false)" (click)="setOpenModalOk(true)"
+              class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 border-purple bg-white "
+              type="button">Sim</ion-button>
           </ion-col>
           <ion-col class="col-6">
-            <ion-button  (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool " type="button">Não</ion-button>
+            <ion-button (click)="setClose(false)"
+              class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool "
+              type="button">Não</ion-button>
           </ion-col>
         </ion-row>
       </ion-card>
@@ -190,13 +213,15 @@
   <ion-modal [isOpen]="isModalOk" class="bg-transparent">
     <ng-template>
       <ion-card class="ion-padding bg-light border-10 position-absolute bottom-0 w-100">
-        <br/>
+        <br />
         <ion-text class="w-100 text-align-center">
-          <p class="fw-500 font-size-16 line-20 color-purple">Alterações salvas<br/>com sucesso!</p>
+          <p class="fw-500 font-size-16 line-20 color-purple">Alterações salvas<br />com sucesso!</p>
         </ion-text>
         <ion-row class="row my-3">
           <ion-col class="col-12">
-            <ion-button  (click)="setCloseModalOk(false)" (click)="setClose(false)" class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool " type="button">Ok, entendi</ion-button>
+            <ion-button (click)="setCloseModalOk(false)" (click)="setClose(false)"
+              class="fw-700 w-100 box-shadow-none font-size-16 line-20 color-purple h-51 border-10 bg-greenpool "
+              type="button">Ok, entendi</ion-button>
           </ion-col>
         </ion-row>
       </ion-card>
