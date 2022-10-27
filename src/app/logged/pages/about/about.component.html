@@ -1,14 +1,14 @@
 <ion-app class="bg-gray-light h-100">
   <ion-header class="bg-gray-light">
     <ion-toolbar>
-      <ion-button  (click)="goProfile()" slot="start" fill="clear" class="back-btn">
-        <ion-icon class="color-purple" name="chevron-back-outline"></ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="logged/profile" slot="start" fill="clear" class="color-purple back-btn">
+      </ion-back-button>
       <ion-title slot="" class="text-align-center" style="padding-right: 3rem;">
         <span class="color-purple fw-500 line-26 font-size-20">Sobre</span>
       </ion-title>
     </ion-toolbar>
   </ion-header>
+  
 
   <ion-content class="bg-gray-light" [fullscreen]="true">
     <ion-grid class="bg-gray-light">

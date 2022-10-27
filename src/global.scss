@@ -429,13 +429,12 @@ ion-button {
 .mt-6 {
     margin-top: 6rem;
 }
+.mr-1{
+    margin-right: 1rem;
+}
 
 .pt-6 {
     padding-top: 5rem;
-}
-
-.mr-1{
-    margin-right: 1rem;
 }
 
 .border-3 {
@@ -711,10 +710,10 @@ ion-segment-button.md::part(native) {
 
 /* iOS styles */
 ion-segment-button.ios::part(indicator-background) {
-    background: var(--purple);
+    background: var(--purple) !important;
 }
 ion-segment-button.ios::part(native) {
-    color: var(--bluelight);
+    color: var(--bluelight) !important;
 }
 
 .segment-button-checked.ios::part(native) {
@@ -789,3 +788,4 @@ ion-segment-button.ios::part(native) {
         width: 100px;
     }
 }
+

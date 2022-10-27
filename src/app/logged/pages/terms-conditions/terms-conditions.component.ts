@@ -15,8 +15,6 @@ export class TermsConditionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  goProfile(){
-    this.router.navigate(['logged/profile']);
-  }
+
 
 }
