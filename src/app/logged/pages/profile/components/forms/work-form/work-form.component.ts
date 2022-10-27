@@ -369,7 +369,7 @@ export class WorkFormComponent implements OnInit {
 
 
   
-  async addContent() {
+  async addFunctions() {
     if (this.formwork.controls.workFunctions.value === '') {
       const toast = await this.toastController.create({
         message: `Selecione uma função!`,
