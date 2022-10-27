@@ -14,18 +14,17 @@ import { UserService } from '../../../../../../service/user.service';
 })
 export class WorkFormComponent implements OnInit {
 
-  formwork: FormGroup;
+  formperson: FormGroup;
   mokprofile: any;
   lessed = true;
   plused = false;
-  lesscondominium = true;
-  pluscondominium = false;
   lesswork = true;
   pluswork = false;
   datawork = true;
+  lesscondominium = true;
+  pluscondominium = false;
   dataed = true;
   datacondominium = true;
-
   public maskScale: Array<any> = [/\d/, /\d/, '/', /\d/, /\d/];
   public maskCep: Array<any> = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
   continued = true;
@@ -44,10 +43,8 @@ export class WorkFormComponent implements OnInit {
     private cepService: CepService,
     private toastController: ToastController
   ) {
-    this.formwork = this.formBuilder.group({
+    this.formperson = this.formBuilder.group({
       workSchedule: ['', [Validators.required]],
-      namerole: ['', [Validators.required]],
-      contactrole: ['', [Validators.required]],
       morningPorter1: ['', [Validators.required]],
       morningPorter2: [''],
       afternoonPorter1: [''],
@@ -77,73 +74,73 @@ export class WorkFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mokprofile = this.perfilService.workData;
+    this.mokprofile = this.perfilService.personalData;
 
-    // let user: any = localStorage.getItem('userDto');
-    // user = JSON.parse(user);
+    let user: any = localStorage.getItem('userDto');
+    user = JSON.parse(user);
 
-    // if (user.workData !== null) {
-    //   if (user.workData.workSchedule === '12x36') {
-    //     this.formwork.patchValue({
-    //       workSchedule: user.workData.workSchedule,
+    if (user.workData !== null) {
+      if (user.workData.workSchedule === '12x36') {
+        this.formperson.patchValue({
+          workSchedule: user.workData.workSchedule,
 
-    //       morningPorter1: user.workData.morningPorter1,
+          morningPorter1: user.workData.morningPorter1,
 
-    //       morningPorter2: user.workData.morningPorter2,
+          morningPorter2: user.workData.morningPorter2,
 
-    //       nigthPorter1: user.workData.nigthPorter1,
+          nigthPorter1: user.workData.nigthPorter1,
 
-    //       nigthPorter2: user.workData.nigthPorter2,
+          nigthPorter2: user.workData.nigthPorter2,
 
-    //       janitor: user.workData.janitor,
-    //     })
-    //   } else if (user.workData.workSchedule === '5x1') {
-    //     this.formwork.patchValue({
-    //       workSchedule: user.workData.workSchedule,
+          janitor: user.workData.janitor,
+        })
+      } else if (user.workData.workSchedule === '5x1') {
+        this.formperson.patchValue({
+          workSchedule: user.workData.workSchedule,
 
-    //       morningPorter1: user.workData.morningPorter1,
+          morningPorter1: user.workData.morningPorter1,
 
-    //       afternoonPorter1: user.workData.morningPorter1,
+          afternoonPorter1: user.workData.morningPorter1,
 
-    //       nigthPorter1: user.workData.nigthPorter1,
+          nigthPorter1: user.workData.nigthPorter1,
 
-    //       janitor: user.workData.janitor,
+          janitor: user.workData.janitor,
 
-    //       extraPorter: user.workData.extraPorter,
-    //     })
-    //   }
-    //   this.formwork.patchValue({
-    //     name: user.workData.condominium.name,
+          extraPorter: user.workData.extraPorter,
+        })
+      }
+      this.formperson.patchValue({
+        name: user.workData.condominium.name,
 
-    //     addressStreet: user.workData.condominium.addressStreet,
+        addressStreet: user.workData.condominium.addressStreet,
 
-    //     addressNumber: user.workData.condominium.addressNumber,
+        addressNumber: user.workData.condominium.addressNumber,
 
-    //     addressDistrict: user.workData.condominium.addressDistrict,
+        addressDistrict: user.workData.condominium.addressDistrict,
 
-    //     addressCep: user.workData.condominium.addressCep,
+        addressCep: user.workData.condominium.addressCep,
 
-    //     addressComplement: user.workData.condominium.addressComplement,
+        addressComplement: user.workData.condominium.addressComplement,
 
-    //     syndic: user.workData.condominium.syndic,
+        syndic: user.workData.condominium.syndic,
 
-    //     syndicContact: user.workData.condominium.syndicContact,
+        syndicContact: user.workData.condominium.syndicContact,
 
-    //     category: user.workData.condominium.category,
+        category: user.workData.condominium.category,
 
-    //     numberOfTowers: user.workData.condominium.numberOfTowers,
+        numberOfTowers: user.workData.condominium.numberOfTowers,
 
-    //     howManyFloors: user.workData.condominium.howManyFloors,
+        howManyFloors: user.workData.condominium.howManyFloors,
 
-    //     complement: user.workData.condominium.complement,
+        complement: user.workData.condominium.complement,
 
-    //     apartmentsPerrFloor: user.workData.condominium.apartmentsPerrFloor,
+        apartmentsPerrFloor: user.workData.condominium.apartmentsPerrFloor,
 
-    //     howManyApartmentsForLease: user.workData.condominium.howManyApartmentsForLease,
+        howManyApartmentsForLease: user.workData.condominium.howManyApartmentsForLease,
 
-    //     howManyApartmentsForSale: user.workData.condominium.howManyApartmentsForSale,
-    //   })
-    // }
+        howManyApartmentsForSale: user.workData.condominium.howManyApartmentsForSale,
+      })
+    }
   }
 
   hideDataEd() {
@@ -160,68 +157,68 @@ export class WorkFormComponent implements OnInit {
   async confirm() {
 
     let condominioDto = {
-      name: this.formwork.controls.name.value,
+      name: this.formperson.controls.name.value,
 
-      addressStreet: this.formwork.controls.addressStreet.value,
+      addressStreet: this.formperson.controls.addressStreet.value,
 
-      addressNumber: this.formwork.controls.addressNumber.value,
+      addressNumber: this.formperson.controls.addressNumber.value,
 
-      addressDistrict: this.formwork.controls.addressDistrict.value,
+      addressDistrict: this.formperson.controls.addressDistrict.value,
 
-      addressCep: this.formwork.controls.addressCep.value,
+      addressCep: this.formperson.controls.addressCep.value,
 
-      addressComplement: this.formwork.controls.addressComplement.value,
+      addressComplement: this.formperson.controls.addressComplement.value,
 
-      syndic: this.formwork.controls.syndic.value,
+      syndic: this.formperson.controls.syndic.value,
 
-      syndicContact: this.formwork.controls.syndicContact.value,
+      syndicContact: this.formperson.controls.syndicContact.value,
 
-      category: this.formwork.controls.category.value,
+      category: this.formperson.controls.category.value,
 
-      numberOfTowers: parseInt(this.formwork.controls.numberOfTowers.value.replace(/\D/g, '')),
+      numberOfTowers: parseInt(this.formperson.controls.numberOfTowers.value.replace(/\D/g, '')),
 
-      howManyFloors: parseInt(this.formwork.controls.howManyFloors.value.replace(/\D/g, '')),
+      howManyFloors: parseInt(this.formperson.controls.howManyFloors.value.replace(/\D/g, '')),
 
-      complement: this.formwork.controls.complement.value,
+      complement: this.formperson.controls.complement.value,
 
-      apartmentsPerrFloor: parseInt(this.formwork.controls.apartmentsPerrFloor.value.replace(/\D/g, '')),
+      apartmentsPerrFloor: parseInt(this.formperson.controls.apartmentsPerrFloor.value.replace(/\D/g, '')),
 
-      howManyApartmentsForLease: parseInt(this.formwork.controls.howManyApartmentsForLease.value.replace(/\D/g, '')),
+      howManyApartmentsForLease: parseInt(this.formperson.controls.howManyApartmentsForLease.value.replace(/\D/g, '')),
 
-      howManyApartmentsForSale: parseInt(this.formwork.controls.howManyApartmentsForSale.value.replace(/\D/g, '')),
+      howManyApartmentsForSale: parseInt(this.formperson.controls.howManyApartmentsForSale.value.replace(/\D/g, '')),
     }
 
-    if (this.formwork.controls.workSchedule.value === '12x36') {
+    if (this.formperson.controls.workSchedule.value === '12x36') {
 
       this.request = {
-        workSchedule: this.formwork.controls.workSchedule.value,
+        workSchedule: this.formperson.controls.workSchedule.value,
 
-        morningPorter1: this.formwork.controls.morningPorter1.value,
+        morningPorter1: this.formperson.controls.morningPorter1.value,
 
-        morningPorter2: this.formwork.controls.morningPorter2.value,
+        morningPorter2: this.formperson.controls.morningPorter2.value,
 
-        nigthPorter1: this.formwork.controls.nigthPorter1.value,
+        nigthPorter1: this.formperson.controls.nigthPorter1.value,
 
-        nigthPorter2: this.formwork.controls.nigthPorter2.value,
+        nigthPorter2: this.formperson.controls.nigthPorter2.value,
 
-        janitor: this.formwork.controls.janitor.value,
+        janitor: this.formperson.controls.janitor.value,
 
         condominium: condominioDto
       }
       this.registerUpdate();
-    } else if (this.formwork.controls.workSchedule.value === '5x1') {
+    } else if (this.formperson.controls.workSchedule.value === '5x1') {
       this.request = {
-        workSchedule: this.formwork.controls.workSchedule.value,
+        workSchedule: this.formperson.controls.workSchedule.value,
 
-        morningPorter1: this.formwork.controls.morningPorter1.value,
+        morningPorter1: this.formperson.controls.morningPorter1.value,
 
-        afternoonPorter1: this.formwork.controls.afternoonPorter1.value,
+        afternoonPorter1: this.formperson.controls.afternoonPorter1.value,
 
-        nigthPorter1: this.formwork.controls.nigthPorter1.value,
+        nigthPorter1: this.formperson.controls.nigthPorter1.value,
 
-        janitor: this.formwork.controls.janitor.value,
+        janitor: this.formperson.controls.janitor.value,
 
-        extraPorter: this.formwork.controls.extraPorter.value,
+        extraPorter: this.formperson.controls.extraPorter.value,
 
         condominium: condominioDto
       }
@@ -281,11 +278,11 @@ export class WorkFormComponent implements OnInit {
   buscarCep(event) {
 
     if (event.target.value.length === 9) {
-      const cep = this.formwork.controls.addressCep.value;
+      const cep = this.formperson.controls.addressCep.value;
 
       if (cep)
         this.cepService.buscarCep(cep).then((cep: Cep) => {
-          this.formwork.patchValue({
+          this.formperson.patchValue({
             addressStreet: cep.logradouro,
             addressDistrict: cep.bairro,
           });
@@ -293,11 +290,11 @@ export class WorkFormComponent implements OnInit {
     }
 
   }
-
-  async addContent() {
-
-
+  addContent(){
+    
   }
+
+
   showDataEd() {
     this.lessed = true;
     this.plused = false;
@@ -313,7 +310,6 @@ export class WorkFormComponent implements OnInit {
     this.plused = false;
     this.dataed = true;
   }
-
   hideDataCondominium() {
     this.lesscondominium = false;
     this.pluscondominium = true;
@@ -323,7 +319,7 @@ export class WorkFormComponent implements OnInit {
     this.lesscondominium = true;
     this.pluscondominium = false;
     this.datacondominium = true;
-  } 
+  }
 
 
   setOpen(isOpen: boolean) {
@@ -365,23 +361,8 @@ export class WorkFormComponent implements OnInit {
     { category: 'Casarão' },
     { category: 'Palácio' },
     { category: 'Galpão' },
-  ]
-
-
-  // SELECT FUNCTION
-  selectFunction = [
-    { function: 'Porteiro manhã 1' },
-    { function: 'Porteiro manhã 2' },
-    { function: 'Porteiro noite 1' },
-    { function: 'Porteiro noite 2' },
-    { function: 'Zelador' },
-    { function: 'Vigilante' },
-    { function: 'Supervisor' },
-    { function: 'Gerente' },
-
 
   ]
-
 
   // SELECT UNITY
   selectUnity = [
