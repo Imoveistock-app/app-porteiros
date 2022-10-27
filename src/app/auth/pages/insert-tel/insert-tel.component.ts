@@ -16,6 +16,9 @@ export class InsertTelComponent implements OnInit {
   componentLogo = true;
   componentTermsPrivacy = true;
   componentPopup = false;
+  spinnload = false;
+  continued = true;
+  submitconfirm = false;
 
   form: FormGroup;
 
@@ -35,17 +38,22 @@ export class InsertTelComponent implements OnInit {
   }
   ngOnInit() { }
 
- 
+
 
   insertTel(value) {
-    let phone = value.replace(/\D/g, '')
+    let phone = value.target.value.replace(/\D/g, '')
 
     if (phone.length === 11) {
       this.componentPopup = true;
       this.componentTermsPrivacy = false;
       this.componentTxt = false;
       this.componentLogo = false;
+      this.submitconfirm = true;
     }
+  }
+
+  
+  confirm() {
     this.request = {
       phone: `55${this.form.controls['phone'].value}`.replace(/\D/g, '')
     }
@@ -75,10 +83,8 @@ export class InsertTelComponent implements OnInit {
     )
 
   }
-
+  
   goBack() {
     this.router.navigate(['auth/login']);
   }
-
-
 }

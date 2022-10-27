@@ -1,6 +1,6 @@
 <ion-row class="row mx-2 mb-8 mt-4" >
 
-  <form [formGroup]="formperson" *ngFor="let item of mokprofile" class="col-12">
+  <form [formGroup]="formwork" *ngFor="let item of mokprofile" class="col-12">
     <ion-text class="ion-justify-content-between w-100 d-flex">
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados do trabalho</span>
       <ion-icon (click)="hideDataWork()"  *ngIf="lesswork" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
@@ -10,6 +10,12 @@
    
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Qual sua escala?</label>
+        <select formControlName="scale" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+          <option *ngFor="let item of selectScale">{{item.scale}}</option>
+        </select>
+      </ion-text>
+      <ion-text class="d-grid text-left">
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Função</label>
         <select formControlName="scale" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
           <option *ngFor="let item of selectScale">{{item.scale}}</option>
         </select>

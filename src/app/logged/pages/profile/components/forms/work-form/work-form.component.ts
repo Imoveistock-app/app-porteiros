@@ -9,7 +9,7 @@ import { PerfilService } from 'src/app/service/perfil.service';
 })
 export class WorkFormComponent implements OnInit {
 
-  formperson: FormGroup;
+  formwork: FormGroup;
   mokprofile: any;
   lessed = true;
   plused = false;
@@ -34,7 +34,7 @@ export class WorkFormComponent implements OnInit {
     private perfilService: PerfilService,
     private formBuilder: FormBuilder,
   ) {
-    this.formperson = this.formBuilder.group({
+    this.formwork = this.formBuilder.group({
       scale: ['', [Validators.required]],
       conciergeday1: ['', [Validators.required]],
       conciergeday2: ['', [Validators.required]],
@@ -111,9 +111,9 @@ export class WorkFormComponent implements OnInit {
 
   setClose(isOpen: boolean) {
     this.isModalConfirm = isOpen;
-    setTimeout(() =>{
+    setTimeout(() => {
       this.perfilService.getOutEditWork();
-    }, 100) 
+    }, 100)
   }
 
   setOpenModalOk(isOpen: boolean) {
@@ -151,9 +151,22 @@ export class WorkFormComponent implements OnInit {
   selectScale = [
     { scale: '12/36' },
     { scale: '5/1' },
+  ]
+  // SELECT FUNCTION
+  selectFunction = [
+    { function: 'Porteiro manhã 1' },
+    { function: 'Porteiro manhã 2' },
+    { function: 'Porteiro noite 1' },
+    { function: 'Porteiro noite 2' },
+    { function: 'Zelador' },
+    { function: 'Vigilante' },
+    { function: 'Supervisor' },
+    { function: 'Gerente' },
 
 
   ]
+
+
   // SELECT UNITY
   selectUnity = [
     { unity: '1' }, { unity: '2' }, { unity: '3' }, { unity: '4' }, { unity: '5' }, { unity: '6' }, { unity: '7' }, { unity: '8' }, { unity: '9' }, { unity: '10' }, { unity: '11' }, { unity: '12' }, { unity: '13' }, { unity: '14' }, { unity: '15' }, { unity: '16' }, { unity: '17' }, { unity: '18' }, { unity: '19' }, { unity: '20' }, { unity: '21' }, { unity: '22' }, { unity: '23' }, { unity: '24' }, { unity: '25' }, { unity: '26' }, { unity: '27' }, { unity: '28' }, { unity: '29' }, { unity: '30' }, { unity: '31' }, { unity: '32' }, { unity: '33' }, { unity: '34' }, { unity: '35' }, { unity: '36' }, { unity: '37' }, { unity: '38' }, { unity: '39' }, { unity: '40' }, { unity: '41' }, { unity: '42' }, { unity: '43' }, { unity: '44' }, { unity: '45' }, { unity: '46' }, { unity: '47' }, { unity: '48' }, { unity: '49' }, { unity: '50' },
