@@ -41,9 +41,9 @@
             do trabalho</ion-segment-button>
         </ion-segment>
         <ion-segment  class="border-bottom-gray-light"*ngIf="changedataprofileedit">
-          <ion-segment-button (click)="personalPageEdit()" value="personal"
+          <ion-segment-button (click)="changePageEdit('personal')" value="personal"
             class="font-size-14 line-18 text-transform-none">Dados pessoais</ion-segment-button>
-          <ion-segment-button (click)="workPageEdit()" value="work" class="font-size-14 line-18 text-transform-none">
+          <ion-segment-button (click)="changePageEdit('work')" value="work" class="font-size-14 line-18 text-transform-none">
             Dados do trabalho</ion-segment-button>
         </ion-segment>
       </ion-col>

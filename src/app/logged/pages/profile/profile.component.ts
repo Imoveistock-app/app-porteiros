@@ -108,17 +108,17 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.mokprofile = this.perfilService.card;
 
-    this.userService.getUser().subscribe(
-      success => {
-        this.user = success;
-        if (this.user?.photo?.location) {
-          this.urls.push(this.user.photo.location)
-        }
-      },
-      error => {
-        console.error(error)
-      }
-    );
+    // this.userService.getUser().subscribe(
+    //   success => {
+    //     this.user = success;
+    //     if (this.user?.photo?.location) {
+    //       this.urls.push(this.user.photo.location)
+    //     }
+    //   },
+    //   error => {
+    //     console.error(error)
+    //   }
+    // );
   }
 
   openModalLogout() {
@@ -127,7 +127,7 @@ export class ProfileComponent implements OnInit {
 
   goLogout() {
     this.isModalOpen = false;
-    
+
     localStorage.removeItem('user');
 
     setTimeout(() => {
@@ -240,10 +240,17 @@ export class ProfileComponent implements OnInit {
       this.workdata = true;
       this.workform = false;
     }
-
   }
 
-
+  changePageEdit(value) {
+    if (value === 'personal') {
+      this.personaldata = true;
+      this.workdata = false;
+    } else if (value === 'work') {
+      this.personalform = false;
+      this.workform = true;
+    }
+  }
 
   goAbout() {
     this.router.navigate(['logged/about']);
@@ -262,13 +269,5 @@ export class ProfileComponent implements OnInit {
   personalPage() {
     this.personaldata = true;
     this.workdata = false;
-  }
-  workPageEdit() {
-    this.personalform = false;
-    this.workform = true;
-  }
-  personalPageEdit() {
-    this.personalform = true;
-    this.workform = false;
   }
 }
