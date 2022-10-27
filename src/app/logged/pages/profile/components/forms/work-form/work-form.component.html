@@ -13,6 +13,16 @@
     </ion-text>
     <ion-card *ngIf="datawork" class="border-10 box-shadow-none mt-3 mb-5
       bg-light py-4 px-3">
+      <ion-text>
+        <label class="fw-400 font-size-14 line-18 color-blue-light">Qual sua escala</label>
+        <select class="form-select select-custom" formControlName="workSchedule">
+          <option selected value="" disabled class="mt-3">Selecione</option>
+          <option value="12x36">12x36</option>
+          <option value="5x1">5x1</option>
+        </select>
+      </ion-text>
+
+      
       <ion-text *ngIf="addFunction == 0">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Função</label>
         <select class="form-select select-custom"
@@ -57,34 +67,6 @@
         <ion-icon name="trash-outline" class="text-danger"
           (click)="removeOwner(item)"></ion-icon>
       </div>
-      <!-- <ion-col *ngIf="addContacts == 0" id="add" class="col-12 mt-3 bg-light border-10 px-3 py-4">
-          <ion-label class="" for="ownername" class="fw-400 font-size-14 line-18 color-blue-light">
-              Nome do proprietário</ion-label>
-          <ion-input type="text" maxlength="30"  placeholder="Insira o nome" id="ownername"
-              formControlName="ownername"
-              class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10 ">
-          </ion-input>
-
-          <ion-label class="" for="email" class="fw-400 font-size-14 line-18 color-blue-light">E-mail
-              do proprietário (ocpional)</ion-label>
-          <ion-input type="email" placeholder="Insira o e-mail" id="email" formControlName="email"
-              class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-          </ion-input>
-
-          <ion-label class="" for="telephone" class="fw-400 font-size-14 line-18 color-blue-light">
-              Contado do proprietário</ion-label>
-          <ion-input type="tel" placeholder="Digite o telefone" id="telephone"
-              formControlName="ownerContact"
-              class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-          </ion-input>
-
-        
-
-          <ion-text (click)="addContent()" class="d-flex ion-align-items-center mt-3">
-              <ion-icon class="color-purple font-size-24 px-1" name="add-circle-outline"></ion-icon>
-              <span class="fw-500 font-size-16 line-18 color-purple">Adicionar mais contato</span>
-          </ion-text>
-      </ion-col> -->
     </ion-card>
 
     <ion-text class="ion-justify-content-between w-100 d-flex">
