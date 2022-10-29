@@ -19,10 +19,6 @@ export class AboutComponent implements OnInit {
     this.terms = this.termsService.profileAbout;
   }
 
-  goProfile(){
-    this.router.navigate(['logged/profile']);
-  }
-
   goLinkedin() {
     window.open('https://www.linkedin.com/',' _blank')
   }

@@ -148,18 +148,55 @@
             <div *ngIf="item.processStatus === 'underAnalysis'" class="status-property-list-underAnalysis">
               <span>Em Analise</span>
             </div>
+            
+            <div *ngIf="item.processStatus === 'inProgress'" class="status-property-list-inProgress">
+              <span>Em andamento</span>
+            </div>
+            
+            <div *ngIf="item.processStatus === 'Published'" class="status-property-list-inProgress">
+              <span>Publicado</span>
+            </div>
+            
+            <div *ngIf="item.processStatus === 'underNegotiation'" class="status-property-list-inProgress">
+              <span>Em negociação</span>
+            </div>
+
+            <div *ngIf="item.processStatus === 'recap'" class="status-property-list-inProgress">
+              <span>Repescagem</span>
+            </div>
 
             <div *ngIf="item.processStatus === 'disapproved'" class="status-property-list-disapproved">
               <span>Reprovado</span>
+            </div>
+            
+            <div *ngIf="item.processStatus === 'discarded'" class="status-property-list-disapproved">
+              <span>Descartado</span>
+            </div>
+            
+            <div *ngIf="item.processStatus === 'unpublished'" class="status-property-list-disapproved">
+              <span>Despublicado</span>
             </div>
 
             <div *ngIf="item.processStatus === 'approved'" class="status-property-list-approved">
               <span>Aprovado</span>
             </div>
-
-            <div *ngIf="item.processStatus === 'inProgress'" class="status-property-list-inProgress">
-              <span>Em andamento</span>
+            
+            <div *ngIf="item.processStatus === 'rented'" class="status-property-list-approved">
+              <span>Alugado</span>
             </div>
+            
+            <div *ngIf="item.processStatus === 'rentedWithPartnership'" class="status-property-list-approved">
+              <span>Alugado em parceria</span>
+            </div>
+            
+            <div *ngIf="item.processStatus === 'sold'" class="status-property-list-approved">
+              <span>Vendido</span>
+            </div>
+            
+            <div *ngIf="item.processStatus === 'soldInPartnership'" class="status-property-list-approved">
+              <span>Vendido em parceria</span>
+            </div>
+
           </ion-text>
           <ion-row class="row">
             <ion-col class="col-8">

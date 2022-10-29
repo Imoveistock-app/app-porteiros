@@ -15,8 +15,5 @@ export class PrivacyPolicyComponent implements OnInit {
   ngOnInit() {
   }
 
-  goProfile(){
-    this.router.navigate(['logged/profile']);
-  }
 
 }

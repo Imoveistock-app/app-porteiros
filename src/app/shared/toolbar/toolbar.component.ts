@@ -20,9 +20,9 @@ export class ToolbarComponent implements OnInit {
   tiketicon = true;
   tiketicongreen = false;
 
-  usericon = true;
-  usericongreen = false;
-  
+  profileicon = true;
+  profileicongreen = false;
+
 
   constructor(
     private router: Router,
@@ -35,104 +35,109 @@ export class ToolbarComponent implements OnInit {
       element.classList.remove("selected");
     });
     document.getElementById(pathName)!.classList.add("selected");
-    
+
   }
 
   home() {
     this.router.navigate(['logged/home']);
+
     this.homeicon = false;
     this.homeicongreen = true;
-  
+
     this.handicon = true;
     this.handicongreen = false;
-  
+
     this.staricon = true;
     this.staricongreen = false;
-  
+
     this.tiketicon = true;
     this.tiketicongreen = false;
-  
-    this.usericon = true;
-    this.usericongreen = false;
+
+    this.profileicon = true;
+    this.profileicongreen = false;
+
 
 
   }
   hand() {
     this.router.navigate(['logged/indicate']);
-
     this.homeicon = true;
     this.homeicongreen = false;
-  
+
     this.handicon = false;
     this.handicongreen = true;
-  
+
     this.staricon = true;
     this.staricongreen = false;
-  
+
     this.tiketicon = true;
     this.tiketicongreen = false;
-  
-    this.usericon = true;
-    this.usericongreen = false;
-   
+
+    this.profileicon = true;
+    this.profileicongreen = false;
+
+
+
   }
   star() {
     this.router.navigate(['logged/property-list']);
-  
 
     this.homeicon = true;
     this.homeicongreen = false;
-  
+
     this.handicon = true;
     this.handicongreen = false;
-  
+
     this.staricon = false;
     this.staricongreen = true;
-  
+
     this.tiketicon = true;
     this.tiketicongreen = false;
-  
-    this.usericon = true;
-    this.usericongreen = false;
-   
+
+    this.profileicon = true;
+    this.profileicongreen = false;
+
+
+
   }
   tiket() {
     this.router.navigate(['logged/extract']);
-
     this.homeicon = true;
     this.homeicongreen = false;
-  
+
     this.handicon = true;
     this.handicongreen = false;
-  
+
     this.staricon = true;
     this.staricongreen = false;
-  
+
     this.tiketicon = false;
     this.tiketicongreen = true;
-  
-    this.usericon = true;
-    this.usericongreen = false;
 
-  
+    this.profileicon = true;
+    this.profileicongreen = false;
+
+
+
+
+
   }
   user() {
+
     this.router.navigate(['logged/profile']);
     this.homeicon = true;
     this.homeicongreen = false;
-  
+
     this.handicon = true;
     this.handicongreen = false;
-  
+
     this.staricon = true;
     this.staricongreen = false;
-  
-    this.tiketicon = true;
-    this.tiketicongreen = false;
-  
-    this.usericon = false;
-    this.usericongreen = true;
 
-    
+    this.tiketicon = false;
+    this.tiketicongreen = true;
+
+    this.profileicon = true;
+    this.profileicongreen = false;
   }
 }

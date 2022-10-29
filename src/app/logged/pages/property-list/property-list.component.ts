@@ -145,7 +145,7 @@ export class PropertyListComponent implements OnInit {
         }
       )
     } else if (this.form.controls.filter.value === 'inProgress') {
-      
+
       this.paginateQuerryRequest = {
         skip: 0,
         take: 0,
@@ -161,8 +161,59 @@ export class PropertyListComponent implements OnInit {
           console.error(error)
         }
       )
+    } else if (this.form.controls.filter.value === 'Published') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'Published'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'underNegotiation') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'underNegotiation'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'recap') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'recap'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
     } else if (this.form.controls.filter.value === 'disapproved') {
-      
+
       this.paginateQuerryRequest = {
         skip: 0,
         take: 0,
@@ -178,12 +229,114 @@ export class PropertyListComponent implements OnInit {
           console.error(error)
         }
       )
+    } else if (this.form.controls.filter.value === 'discarded') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'discarded'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'unpublished') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'unpublished'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
     } else if (this.form.controls.filter.value === 'approved') {
-      
+
       this.paginateQuerryRequest = {
         skip: 0,
         take: 0,
         processStatus: 'approved'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'rented') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'rented'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'rentedWithPartnership') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'rentedWithPartnership'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'sold') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'sold'
+      }
+
+      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+        success => {
+          this.propertyListAll = success;
+          this.isModalOpen = false;
+        },
+        error => {
+          console.error(error)
+        }
+      )
+    } else if (this.form.controls.filter.value === 'soldInPartnership') {
+
+      this.paginateQuerryRequest = {
+        skip: 0,
+        take: 0,
+        processStatus: 'soldInPartnership'
       }
 
       this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(

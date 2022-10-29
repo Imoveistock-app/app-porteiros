@@ -1,17 +1,17 @@
 <ion-app class="h-100 overflow-auto">
     <ion-content [fullscreen]="true" class="bg-gray-light">
         <ion-row class="row mb-5 ">
-            <ion-col class="col-12 mb-3 text-center">
+            <ion-col class="col-12 mb-3">
                 <br />
                 <br />
-                <ion-text>
-                    <span class="fw-500 font-size-20 line-23 color-purple">Indique um imóvel</span>
+                <ion-text class="text-center">
+                    <p class="fw-500 font-size-20 line-23 color-purple">Indique um imóvel</p>
                 </ion-text>
                 <div class="my-4 mx-3">
                     <ion-img  src="../../../../assets/svg/Banner.svg"></ion-img>
                 </div>
-                <ion-text>
-                    <span class="fw-400 font-size-14 line-23 color-blue">Insira o endereço do imóvel abaixo</span>
+                <ion-text class="text-center">
+                    <p class="fw-400 font-size-14 line-23 color-blue">Insira o endereço do imóvel abaixo</p>
                 </ion-text>
             </ion-col>
             <ion-col class="col-12">
@@ -77,15 +77,15 @@
                                 </ion-col>
                             </ion-row>
                         </ion-col>
-                        <ion-text class="mx-1">
+                        <ion-text class="mx-1"> 
                             <span class="fw-500 font-size-18 line-23 color-purple">Dados do proprietário</span>
                         </ion-text>
                         <ion-col *ngIf="addContacts == 0" id="add" class="col-12 mt-3 bg-light border-10 px-3 py-4">
                             <ion-label class="" for="ownername" class="fw-400 font-size-14 line-18 color-blue-light">
                                 Nome do proprietário</ion-label>
-                            <ion-input type="text" maxlength="30" placeholder="Insira o nome" id="ownername"
+                            <ion-input type="text" maxlength="30"  placeholder="Insira o nome" id="ownername"
                                 formControlName="ownername"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10 ion-text-capitalize">
+                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10 ">
                             </ion-input>
 
                             <ion-label class="" for="email" class="fw-400 font-size-14 line-18 color-blue-light">E-mail
@@ -101,7 +101,7 @@
                                 class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
                             </ion-input>
 
-                            <div *ngFor="let item of ownerGroup"
+                            <div *ngFor="let item of ownerGroup" 
                                 class="d-flex ion-justify-content-between ion-align-items-center indicatedAdd">
                                 <ion-text>
                                     <span class="text-dark ion-text-capitalize">{{item.name}}</span>

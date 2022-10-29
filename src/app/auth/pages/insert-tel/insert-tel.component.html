@@ -19,7 +19,7 @@
                     <ion-label class="fw-400 font-size-14 line-18 color-blue-light">
                         Telefone celular
                     </ion-label>
-                    <ion-input type="tel" [ionMask]="maskTel" (keyup)="insertTel($event.target.value)"
+                    <ion-input type="tel" [ionMask]="maskTel" (keyup)="insertTel($event)"
                         formControlName="phone" required
                         class="telephone h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
                         placeholder="insira o número">

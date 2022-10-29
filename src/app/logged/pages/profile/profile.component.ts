@@ -98,10 +98,10 @@ export class ProfileComponent implements OnInit {
       this.cameraprofile = false;
       this.backeditprofile = false;
       this.editprofile = true;
-      this.personaldata = false;
+      this.personaldata = true;
       this.personalform = false;
       this.workform = false;
-      this.workdata = true;
+      this.workdata = false;
     });
   }
 
@@ -127,7 +127,7 @@ export class ProfileComponent implements OnInit {
 
   goLogout() {
     this.isModalOpen = false;
-    
+
     localStorage.removeItem('user');
 
     setTimeout(() => {
@@ -240,10 +240,17 @@ export class ProfileComponent implements OnInit {
       this.workdata = true;
       this.workform = false;
     }
-
   }
 
-
+  changePageEdit(value) {
+    if (value === 'personal') {
+      this.personalform = true;
+      this.workform = false;
+    } else if (value === 'work') {
+      this.personalform = false;
+      this.workform = true;
+    }
+  }
 
   goAbout() {
     this.router.navigate(['logged/about']);
@@ -262,13 +269,5 @@ export class ProfileComponent implements OnInit {
   personalPage() {
     this.personaldata = true;
     this.workdata = false;
-  }
-  workPageEdit() {
-    this.personalform = false;
-    this.workform = true;
-  }
-  personalPageEdit() {
-    this.personalform = true;
-    this.workform = false;
   }
 }
