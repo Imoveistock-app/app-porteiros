@@ -2,40 +2,43 @@
   <ion-content [fullscreen]="true" class="bg-gray-light">
 
      <!-- modal substitute-->
-     <ion-grid *ngIf="closemodalwelcome" class="h-100 ion-grid-modal w-100 position-fixed">
-      <div class="position-relative h-100 w-100">
-           <ion-row class="row ion-row-modal py-5 border-10 px-3 bg-white">
-          <ion-col  class="col-12 text-align-center">
-              <div class="border-100 mb-4 w-fit ">
-                 <img src="../../../../assets/icon/wallet.svg" class="">
-              </div>
-              <ion-text *ngFor="let item of modalWellcome" class="">
-                  <p class="m-0 fw-700 font-size-24 line-31 color-purple">Bem vindo(a)!</p>
-                  <span  class="fw-700 font-size-24 line-31 color-purple">{{item.name}}</span>
-              </ion-text> 
-              <ion-text  class="">
-                  <p class="fw-400 font-size-14 line-18 color-blue-light mb-5 mt-3">
-                    Será um prazer trabalharmos juntos
-                  </p>
-              </ion-text>
-              <ion-text class="">
-                  <p class="fw-400 font-size-14 line-18 mb-5 color-purple">
-                    Para que possamos repassar o valor de indicação, é necessário que você cadastre sua conta bancária no menu perfil.
-                  </p>
-              </ion-text>
-          </ion-col>
-          <ion-col class="col-12">
-              <ion-button (click)="goProfile()"  class="fw-700 font-size-16 line-20 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100" type="button">
-                  Cadastrar dados bancários
-              </ion-button>
-              <ion-button (click)="closeModal()"  class="fw-700 font-size-16 line-20 color-blue-light box-shadow-none bg-white h-51 border-10 w-100" type="button">
-                Cadastrar depois
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </div>
-       
-    </ion-grid>
+    <ion-modal [isOpen]="isModalWellcome"  class="bg-transparent">
+      <ng-template>
+        <ion-grid  class="h-100 ion-grid-modal w-100 position-fixed">
+           <div class="position-relative h-100 w-100">
+          <ion-row class="row ion-row-modal py-5 border-10 px-3 bg-white">
+         <ion-col  class="col-12 text-align-center">
+             <div class="border-100 mb-4 w-fit ">
+                <img src="../../../../assets/icon/wallet.svg" class="">
+             </div>
+             <ion-text *ngFor="let item of modalWellcome" class="">
+                 <p class="m-0 fw-700 font-size-24 line-31 color-purple">Bem vindo(a)!</p>
+                 <span  class="fw-700 font-size-24 line-31 color-purple">{{item.name}}</span>
+             </ion-text> 
+             <ion-text  class="">
+                 <p class="fw-400 font-size-14 line-18 color-blue-light mb-5 mt-3">
+                   Será um prazer trabalharmos juntos
+                 </p>
+             </ion-text>
+             <ion-text class="">
+                 <p class="fw-400 font-size-14 line-18 mb-5 color-purple">
+                   Para que possamos repassar o valor de indicação, é necessário que você cadastre sua conta bancária no menu perfil.
+                 </p>
+             </ion-text>
+         </ion-col>
+         <ion-col class="col-12">
+             <ion-button (click)="goProfile(false)"  class="fw-700 font-size-16 line-20 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100" type="button">
+                 Cadastrar dados bancários
+             </ion-button>
+             <ion-button (click)="setOpen(false)"  class="fw-700 font-size-16 line-20 color-blue-light box-shadow-none bg-white h-51 border-10 w-100" type="button">
+               Cadastrar depois
+           </ion-button>
+         </ion-col>
+       </ion-row>
+     </div>
+        </ion-grid>
+      </ng-template>
+    </ion-modal>
     <!-- Stap -01 -->
     <ion-row *ngFor="let item of infoHome" class="row bg-transparent">
       <ion-col class="col-12 px-4 pt-5">
@@ -48,7 +51,7 @@
         <ion-text class="w-100">
           <p style="background: #FFF9E7;" class="fw-400 font-size-14 line-18 color-yellow p-3
             mt-2">
-            Não esqueça de cadastrar sua <br /> conta bancária. <a  (click)="goProfile()" class="fw-400 text-decoration-none font-size-14 line-18 color-purple">Cadastrar agora</a> 
+            Não esqueça de cadastrar sua <br /> conta bancária. <a  (click)="goProfile(false)" class="fw-400 text-decoration-none font-size-14 line-18 color-purple">Cadastrar agora</a> 
           </p>
         </ion-text>
         <ion-text *ngIf="cardindicate" class="w-100">

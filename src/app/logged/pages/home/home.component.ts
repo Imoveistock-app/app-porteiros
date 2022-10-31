@@ -19,10 +19,9 @@ export class HomeComponent implements OnInit {
   infoCards: any[];
   balance = true;
   hideeye = false;
-  closemodalwelcome = true;
   modalWellcome: any;
-  // ?
-  cardindicate = true;
+  isModalWellcome = true;
+  cardindicate = false;
 
 
   myBalance: BalanceResponseDto = {
@@ -75,30 +74,30 @@ export class HomeComponent implements OnInit {
     this.infoCards = this.homeService.cards;
 
 
-    this.user = JSON.parse(localStorage.getItem('userDto'));
+    // this.user = JSON.parse(localStorage.getItem('userDto'));
 
-    this.propertyIndicationService.getBalance().subscribe(
-      success => {
-        this.myBalance = success;
-      },
-      error => {
-        console.error(error)
-      }
-    );
+    // this.propertyIndicationService.getBalance().subscribe(
+    //   success => {
+    //     this.myBalance = success;
+    //   },
+    //   error => {
+    //     console.error(error)
+    //   }
+    // );
 
-    this.paginateQuerryRequest = {
-      skip: 0,
-      take: 0
-    }
+    // this.paginateQuerryRequest = {
+    //   skip: 0,
+    //   take: 0
+    // }
 
-    this.propertyIndicationService.list(this.paginateQuerryRequest).subscribe(
-      success => {
-        this.propertyListAll = success
-      },
-      error => {
-        console.error(error)
-      }
-    )
+    // this.propertyIndicationService.list(this.paginateQuerryRequest).subscribe(
+    //   success => {
+    //     this.propertyListAll = success
+    //   },
+    //   error => {
+    //     console.error(error)
+    //   }
+    // )
 
   }
 
@@ -113,9 +112,8 @@ export class HomeComponent implements OnInit {
   goIndicateProperty() {
     this.router.navigate(['logged/indicate']);
   }
-  closeModal(){
-    this.closemodalwelcome = false;
-    
+  setOpen(isOpen: boolean){
+    this.isModalWellcome = isOpen;
   }
 
 
@@ -123,16 +121,19 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['logged/extract']);
   }
 
-  goProfile(){
-    this.router.navigate(['logged/profile']);
+  goProfile(isOpen: boolean){
+    this.isModalWellcome = isOpen;
+    setTimeout(() =>{
+        this.router.navigate(['logged/profile']);
+    }, 100);
   }
 
   goIndicatedProperties() {
     this.router.navigate(['logged/property-list']);
   }
 
-  goMoreSold() {
-    // Rota ainda não definida
-  }
+
+
+
 
 }
