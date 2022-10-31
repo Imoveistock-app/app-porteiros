@@ -48,7 +48,7 @@
         <ion-text class="w-100">
           <p style="background: #FFF9E7;" class="fw-400 font-size-14 line-18 color-yellow p-3
             mt-2">
-            Não esqueça de cadastrar sua <br /> conta bancária. <a [routerLink]="['logged/profile']" class="fw-400 text-decoration-none font-size-14 line-18 color-purple">Cadastrar agora</a> 
+            Não esqueça de cadastrar sua <br /> conta bancária. <a  (click)="goProfile()" class="fw-400 text-decoration-none font-size-14 line-18 color-purple">Cadastrar agora</a> 
           </p>
         </ion-text>
         <ion-text *ngIf="cardindicate" class="w-100">

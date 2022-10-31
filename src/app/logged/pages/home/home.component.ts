@@ -125,7 +125,6 @@ export class HomeComponent implements OnInit {
 
   goProfile(){
     this.router.navigate(['logged/profile']);
-
   }
 
   goIndicatedProperties() {
