@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['logged/profile']);
     }, 100);
   }
-  goSubscribe() {
+  goRegisterNow() {
     this.router.navigate(['logged/profile']);
   }
   goIndicatedProperties() {
