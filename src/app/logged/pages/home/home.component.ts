@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit {
 
 
 
- 
+
   changeEye() {
     this.hideeye = !this.hideeye;
     this.balance = !this.balance;
@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
   goIndicateProperty() {
     this.router.navigate(['logged/indicate']);
   }
-  setOpen(isOpen: boolean){
+  setOpen(isOpen: boolean) {
     this.isModalWellcome = isOpen;
   }
 
@@ -121,13 +121,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['logged/extract']);
   }
 
-  goProfile(isOpen: boolean){
+  goProfile(isOpen: boolean) {
     this.isModalWellcome = isOpen;
-    setTimeout(() =>{
-        this.router.navigate(['logged/profile']);
+    setTimeout(() => {
+      this.router.navigate(['logged/profile']);
     }, 100);
   }
-
+  goSubscribe() {
+    this.router.navigate(['logged/profile']);
+  }
   goIndicatedProperties() {
     this.router.navigate(['logged/property-list']);
   }
