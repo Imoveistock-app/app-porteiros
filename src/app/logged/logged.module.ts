@@ -3,9 +3,7 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import ptBr from '@angular/common/locales/pt';
 import { IonicModule } from '@ionic/angular';
-
 import { LoggedPageRoutingModule } from './logged-routing.module';
-
 import { LoggedPage } from './logged.page';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -27,11 +25,12 @@ import { WorkDataComponent } from './pages/profile/components/view/work-data/wor
 import { WorkFormComponent } from './pages/profile/components/forms/work-form/work-form.component';
 import { PersonalFormComponent } from './pages/profile/components/forms/personal-form/personal-form.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 registerLocaleData(ptBr);
 
 @NgModule({
-  
+
   declarations: [
     LoggedPage,
     HomeComponent,
@@ -64,10 +63,11 @@ registerLocaleData(ptBr);
     PropertyIndicationService,
     UserService,
     { provide: LOCALE_ID, useValue: 'pt' },
+    SocialSharing
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
-  
+
 })
 export class LoggedPageModule {}

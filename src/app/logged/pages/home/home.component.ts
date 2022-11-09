@@ -6,6 +6,7 @@ import { ListPropertyIndicationResponseDto } from '../../../dtos/list-property-i
 import { PaginateQuerryRequestDto } from '../../../dtos/paginate-querry-request.dto';
 import { PersonalData, UserGetResponseDto } from '../../../dtos/user-get-response.dto';
 import { PropertyIndicationService } from '../../../service/property-indication.service';
+import {SocialSharing} from "@awesome-cordova-plugins/social-sharing/ngx";
 
 @Component({
   selector: 'app-home',
@@ -59,7 +60,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private homeService: HomeService,
     private router: Router,
-    private propertyIndicationService: PropertyIndicationService
+    private propertyIndicationService: PropertyIndicationService,
+    private socialSharing: SocialSharing
   ) { }
 
   ngOnInit() {
@@ -117,6 +119,11 @@ export class HomeComponent implements OnInit {
 
   goMoreSold() {
     // Rota ainda não definida
+  }
+
+  compartilhar() {
+    this.socialSharing.share('https://www.imoveistock.com.br/')
+    console.log('https://www.imoveistock.com.br/')
   }
 
 }
