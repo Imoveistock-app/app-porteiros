@@ -1,0 +1,27 @@
+<ion-tab-bar slot="bottom" class="bg-purple">
+  <ion-tab-button layout="icon-top"  (click)="selectitem('home')" (click)="home()">
+    <ion-img src="../../../assets/icon/house.svg" *ngIf="homeicon" ></ion-img>
+    <ion-img src="../../../assets/icon/house-green.svg" *ngIf="homeicongreen" ></ion-img>
+    <ion-label id="home" (click)="selectitem('home')" class="tab-bar-title selected">Início</ion-label>
+  </ion-tab-button>
+  <ion-tab-button  layout="icon-top" (click)="selectitem('hand')"  (click)="hand()">
+    <ion-img src="../../../assets/icon/hand.svg" *ngIf="handicon" ></ion-img>
+    <ion-img src="../../../assets/icon/hand-green.svg" *ngIf="handicongreen" ></ion-img>
+    <ion-label id="hand"class="tab-bar-title">indicar</ion-label>
+  </ion-tab-button>
+  <ion-tab-button  layout="icon-top" (click)="selectitem('star')" (click)="star()">
+    <ion-img src="../../../assets/icon/star.svg" *ngIf="staricon" ></ion-img>
+    <ion-img src="../../../assets/icon/star-green.svg" *ngIf="staricongreen" ></ion-img>
+    <ion-label id="star" class="tab-bar-title">Status</ion-label>
+  </ion-tab-button>
+  <ion-tab-button  layout="icon-top" (click)="selectitem('tiket')" (click)="tiket()">
+    <ion-img src="../../../assets/icon/tiket.svg" *ngIf="tiketicon" ></ion-img>
+    <ion-img src="../../../assets/icon/tiket-green.svg" *ngIf="tiketicongreen" ></ion-img>
+    <ion-label id="tiket"class="tab-bar-title">Extrato</ion-label>
+  </ion-tab-button>
+  <ion-tab-button layout="icon-top" (click)="selectitem('user')" (click)="user()">
+    <ion-img src="../../../assets/icon/user.svg" *ngIf="usericon" ></ion-img>
+    <ion-img src="../../../assets/icon/user-green.svg" *ngIf="usericongreen" ></ion-img>
+    <ion-label id="user" class="tab-bar-title">Perfil</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

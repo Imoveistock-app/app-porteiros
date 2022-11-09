@@ -1,0 +1,88 @@
+<ion-app>
+  <ion-content class="bg-greenpool" [fullscreen]="true">
+    <ion-row class="row mx-3 mt-3">
+      <ion-col class="col-10 p-0">
+        <ion-text class="d-grid">
+          <span class="fw-700 font-size-36 line-70 color-purple">Cadastre-se</span>
+          <span class="fw-400 font-size-18 line-24 color-purple">Insira seus dados abaixo</span>
+        </ion-text>
+      </ion-col>
+      <ion-col class="col-2 ion-align-self-center p-0">
+        <ion-button (click)="goLogin()" fill="clean" class="h-51 border-05 border-purple">
+          <ion-icon name="close" class="color-purple font-size-24 border-10"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+ 
+    <ion-row class="row mt-6 ion-justify-content-center">
+      <ion-col class="col-md-6 mx-2">
+        <form [formGroup]="form" (ngSubmit)="confirm()" class="row mx-1">
+          <ion-col class="col-12 my-2">
+            <ion-label class="fw-400 font-size-14 line-18 color-purple">
+              Nome completo
+            </ion-label>
+            <ion-input type="text" maxlength="50"
+           formControlName="name" required 
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10 text-capitalize" 
+            placeholder="insira seu nome">
+            </ion-input>
+          </ion-col>
+          <ion-col class="col-12 my-2">
+            <ion-label class="fw-400 font-size-14 line-18 color-purple">
+              E-mail
+            </ion-label>
+            <ion-input type="text" maxlength="50"
+           formControlName="email" required 
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            placeholder="insira seu e-mail">
+            </ion-input>
+          </ion-col>
+          <ion-col class="col-12 my-2">
+            <ion-label class="fw-400 font-size-14 line-18 color-purple">
+              Insira seu CPF
+            </ion-label>
+            <ion-input type="text" [ionMask]="maskCpf" maxlength="14"
+           formControlName="cpf" required 
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+            placeholder="insira seu cpf">
+            </ion-input>
+          </ion-col>
+            <ion-col class="col-12 my-2">
+              <ion-label class="fw-400 font-size-14 line-18 color-purple">
+                Insira seu celular barra de navegação
+              </ion-label>
+              <ion-input type="tel" [ionMask]="maskTel" 
+             formControlName="phone" required 
+              class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+              placeholder="insira o número">
+                  <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
+              </ion-input>
+            </ion-col>
+            <ion-col class="col-12 my-4">
+              <div class="form-check">
+                <input class="form-check-input" formControlName="terms" type="checkbox" value="" id="flexCheckDefault">
+                <ion-label class="form-check-label fw-400 font-size-14 line-18 color-purple" for="flexCheckDefault">
+                 Ao continuar você concorda com os <a [routerLink]="['']" class="text-decoration-none color-purple">Termos de Uso</a> e <a [routerLink]="['']" class="text-decoration-none color-purple">Política de Privacidade</a>
+                </ion-label>
+              </div>
+            </ion-col>
+            <ion-col class="col-12">
+              <ion-button [disabled]="this.form.controls.terms.value === '' || form.invalid" class="w-100 h-51 text-center fw-400 font-size-14 line-18 text-light border-10 bg-purple" type="submit">
+                Enviar código de acesso
+              </ion-button>
+            </ion-col>
+            <ion-col class="col-12 mt-4 mb-5">
+              <ion-card class="box-shadow-none d-flex border-10 px-2 py-3" style="background-color: #FFF9E7;">
+                <ion-icon color="warning" class="font-size-36 mx-2" name="information-circle-outline"></ion-icon>
+                <ion-text >
+                  <span class="text-warning fw-400 font-size-14 line-18">
+                    Estamos espandindo, por enquanto somente no Paraná. Em breve estaremos no seu estado.
+                  </span>
+                </ion-text>
+              </ion-card>
+            </ion-col>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+</ion-app>

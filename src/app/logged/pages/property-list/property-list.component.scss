@@ -1,0 +1,14 @@
+ion-modal {
+    --ion-background-color: #ffffff00;
+}
+
+.modal-wrapper {
+    background: transparent !important;
+}
+
+.btn-filter {
+    --background: #00000000;
+    border: 1px solid var(--bluelight);
+    color: var(--bluelight);
+    border-radius: 2rem;
+}

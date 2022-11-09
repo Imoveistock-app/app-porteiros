@@ -1,0 +1,186 @@
+<ion-app class="h-100 overflow-auto ">
+  <ion-content [fullscreen]="true" class="bg-white">
+    <ion-row class="row mx-4 my-4">
+      <ion-col class="col-12 text-center">
+        <ion-text class="pl-2 d-grid">
+          <span class="fw-500 color-purple font-size-20 line-26">Extrato</span>
+          <span class="fw-400 color-purple font-size-14 line-43" *ngFor="let item of infoBalance">R$ <b class="fw-600 color-purple font-size-20
+              line-26">{{ item.money | slice:0:3}},{{item.money | slice:3:5 }}</b></span>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="row">
+      <ion-col class="col-12">
+        <form [formGroup]="form">
+       
+          <ul class="d-flex overflow-scroll m-0 p-0 mx-2
+            ion-align-items-center">
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input id="everyone"  formControlName="everyone" value="" 
+                type="checkbox" (click)="selectitem()" class="box-shadow-none btn-filter">
+                <label id="Leveryone" 
+             [ngClass]="collapsedevery ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="everyone">
+               Todos
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input id="jan" formControlName="jan" value="" 
+                type="checkbox" (click)="selectitemJan()"             class="box-shadow-none btn-filter">
+                <label  id="Ljan"  [ngClass]="collapsedJan ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="jan">
+                Janeiro
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="feb"  formControlName="feb" value=""   (click)="selectitemFeb()" 
+                class="box-shadow-none btn-filter">
+                <label  id="Lfeb"   [ngClass]="collapsedFeb ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="feb">
+                Fevereiro
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="mar"  formControlName="mar" value="" (click)="selectitemMar()"
+                class="box-shadow-none btn-filter">
+                <label  id="Lmar"   [ngClass]="collapsedMar ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="mar">
+                Março
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="apr"  formControlName="apr" value="" (click)="selectitemApr()"
+                class="box-shadow-none btn-filter">
+                <label  id="Lapr"  [ngClass]="collapsedApr ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="apr">
+                Abril
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="may"  formControlName="may" value=""  (click)="selectitemMay()" 
+                class="box-shadow-none btn-filter">
+                <label  id="Lmay"  [ngClass]="collapsedMay ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="may">
+                Maio
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="jun"  formControlName="jun" value=""  (click)="selectitemJun()"
+                class="box-shadow-none btn-filter">
+                <label id="Ljun"   [ngClass]="collapsedJun ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="jun">
+                Junho
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="jul"  formControlName="jul" value=""(click)="selectitemJul()"
+                class="box-shadow-none btn-filter">
+                <label id="Ljul"    [ngClass]="collapsedJul ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                line-20 fw-400" for="jul">
+                Julho
+              </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="ago" formControlName="ago" value=""  (click)="selectitemAgo()"
+                class="box-shadow-none btn-filter">
+                   <label  id="Lago"   [ngClass]="collapsedAgo ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                  line-20 fw-400" for="ago">
+                  Agosto
+                </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="sep" formControlName="sep" value=""   (click)="selectitemSep()" 
+                class="box-shadow-none btn-filter">
+                   <label  id="Lsep"  [ngClass]="collapsedSep ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                  line-20 fw-400" for="sep">
+                  Setembro
+                </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="oct" formControlName="oct" value=""  (click)="selectitemOct()"   
+                class="box-shadow-none btn-filter">
+                   <label id="Loct"    [ngClass]="collapsedOct ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                  line-20 fw-400" for="oct">
+                  Outubro
+                </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="nov"  formControlName="nov" value=""  (click)="selectitemNov()"
+                class="box-shadow-none btn-filter">
+                   <label  id="Lnov"    [ngClass]="collapsedNov ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                  line-20 fw-400" for="nov">
+                 Novembro
+                </label>
+            </li>
+            <li class="list-group-item border-none p-0 px-1 bg-transparent">
+              <input type="checkbox" id="dec" formControlName="dec" value="" (click)="selectitemDec()"
+                class="box-shadow-none btn-filter">
+                   <label  id="Ldec"    [ngClass]="collapsedDec ? '' : 'mounth-selected'" class="form-check-label label-filter color-blue-light font-size-14
+                  line-20 fw-400" for="dec">
+                  Dezembro
+                </label>
+            </li>
+
+          </ul>
+          <ion-button (click)="handlerFillter()" class="bg-greenpool
+          box-shadow-none modal-grid border-10 h-51 
+          ion-align-items-center color-purple fw-500 font-size-16
+          line-20" type="checkbox">
+          Filtrar
+        </ion-button>
+        </form>
+
+      </ion-col>
+    </ion-row>
+    <ion-row class="row bg-gray-light mb-5 mt-3">
+      <ion-col class="col-12 mt-4">
+        <ion-grid *ngFor="let item of infoExtractFilter" class="px-3 mb-5">
+          <ion-row class="row">
+            <ion-col class="col-7">
+              <ion-text class="d-flex px-3 pb-2 text-left">
+                <span class="fw-400 color-purple text-left font-size-16
+                  line-15">
+                  {{item.localName}}
+                </span>
+              </ion-text>
+            </ion-col>
+            <ion-col class="col-5 ">
+              <ion-text class="d-grid px-3 text-align-right">
+                <span class="fw-400 color-blue-light font-size-12
+                  line-15">{{ item.date | slice:0:2
+                  }}/{{ item.date | slice:2:4 }}/{{ item.date |
+                  slice:4:8 }}</span> <span class="d-none">{{item.mounth}}</span>
+                <span class="fw-400 text-primary font-size-16 line-15">
+                  R$ {{ item.valueExtract |
+                  slice:0:2 }},{{ item.valueExtract | slice:2:4}}</span>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-text  class="d-grid px-3 text-left">
+            <span class="fw-400 color-blue-light text-left font-size-12
+              line-15">
+              Apartamento: {{item.apartment}}
+            </span>
+            <span class="fw-400 color-blue-light text-left font-size-12
+              line-15">
+              Torre: {{item.tower}}
+            </span>
+            <span class="fw-400 color-blue-light text-left font-size-12
+              line-15">
+              Bloco: {{item.block}}
+            </span>
+          </ion-text>
+        </ion-grid>
+        <div class="text-dark" *ngIf="infoExtractFilter.length === 0">
+          <ion-text class="text-align-center ">
+            <h1 class="fw-400 pt-2 w-100 m-0 color-blue text-left font-size-18
+              line-24">Nenhum resultado encontrado <br/> selecione um filtro por
+                favor!</h1>
+            </ion-text>
+            <ion-img src="../../../../assets/img/notfound.png" ></ion-img>
+          </div>
+        </ion-col>
+
+      </ion-row>
+    </ion-content>
+  </ion-app>

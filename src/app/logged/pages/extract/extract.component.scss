@@ -1,0 +1,19 @@
+.btn-filter {
+    width: 100%;
+    max-width: 85px;
+    opacity: 0;
+    position: absolute;
+    height: 26px;
+}
+
+.label-filter {
+    --background: #00000000;
+    border: 1px solid var(--bluelight);
+    border-radius: 2rem;
+    padding: 4px 12px;
+}
+
+.mounth-selected {
+    border: 1px solid var(--purple);
+    color: var(--purple);
+}

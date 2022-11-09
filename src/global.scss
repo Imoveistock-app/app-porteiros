@@ -1,0 +1,773 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+    --greenpool: #68F4A0;
+    --purple: #4C3778;
+    --blue: #0C3B94;
+    --purpura: #A561F3;
+    --cherry: #E77E7D;
+    --graylight: #E9EBF6;
+    --whitelight: #e9ebf686;
+    --bluelight: #878DBA;
+}
+
+
+ion-button {
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+// SPLASH-2
+.swiper-button-prev {
+    display: none !important;
+}
+
+.swiper-button-next {
+    right: 10px !important;
+    left: 0% !important;
+    top: auto !important;
+    bottom: 6% !important;
+    width: 100% !important;
+    position: fixed !important;
+    opacity: 0 !important;
+    height: 73px !important;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: 410px !important;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--greenpool);
+    padding: 0 1rem;
+    transition: .3s;
+    border-radius: 6px;
+}
+
+// toolbar
+.header-md::after {
+    background-image: none;
+}
+
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(238, 238, 238, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(238, 238, 238, 0);
+}
+
+
+
+
+/* fonts */
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.dmsans {
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+/* size-fonts */
+.font-size-12 {
+    font-size: 12px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-16 {
+    font-size: 16px;
+}
+
+.font-size-18 {
+    font-size: 18px;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
+
+.font-size-22 {
+    font-size: 22px;
+}
+
+
+.font-size-24 {
+    font-size: 24px;
+}
+
+.font-size-28 {
+    font-size: 28px;
+}
+
+.font-size-32 {
+    font-size: 32px;
+}
+
+.font-size-36 {
+    font-size: 36px;
+}
+
+.font-size-40 {
+    font-size: 40px;
+}
+
+.font-size-48 {
+    font-size: 48px;
+}
+
+.font-size-60 {
+    font-size: 60px;
+}
+
+.font-size-90 {
+    font-size: 90px;
+}
+
+.line-15 {
+    line-height: 15px !important;
+}
+
+.line-18 {
+    line-height: 18px !important;
+}
+
+.line-20 {
+    line-height: 20px !important;
+}
+
+.line-24 {
+    line-height: 24px !important;
+}
+
+.line-26 {
+    line-height: 26px !important;
+}
+
+.line-32 {
+    line-height: 32px !important;
+}
+
+.line-34 {
+    line-height: 34px !important;
+}
+
+.line-43 {
+    line-height: 43px !important;
+}
+
+.line-50 {
+    line-height: 50px !important;
+}
+
+.line-56 {
+    line-height: 56px !important;
+}
+
+.line-70 {
+    line-height: 70px !important;
+}
+
+
+/* backgrounds */
+.bg-greenpool {
+    --background: var(--greenpool) !important;
+    background-color: var(--greenpool) !important;
+    background: var(--greenpool) !important;
+}
+
+.bg-gray-light {
+    --background: var(--graylight) !important;
+    background-color: var(--graylight) !important;
+    background: var(--graylight) !important;
+}
+
+.bg-white-light {
+    --background: var(--whitelight) !important;
+    background-color: var(--whitelight) !important;
+    background: var(--whitelight) !important;
+}
+
+.bg-white {
+    --background: white !important;
+    background-color: white !important;
+    background: white !important;
+}
+
+.bg-purple {
+    --background: var(--purple) !important;
+    background-color: var(--purple) !important;
+    background: var(--purple) !important;
+}
+
+.bg-purpura {
+    --background: var(--purpura) !important;
+    background-color: var(--purpura) !important;
+    background: var(--purpura) !important;
+}
+
+.bg-transparent {
+    --background-color: transparent !important;
+    --background: transparent !important;
+
+}
+
+
+/* colors */
+.color-purple {
+    color: var(--purple);
+    --ion-color-base: var(--purple) !important;
+
+}
+
+.color-cherry {
+    color: var(--cherry);
+}
+
+.color-purpura {
+    color: var(--purpura);
+}
+
+.color-blue {
+    color: var(--blue);
+}
+
+.color-green {
+    color: var(--greenpool);
+}
+
+.color-blue-light {
+    color: var(--bluelight);
+}
+
+.border-purple {
+    border: 1px solid var(--purple)
+}
+
+.border-greenpool {
+    border: 2px solid var(--greenpool)
+}
+
+.border-blue-light {
+    border: 1px solid #878dba50;
+}
+
+.line-bottom-graylight {
+    border-bottom: 1px solid var(--graylight);
+}
+
+/* align */
+
+.text-align-center {
+    text-align: -webkit-center;
+}
+
+.text-align-right {
+    text-align-last: right;
+}
+
+.text-security {
+    -webkit-text-security: disc !important;
+}
+
+// tool´s
+.h-48 {
+    height: 48px;
+}
+
+.h-fit {
+    height: fit-content !important
+}
+
+.w-fit {
+    width: fit-content !important;
+}
+
+.circle-pencil-edit-profile-pick {
+    height: 15px !important;
+    width: 15px !important;
+    border-radius: 50% !important;
+    background-color: #00D455 !important;
+    position: absolute !important;
+    bottom: -3px !important;
+    right: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* get-started-page */
+.d-grid {
+    display: grid !important;
+}
+
+.d-none {
+    display: none;
+}
+
+.box-shadow-none {
+    --box-shadow: none !important;
+    box-shadow: none !important;
+
+}
+
+.border-none {
+    border: none;
+}
+
+.outline-none {
+    outline: none !important;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.z-10 {
+    z-index: 10;
+}
+
+.z-20 {
+    z-index: 20;
+}
+
+.right-0 {
+    right: 0 !important;
+}
+
+.left-0 {
+    left: 0 !important;
+}
+
+.top-0 {
+    top: 0 !important;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.mt-6 {
+    margin-top: 6rem;
+}
+
+.pt-6 {
+    padding-top: 5rem;
+}
+
+.border-3 {
+    --border-radius: 3px;
+    border-radius: 3px;
+}
+
+.border-05 {
+    --border-radius: 5px;
+    border-radius: 5px;
+}
+
+.border-10 {
+    --border-radius: 10px;
+    border-radius: 10px;
+}
+
+.border-100 {
+    --border-radius: 100px;
+    border-radius: 100px;
+}
+
+
+// HOME-PAGE
+.home-profile-pic {
+    Width: 68px;
+    border-radius: 100px;
+    border: 3px solid var(--greenpool);
+    padding: 6px;
+    right: 23px;
+    top: -20px;
+}
+
+.paginator {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+
+.paginator .ngx-pagination .current {
+    background: rgba(76, 55, 120, 0.5) !important;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+.paginator .ngx-pagination a:hover,
+.ngx-pagination button:hover {
+    background: rgba(0, 212, 85, 0.5) !important;
+    border-radius: 4px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    text-decoration: none;
+}
+
+.paginator .ngx-pagination a,
+.ngx-pagination button {
+    color: #00D455 !important;
+}
+
+.paginator .ngx-pagination a:focus,
+.ngx-pagination button:focus {
+    outline: none;
+    background: #4C3778 !important;
+}
+
+.status-property-list-inProgress {
+    height: 23px !important;
+    border: 1px solid #3D4FF4;
+    border-radius: 50px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: #3D4FF4;
+}
+
+.status-property-list-disapproved {
+    height: 23px !important;
+    border: 1px solid #E77E7D;
+    border-radius: 50px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: #E77E7D;
+}
+
+.status-property-list-approved {
+    height: 23px !important;
+    border: 1px solid #00D455;
+    border-radius: 50px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: #00D455;
+}
+
+.status-property-list-underAnalysis {
+    height: 23px !important;
+    border: 1px solid #4C3778;
+    border-radius: 50px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    color: #4C3778;
+}
+
+.img-default-home {
+    position: absolute !important;
+    top: -40px !important;
+    right: 20px !important;
+    height: 86px !important;
+    width: 86px !important;
+    border-radius: 50% !important;
+    border: 3.19996px solid #68F4A0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2px !important;
+}
+
+.header-profile {
+    background-color: white !important;
+    height: 130px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 10px !important;
+    margin-top: 50px !important;
+}
+
+.img-fake-profile {
+    height: 80px !important;
+    width: 80px !important;
+    border-radius: 50% !important;
+    border: 3.19996px solid #68F4A0 !important;
+    position: absolute !important;
+    top: -40px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 2px !important;
+}
+
+.photo-profile-custom {
+    height: max-content !important;
+    width: max-content !important;
+    border-radius: 50% !important;
+}
+
+.btn-star {
+    border-radius: 100px;
+    background-color: var(--purpura);
+    padding: 1rem 1.2rem;
+    width: 27px;
+    height: 27px;
+}
+
+.h-130 {
+    height: 130px;
+}
+
+.h-110 {
+    height: 110px;
+}
+
+.h-51 {
+    height: 51px;
+}
+
+.h-21 {
+    height: 21px;
+}
+
+.change-eyes {
+    height: 51px;
+}
+
+.status-type {
+    padding: 4px 17px;
+    border-radius: 1rem;
+}
+
+.status-type-analysis {
+    color: #EFB51F;
+    border: 1px solid #EFB51F;
+}
+
+.status-type-progress {
+    color: #3D4FF4;
+    border: 1px solid #3D4FF4;
+}
+
+.status-type-disapproved {
+    color: #E77E7D;
+    border: 1px solid #E77E7D;
+}
+
+.status-type-approved {
+    color: #00D455;
+    border: 1px solid #00D455;
+}
+
+@media (max-width: 324px) {
+    .font-size-14 {
+        font-size: 12px !important;
+    }
+}
+
+// MODAL-PROPERTY-LIST
+.modal-grid {
+    margin-left: 5%;
+    width: calc(100% - 10%);
+}
+
+.transition-updown {
+    animation-name: updown;
+    animation-duration: .5s;
+}
+
+.form-check-input:checked {
+    background-color: var(--purple) !important;
+    border-color: var(--purple) !important;
+}
+
+@keyframes updown {
+    0% {
+        opacity: 0;
+        top: -30px;
+        position: relative;
+    }
+
+    100% {
+        position: relative;
+        opacity: 1;
+        top: 0;
+    }
+}
+
+
+// AUTH-LOGIN
+.logo {
+    width: 172.03px;
+}
+
+.w-calc-15 {
+    margin-left: 5%;
+    width: calc(100% - 10%);
+}
+
+.pattern-input {
+    width: calc(100% - 12%);
+}
+
+// SIGN-UP
+.max-w-400 {
+    max-width: 400px;
+}
+
+// PROFILE-PAGE
+ion-segment-button::part(indicator-background) {
+    background: var(--purple);
+}
+
+ion-segment-button.md::part(native) {
+    color: var(--bluelight);
+}
+
+.segment-button-checked.md::part(native) {
+    color: var(--purple);
+}
+
+
+
+/* iOS styles */
+ion-segment-button.ios::part(native) {
+    color: var(--bluelight);
+}
+
+.segment-button-checked.ios::part(native) {
+    color: var(--purple);
+}
+
+.camera-icon {
+    padding: 10px 11px 5px 10px;
+}
+
+.camera-input {
+    height: 30px;
+    opacity: 0;
+}
+
+.w-27px {
+    width: 27px;
+}
+
+.pl-3 {
+    padding-left: 3rem;
+}
+
+.profile-img {
+    left: 39%;
+    top: -15px;
+    width: 100px;
+}
+
+.text-transform-none {
+    text-transform: none !important;
+}
+
+.mb-8 {
+    margin-bottom: 8rem;
+}
+
+@media (max-width: 400px) {
+    .profile-img {
+        left: 36%;
+        top: -15px;
+        width: 100px;
+    }
+}
+
+@media (min-width: 500px) {
+    .profile-img {
+        left: 41%;
+        top: -15px;
+        width: 100px;
+    }
+}
+
+
+@media (min-width: 765px) {
+    .profile-img {
+        left: 44%;
+        top: -15px;
+        width: 100px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .profile-img {
+        left: 45%;
+        top: -15px;
+        width: 100px;
+    }
+}
