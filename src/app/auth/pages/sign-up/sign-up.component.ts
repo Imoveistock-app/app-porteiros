@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      terms: ['', [Validators.required]],
+      terms: [false, Validators.requiredTrue],
       cpf: ['', [Validators.required]],
       phone: ['', [Validators.required]],
       email: ['', [Validators.required]],
@@ -43,37 +43,47 @@ export class SignUpComponent implements OnInit {
     this.router.navigate(['logged/home']);
   }
 
-  confirm() {
+  async confirm() {
+    if (this.form.controls.terms.value === true) {
 
-    this.request = {
-      cpf: this.form.controls.cpf.value,
-      email: this.form.controls.email.value,
-      name: this.form.controls.name.value,
-      phone: `+55${this.form.controls.phone.value.replace(/\D/g, '')}`,
-      profileId: 'fc68f468-9b93-4486-a92c-8d096f698987'
-    };
+      this.request = {
+        cpf: this.form.controls.cpf.value,
+        email: this.form.controls.email.value,
+        name: this.form.controls.name.value,
+        phone: `+55${this.form.controls.phone.value.replace(/\D/g, '')}`,
+        profileId: 'fc68f468-9b93-4486-a92c-8d096f698987'
+      };
 
-    this.userService.register(this.request).subscribe(
-      async success => {
-        const toast = await this.toastController.create({
-          message: `Usuario cadastrado com sucesso!`,
-          duration: 1500,
-          position: 'top',
-          color: 'success',
-        });
-        toast.present();
-        this.router.navigate(['auth/login'])
-      },
-      async error => {
-        const toast = await this.toastController.create({
-          message: `Não foi possível cadastrar usuário!`,
-          duration: 1500,
-          position: 'top',
-          color: 'danger',
-        });
-        toast.present();
-        console.error(error)
-      }
-    )
+      this.userService.register(this.request).subscribe(
+        async success => {
+          const toast = await this.toastController.create({
+            message: `Usuario cadastrado com sucesso!`,
+            duration: 1500,
+            position: 'top',
+            color: 'success',
+          });
+          toast.present();
+          this.router.navigate(['auth/login']);
+        },
+        async error => {
+          const toast = await this.toastController.create({
+            message: `Não foi possível cadastrar usuário!`,
+            duration: 1500,
+            position: 'top',
+            color: 'danger',
+          });
+          toast.present();
+          console.error(error);
+        }
+      );
+    } else if (this.form.controls.terms.value === false) {
+      const toast = await this.toastController.create({
+        message: 'Necessario estar de acordo com os termos e condições de uso!',
+        duration: 1500,
+        position: 'top',
+        color: 'danger',
+      });
+      toast.present();
+    }
   }
 }
