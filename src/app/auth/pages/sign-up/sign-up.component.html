@@ -13,7 +13,7 @@
         </ion-button>
       </ion-col>
     </ion-row>
- 
+
     <ion-row class="row mt-6 ion-justify-content-center">
       <ion-col class="col-md-6 mx-2">
         <form [formGroup]="form" (ngSubmit)="confirm()" class="row mx-1">
@@ -22,8 +22,8 @@
               Nome completo
             </ion-label>
             <ion-input type="text" maxlength="50"
-           formControlName="name" required 
-            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10 text-capitalize" 
+           formControlName="name" required
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10 text-capitalize"
             placeholder="insira seu nome">
             </ion-input>
           </ion-col>
@@ -32,8 +32,8 @@
               E-mail
             </ion-label>
             <ion-input type="text" maxlength="50"
-           formControlName="email" required 
-            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+           formControlName="email" required
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
             placeholder="insira seu e-mail">
             </ion-input>
           </ion-col>
@@ -42,8 +42,8 @@
               Insira seu CPF
             </ion-label>
             <ion-input type="text" [ionMask]="maskCpf" maxlength="14"
-           formControlName="cpf" required 
-            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+           formControlName="cpf" required
+            class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
             placeholder="insira seu cpf">
             </ion-input>
           </ion-col>
@@ -51,9 +51,9 @@
               <ion-label class="fw-400 font-size-14 line-18 color-purple">
                 Insira seu celular barra de navegação
               </ion-label>
-              <ion-input type="tel" [ionMask]="maskTel" 
-             formControlName="phone" required 
-              class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10" 
+              <ion-input type="tel" [ionMask]="maskTel"
+             formControlName="phone" required
+              class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
               placeholder="insira o número">
                   <ion-img src="../../../../../assets/icon/smartphone.png" class="tel-icon"></ion-img>
               </ion-input>
