@@ -63,7 +63,7 @@ export class SignUpComponent implements OnInit {
             color: 'success',
           });
           toast.present();
-          this.router.navigate(['auth/login']);
+          this.router.navigate(['auth/insert-tel']);
         },
         async error => {
           const toast = await this.toastController.create({
