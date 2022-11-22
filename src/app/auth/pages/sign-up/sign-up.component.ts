@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { UserRegisterRequestDto } from 'src/app/dtos/user-register-request.dto';
 import { UserService } from 'src/app/service/user.service';
+import {AuthenticationService} from "../../../service/authentication.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +14,11 @@ import { UserService } from 'src/app/service/user.service';
 export class SignUpComponent implements OnInit {
 
   form: FormGroup;
+  componentTxt = true;
+  componentLogo = true;
+  componentTermsPrivacy = true;
+  componentPopup = false;
+  submitContinued = false;
 
   public maskTel: Array<any> = ['(',/\d/, /\d/, ')' ,/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public maskCpf: Array<any> = [/\d/, /\d/ ,/\d/,'.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/,'-',/\d/,/\d/];
@@ -23,7 +29,8 @@ export class SignUpComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private userService: UserService,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private authenticationService: AuthenticationService
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -42,8 +49,48 @@ export class SignUpComponent implements OnInit {
   goHome(){
     this.router.navigate(['logged/home']);
   }
+  insertTel(value) {
+
+    let phone = value.replace(/\D/g, '')
+
+    if (phone.length === 11) {
+      this.componentPopup = true;
+      this.componentTermsPrivacy = false;
+      this.componentTxt = false;
+      this.componentLogo = false;
+      this.submitContinued = true;
+    }
+
+  }
 
   async confirm() {
+
+    if (this.form.controls.terms.value === true){
+      this.authenticationService.authenticate(this.request).subscribe(
+        async success => {
+          const toast = await this.toastController.create({
+            message: `Sms enviado com sucesso!`,
+            duration: 1500,
+            position: 'top',
+            color: 'success',
+          });
+          toast.present();
+          localStorage.setItem('phone', this.request.phone);
+        },
+        async error => {
+          const toast = await this.toastController.create({
+            message: `Não foi possível enviar SMS!`,
+            duration: 1500,
+            position: 'top',
+            color: 'danger',
+          });
+          toast.present();
+          console.error(error)
+          this.router.navigate(['auth/sign-up'])
+        }
+      )
+
+    };
     if (this.form.controls.terms.value === true) {
 
       this.request = {
@@ -63,7 +110,7 @@ export class SignUpComponent implements OnInit {
             color: 'success',
           });
           toast.present();
-          this.router.navigate(['auth/insert-tel']);
+          this.router.navigate(['auth/send-code'])
         },
         async error => {
           const toast = await this.toastController.create({
