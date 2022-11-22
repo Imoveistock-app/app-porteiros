@@ -15,13 +15,13 @@
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">CPF</label>
-        <ion-input class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" 
+        <ion-input class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"
           formControlName="cpf" type="text"  [ionMask]="maskCpf">
         </ion-input>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Telefone celular</label>
-        <ion-input class="w-100 bg-white-light my-2 fw-500 px-2 font-size-16 color-purple line-20 border-10" 
+        <ion-input class="w-100 bg-white-light my-2 fw-500 px-2 font-size-16 color-purple line-20 border-10"
           formControlName="phone" type="tel" [ionMask]="maskTel">
           <label >
             <img src="../../../../../../assets/icon/smartphone.png" class="px-2"/>
@@ -31,7 +31,7 @@
 
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Data de nascimento</label>
-        <ion-input class="w-100 bg-white-light my-2 fw-500 px-3 font-size-16 color-purple line-20 border-10" 
+        <ion-input class="w-100 bg-white-light my-2 fw-500 px-3 font-size-16 color-purple line-20 border-10"
           formControlName="birthdate" type="text" [ionMask]="maskBirthDate">
           <label >
             <img src="../../../../../../assets/icon/date.svg" />
@@ -52,7 +52,7 @@
         </select>
       </ion-text>
     </ion-card>
-    
+
     <ion-text class="ion-justify-content-between w-100 d-flex">
       <span class="fw-600 pb-3 font-size-20 color-purple line-20">Dados bancarios</span>
       <ion-icon (click)="hideDataBank()"  *ngIf="lessbank" class="color-blue-light font-size-28" name="remove-circle-outline"></ion-icon>
@@ -68,13 +68,13 @@
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Agência</label>
-        <ion-input maxlength="4" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" 
+        <ion-input maxlength="5" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"
           formControlName="agency" type="text">
         </ion-input>
       </ion-text>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Conta corrente</label>
-        <ion-input maxlength="10" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" 
+        <ion-input maxlength="10" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"
           formControlName="current" type="text"  [ionMask]="maskCurrent">
         </ion-input>
       </ion-text>

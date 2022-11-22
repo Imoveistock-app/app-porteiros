@@ -51,7 +51,7 @@
               <ion-label class="fw-400 font-size-14 line-18 color-purple">
                 Insira seu celular barra de navegação
               </ion-label>
-              <ion-input type="tel" [ionMask]="maskTel"
+              <ion-input type="tel" [ionMask]="maskTel" (keyup)="insertTel($event.target.value)"
              formControlName="phone" required
               class="w-100 h-51 bg-light color-purple fw-400 font-size-16 px-3 line-20 border border-10"
               placeholder="insira o número">
