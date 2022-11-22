@@ -50,7 +50,6 @@ export class SignUpComponent implements OnInit {
     this.router.navigate(['logged/home']);
   }
   insertTel(value) {
-
     let phone = value.replace(/\D/g, '')
 
     if (phone.length === 11) {
@@ -64,42 +63,16 @@ export class SignUpComponent implements OnInit {
   }
 
   async confirm() {
-
-    if (this.form.controls.terms.value === true){
-      this.authenticationService.authenticate(this.request).subscribe(
-        async success => {
-          const toast = await this.toastController.create({
-            message: `Sms enviado com sucesso!`,
-            duration: 1500,
-            position: 'top',
-            color: 'success',
-          });
-          toast.present();
-          localStorage.setItem('phone', this.request.phone);
-        },
-        async error => {
-          const toast = await this.toastController.create({
-            message: `Não foi possível enviar SMS!`,
-            duration: 1500,
-            position: 'top',
-            color: 'danger',
-          });
-          toast.present();
-          console.error(error)
-          this.router.navigate(['auth/sign-up'])
-        }
-      )
-
+    this.request = {
+      cpf: this.form.controls.cpf.value,
+      email: this.form.controls.email.value,
+      name: this.form.controls.name.value,
+      phone: `+55${this.form.controls.phone.value.replace(/\D/g, '')}`,
+      profileId: 'fc68f468-9b93-4486-a92c-8d096f698987'
     };
-    if (this.form.controls.terms.value === true) {
 
-      this.request = {
-        cpf: this.form.controls.cpf.value,
-        email: this.form.controls.email.value,
-        name: this.form.controls.name.value,
-        phone: `+55${this.form.controls.phone.value.replace(/\D/g, '')}`,
-        profileId: 'fc68f468-9b93-4486-a92c-8d096f698987'
-      };
+
+    if (this.form.controls.terms.value === true) {
 
       this.userService.register(this.request).subscribe(
         async success => {
@@ -110,7 +83,7 @@ export class SignUpComponent implements OnInit {
             color: 'success',
           });
           toast.present();
-          this.router.navigate(['auth/send-code'])
+          // this.router.navigate(['auth/send-code'])
         },
         async error => {
           const toast = await this.toastController.create({
@@ -123,7 +96,34 @@ export class SignUpComponent implements OnInit {
           console.error(error);
         }
       );
-    } else if (this.form.controls.terms.value === false) {
+      if (this.form.controls.terms.value === true){
+        this.authenticationService.authenticate(this.request).subscribe(
+          async success => {
+            const toast = await this.toastController.create({
+              message: `Sms enviado com sucesso!`,
+              duration: 1500,
+              position: 'top',
+              color: 'success',
+            });
+            toast.present();
+            localStorage.setItem('phone', this.request.phone);
+            this.router.navigate(['auth/send-code'])
+          },
+          async error => {
+            const toast = await this.toastController.create({
+              message: `Não foi possível enviar SMS!`,
+              duration: 1500,
+              position: 'top',
+              color: 'danger',
+            });
+            toast.present();
+            console.error(error)
+          }
+        )
+        // console.log(this.request)
+      }
+    }
+    else if (this.form.controls.terms.value === false) {
       const toast = await this.toastController.create({
         message: 'Necessario estar de acordo com os termos e condições de uso!',
         duration: 1500,
