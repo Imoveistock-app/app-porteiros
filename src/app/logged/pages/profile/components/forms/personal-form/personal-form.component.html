@@ -83,6 +83,9 @@
     <ion-button (click)="confirm()" class="bg-greenpool box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple" type="submit">
       <span *ngIf="continued" >Salvar alterações </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
   </ion-button>
+    <ion-button (click)="setClose(false)" class="bg-cherry box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple mt-3" type="submit">
+      <span *ngIf="continued" >Cancelar</span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+  </ion-button>
   </form>
 
   <ion-modal [isOpen]="isModalConfirm" class="bg-transparent">

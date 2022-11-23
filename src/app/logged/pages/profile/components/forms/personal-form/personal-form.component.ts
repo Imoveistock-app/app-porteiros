@@ -356,6 +356,13 @@ export class PersonalFormComponent implements OnInit {
 
   }
 
+  cancel(isOpen: boolean){
+    this.isModalConfirm = isOpen;
+    setTimeout(() => {
+      this.perfilService.getOutEditPerson();
+    }, 100)
+  }
+
   confirmCode(isOpen: boolean) {
     this.continued = false;
     this.spinnload = true;

@@ -247,6 +247,11 @@ ion-button {
     background-color: var(--greenpool) !important;
     background: var(--greenpool) !important;
 }
+.bg-cherry {
+    --background:  var(--cherry) !important;
+    background-color: var(--cherry) !important;
+    background: var(--cherry) !important;
+}
 
 .bg-gray-light {
     --background: var(--graylight) !important;
@@ -708,6 +713,12 @@ ion-segment-button.ios::part(native) {
     color: var(--purple);
 }
 
+
+.button-cancel{
+  color: #E77E7D;
+  background-color: #e10404 !important;
+  background: #EFB51F !important;
+}
 .camera-icon {
     padding: 10px 11px 5px 10px;
 }
