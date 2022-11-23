@@ -333,6 +333,15 @@ ion-button {
     border-bottom: 1px solid var(--graylight);
 }
 
+/* error validation */
+
+.mensagem-error {
+  background-color: #EE7D52FF;
+  opacity: 0.6;
+  border-radius: 5px;
+  color: white;
+}
+
 /* align */
 
 .text-align-center {

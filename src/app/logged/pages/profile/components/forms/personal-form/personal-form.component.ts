@@ -17,7 +17,7 @@ export class PersonalFormComponent implements OnInit {
 
   formperson: FormGroup;
 
-
+  isSubmitted: boolean = false;
   mokprofile: any;
   lessbank = true;
   plusbank = false;
@@ -162,13 +162,43 @@ export class PersonalFormComponent implements OnInit {
     this.states = states();
   }
 
+
+
+  get formName() {
+    return this.formperson.get('name');
+  }
+  get formEmail() {
+    return this.formperson.get('name');
+  }
+  get formCpf() {
+    return this.formperson.get('cpf');
+  }
+  get formTelefone() {
+    return this.formperson.get('phone');
+  }
+  get formBirthdate() {
+    return this.formperson.get('birthdate');
+  }
+  get formEstado() {
+    return this.formperson.get('estado');
+  }
+  get formCidade() {
+    return this.formperson.get('city');
+  }
+  get formBanco() {
+    return this.formperson.get('nameBank');
+  }
+  get formAgencia() {
+    return this.formperson.get('agency');
+  }
+
   getCities() {
     this.cities = cities(this.stateSelected);
   }
 
   async confirm() {
 
-
+    this.isSubmitted = true;
     if ((this.formperson.controls.name.value !== this.user.name || this.formperson.controls.phone.value.replace(/\D/g, '') !== this.user.phone.slice(2, 13) || this.formperson.controls.cpf.value.replace(/\D/g, '') !== this.user.cpf && this.formperson.controls.birthdate.value !== this.dateFormated || this.formperson.controls.state.value !== this.user.personalData?.state || this.formperson.controls.city.value !== this.user.personalData?.city || this.formperson.controls.nameBank.value !== this.user.personalData?.bankInfo?.name || this.formperson.controls.agency.value !== this.user.personalData?.bankInfo?.agencyNumber || this.formperson.controls.current.value !== this.user.personalData?.bankInfo?.accountNumber)) {
 
       this.editUserComplete();

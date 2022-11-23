@@ -7,50 +7,85 @@
     <ion-card class="border-10 box-shadow-none mt-3 mb-5 bg-light py-4 px-3">
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Nome completo</label>
-        <ion-input formControlName="name"  type="text" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10 ion-text-capitalize"></ion-input>
+        <ion-input formControlName="name" id="name" type="text" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10 ion-text-capitalize"></ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formName?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formName?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Nome completo é necessário!
+        </div>
+      </div>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">email</label>
-        <ion-input formControlName="email" type="email" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" readonly></ion-input>
+        <ion-input formControlName="email" id="email" type="email" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10" readonly></ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formEmail?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formEmail?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>email é necessário!
+        </div>
+      </div>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">CPF</label>
         <ion-input class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"
-          formControlName="cpf" type="text"  [ionMask]="maskCpf">
+                   formControlName="cpf" type="text"  [ionMask]="maskCpf">
         </ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formCpf?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formCpf?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>CPF é necessário!
+        </div>
+      </div>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Telefone celular</label>
         <ion-input class="w-100 bg-white-light my-2 fw-500 px-2 font-size-16 color-purple line-20 border-10"
-          formControlName="phone" type="tel" [ionMask]="maskTel">
+                   formControlName="phone" id="phone" type="tel" [ionMask]="maskTel">
           <label >
             <img src="../../../../../../assets/icon/smartphone.png" class="px-2"/>
           </label>
         </ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formTelefone?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formTelefone?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Telefone celular é necessário!
+        </div>
+      </div>
 
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Data de nascimento</label>
         <ion-input class="w-100 bg-white-light my-2 fw-500 px-3 font-size-16 color-purple line-20 border-10"
-          formControlName="birthdate" type="text" [ionMask]="maskBirthDate">
+                   formControlName="birthdate" type="text" [ionMask]="maskBirthDate">
           <label >
             <img src="../../../../../../assets/icon/date.svg" />
           </label>
         </ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formBirthdate?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formBirthdate?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>CPF é necessário!
+        </div>
+      </div>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Estado</label>
         <select formControlName="state" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none" [(ngModel)]="stateSelected" (ngModelChange)="getCities()">
           <!-- <option [value]="user?.personalData?.state" selected>{{item}}</option> -->
-          <option *ngFor="let item of states" [value]="item">{{item}}</option>
+          <option id="estado" formControlName="estado" *ngFor="let item of states" [value]="item">{{item}}</option>
         </select>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formEstado?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formEstado?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Estado é necessário!
+        </div>
+      </div>
       <ion-text class="d-grid text-left">
         <label class="fw-400 font-size-14 line-18 color-blue-light">Cidade</label>
-        <select formControlName="city" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
+        <select formControlName="city" id="city" class="fw-500 font-size-14 py-2 my-2 border-10 px-3 line-18 color-purple bg-white-light border-none">
           <option *ngFor="let item of cities" [value]="item">{{item}}</option>
         </select>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formCidade?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formCidade?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Cidade é necessário!
+        </div>
+      </div>
     </ion-card>
 
     <ion-text class="ion-justify-content-between w-100 d-flex">
@@ -66,26 +101,41 @@
           <option *ngFor="let item of selectBank">{{item.bank}}</option>
         </select>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formBanco?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formBanco?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Banco é necessário!
+        </div>
+      </div>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Agência</label>
         <ion-input maxlength="5" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"
-          formControlName="agency" type="text">
+                   formControlName="agency"  type="text">
         </ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formAgencia?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formAgencia?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Agência é necessário!
+        </div>
+      </div>
       <ion-text >
         <label class="fw-400 font-size-14 line-18 color-blue-light">Conta corrente</label>
         <ion-input maxlength="10" class="w-100 bg-white-light my-2 fw-500 font-size-16 color-purple line-20 border-10"
-          formControlName="current" type="text"  [ionMask]="maskCurrent">
+                   formControlName="current" type="text"  [ionMask]="maskCurrent">
         </ion-input>
       </ion-text>
+      <div *ngIf="isSubmitted && !!formAgencia?.errors" class="my-1 m-0 p-0">
+        <div class="mensagem-error roboto500 roboto-size-14 d-inline px-2" *ngIf="formAgencia?.errors?.required">
+          <i class="fas fa-times-circle mr-2"></i>Agência é necessário!
+        </div>
+      </div>
     </ion-card>
 
     <ion-button (click)="confirm()" class="bg-greenpool box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple" type="submit">
       <span *ngIf="continued" >Salvar alterações </span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
-  </ion-button>
+    </ion-button>
     <ion-button (click)="setClose(false)" class="bg-cherry box-shadow-none h-51 w-100 fw-500 font-size-16 line-20 border-10 color-purple mt-3" type="submit">
       <span *ngIf="continued" >Cancelar</span> <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
-  </ion-button>
+    </ion-button>
   </form>
 
   <ion-modal [isOpen]="isModalConfirm" class="bg-transparent">
