@@ -1,168 +1,168 @@
 <ion-app class="h-100 overflow-auto">
-    <ion-content [fullscreen]="true" class="bg-gray-light">
-        <ion-row class="row mb-5 ">
-            <ion-col class="col-12 mb-3 text-center">
-                <br />
-                <br />
-                <ion-text>
-                    <span class="fw-500 font-size-20 line-23 color-purple">Indique um imóvel</span>
-                </ion-text>
-                <div class="my-4 mx-3">
-                    <ion-img  src="../../../../assets/svg/Banner.svg"></ion-img>
-                </div>
-                <ion-text>
-                    <span class="fw-400 font-size-14 line-23 color-blue">Insira o endereço do imóvel abaixo</span>
-                </ion-text>
-            </ion-col>
-            <ion-col class="col-12">
-                <form [formGroup]="formIndicate">
-                    <ion-row class="row" class="mx-3 mb-5">
-                        <ion-text class="mx-1">
-                            <span class="fw-500 font-size-18 line-23 color-purple">Dados do imóvel</span>
-                        </ion-text>
-                        <ion-col class="col-12 bg-light mt-3 mb-5 border-10 px-3 py-4">
-                            <ion-label for="cep" class="fw-400 font-size-14 line-18 color-blue-light">CEP
-                            </ion-label>
-                            <ion-input type="text" [ionMask]="maskCep" maxlength="9" placeholder="Insira o cep" id="cep"
-                                formControlName="cep" (keyup)="buscarCep($event)"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-                            </ion-input>
+  <ion-content [fullscreen]="true" class="bg-gray-light">
+    <ion-row class="row mb-5 ">
+      <ion-col class="col-12 mb-3 text-center">
+        <br />
+        <br />
+        <ion-text>
+          <span class="fw-500 font-size-20 line-23 color-purple">Indique um imóvel</span>
+        </ion-text>
+        <div class="my-4 mx-3">
+          <ion-img  src="../../../../assets/svg/Banner.svg"></ion-img>
+        </div>
+        <ion-text>
+          <span class="fw-400 font-size-14 line-23 color-blue">Insira o endereço do imóvel abaixo</span>
+        </ion-text>
+      </ion-col>
+      <ion-col class="col-12">
+        <form [formGroup]="formIndicate">
+          <ion-row class="row" class="mx-3 mb-5">
+            <ion-text class="mx-1">
+              <span class="fw-500 font-size-18 line-23 color-purple">Dados do imóvel</span>
+            </ion-text>
+            <ion-col class="col-12 bg-light mt-3 mb-5 border-10 px-3 py-4">
+              <ion-label for="cep" class="fw-400 font-size-14 line-18 color-blue-light">CEP
+              </ion-label>
+              <ion-input type="text" [ionMask]="maskCep" maxlength="9" placeholder="Insira o cep" id="cep"
+                         formControlName="cep" (keyup)="buscarCep($event)"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
+              </ion-input>
 
-                            <ion-label for="road" class="fw-400 font-size-14 line-18 color-blue-light">Rua
-                            </ion-label>
-                            <ion-input type="text" placeholder="Insira o endereço" id="road" formControlName="road"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-                            </ion-input>
+              <ion-label for="road" class="fw-400 font-size-14 line-18 color-blue-light">Rua
+              </ion-label>
+              <ion-input type="text" placeholder="Insira o endereço" id="road" formControlName="road"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
+              </ion-input>
 
-                            <ion-label for="numberResidence"
-                                class="fw-400 font-size-14 line-18 color-blue-light">Número predial</ion-label>
-                            <ion-input type="tel" placeholder="Insira o número" id="numberResidence"
-                                formControlName="numberResidence"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-                            </ion-input>
+              <ion-label for="numberResidence"
+                         class="fw-400 font-size-14 line-18 color-blue-light">Número predial</ion-label>
+              <ion-input type="tel" placeholder="Insira o número" id="numberResidence"
+                         formControlName="numberResidence"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
+              </ion-input>
 
-                            <ion-label for="complement" class="fw-400 font-size-14 line-18 color-blue-light">
-                                Complemento</ion-label>
-                            <ion-input type="text" placeholder="Apartamento, bloco C" id="complement"
-                                formControlName="complement"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-                            </ion-input>
+              <ion-label for="complement" class="fw-400 font-size-14 line-18 color-blue-light">
+                Complemento</ion-label>
+              <ion-input type="text" placeholder="Apartamento, bloco C" id="complement"
+                         formControlName="complement"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
+              </ion-input>
 
-                            <ion-text>
+              <ion-text>
                                 <span class="fw-400 font-size-14 line-18 color-blue-light">Escolha o tipo de
                                     indicação</span>
-                            </ion-text>
-                            <ion-row class="row mt-3 d-flex">
-                                <ion-col class="col-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input p-2" type="checkbox" [value]="false" id="location"
-                                            formControlName="itsLeasing">
-                                        <label
-                                            class="form-check-label mt-1 fw-400 font-size-16 line-20 color-blue-light"
-                                            for="">
-                                            Locação
-                                        </label>
-                                    </div>
-                                </ion-col>
-                                <ion-col class="col-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input p-2" type="checkbox" [value]="false" id=""
-                                            formControlName="itsSale">
-                                        <label
-                                            class="form-check-label mt-1 fw-400 font-size-16 line-20 color-blue-light"
-                                            for="">
-                                            Venda
-                                        </label>
-                                    </div>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-text class="mx-1">
-                            <span class="fw-500 font-size-18 line-23 color-purple">Dados do proprietário</span>
-                        </ion-text>
-                        <ion-col *ngIf="addContacts == 0" id="add" class="col-12 mt-3 bg-light border-10 px-3 py-4">
-                            <ion-label class="" for="ownername" class="fw-400 font-size-14 line-18 color-blue-light">
-                                Nome do proprietário</ion-label>
-                            <ion-input type="text" maxlength="30" placeholder="Insira o nome" id="ownername"
-                                formControlName="ownername"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10 ">
-                            </ion-input>
-
-                            <ion-label class="" for="email" class="fw-400 font-size-14 line-18 color-blue-light">E-mail
-                                do proprietário (ocpional)</ion-label>
-                            <ion-input type="email" placeholder="Insira o e-mail" id="email" formControlName="email"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-                            </ion-input>
-
-                            <ion-label class="" for="telephone" class="fw-400 font-size-14 line-18 color-blue-light">
-                                Contado do proprietário</ion-label>
-                            <ion-input type="tel" [ionMask]="maskTel" placeholder="Digite o telefone" id="telephone"
-                                formControlName="ownerContact"
-                                class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
-                            </ion-input>
-
-                            <div *ngFor="let item of ownerGroup"
-                                class="d-flex ion-justify-content-between ion-align-items-center indicatedAdd">
-                                <ion-text>
-                                    <span class="text-dark ion-text-capitalize">{{item.name}}</span>
-                                </ion-text>
-                                <ion-icon name="trash-outline" class="text-danger" (click)="removeOwner(item)"></ion-icon>
-                            </div>
-
-                            <ion-text (click)="addContent()" class="d-flex ion-align-items-center mt-3">
-                                <ion-icon class="color-purple font-size-24 px-1" name="add-circle-outline"></ion-icon>
-                                <span class="fw-500 font-size-16 line-18 color-purple">Adicionar mais contato</span>
-                            </ion-text>
-                        </ion-col>
-                        <ion-row class="row m-0 p-0 mt-4 w-100">
-                            <ion-col class="col-6">
-                                <ion-button type="button" (click)="clearinput()"
-                                    class="w-100 bg-gray-light border-purple h-51 box-shadow none border-10 fw-500 font-size-16 line-20 color-purple">
-                                    Limpar campos</ion-button>
-                            </ion-col>
-                            <ion-col class="col-6">
-                                <ion-button type="button" (click)="confirmIndicate()" [disabled]="formIndicate.invalid"
-                                    class="w-100 bg-greenpool h-51 box-shadow none border-10 fw-500 font-size-16 line-20 color-purple">
-                                    <span *ngIf="indicate">Indique </span>
-                                    <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
-                                </ion-button>
-                            </ion-col>
-                        </ion-row>
-                    </ion-row>
-                </form>
+              </ion-text>
+              <ion-row class="row mt-3 d-flex">
+                <ion-col class="col-4">
+                  <div class="form-check">
+                    <input class="form-check-input p-2" type="checkbox" [value]="false" id="location"
+                           formControlName="itsLeasing">
+                    <label
+                      class="form-check-label mt-1 fw-400 font-size-16 line-20 color-blue-light"
+                      for="">
+                      Locação
+                    </label>
+                  </div>
+                </ion-col>
+                <ion-col class="col-4">
+                  <div class="form-check">
+                    <input class="form-check-input p-2" type="checkbox" [value]="false" id=""
+                           formControlName="itsSale">
+                    <label
+                      class="form-check-label mt-1 fw-400 font-size-16 line-20 color-blue-light"
+                      for="">
+                      Venda
+                    </label>
+                  </div>
+                </ion-col>
+              </ion-row>
             </ion-col>
+            <ion-text class="mx-1">
+              <span class="fw-500 font-size-18 line-23 color-purple">Dados do proprietário</span>
+            </ion-text>
+            <ion-col *ngIf="addContacts == 0" id="add" class="col-12 mt-3 bg-light border-10 px-3 py-4">
+              <ion-label class="" for="ownername" class="fw-400 font-size-14 line-18 color-blue-light">
+                Nome do proprietário</ion-label>
+              <ion-input type="text" maxlength="30" placeholder="Insira o nome" id="ownername"
+                         formControlName="ownername"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10 ">
+              </ion-input>
+
+              <ion-label class="" for="email" class="fw-400 font-size-14 line-18 color-blue-light">E-mail
+                do proprietário (ocpional)</ion-label>
+              <ion-input type="email" placeholder="Insira o e-mail" id="email" formControlName="email"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
+              </ion-input>
+
+              <ion-label class="" for="telephone" class="fw-400 font-size-14 line-18 color-blue-light">
+                Contado do proprietário</ion-label>
+              <ion-input type="tel" [ionMask]="maskTel" placeholder="Digite o telefone" id="telephone"
+                         formControlName="ownerContact"
+                         class="w-100 mb-4 bg-white-light fw-500 font-size-16  line-20 color-blue-light border-blue-light px-2 border-10">
+              </ion-input>
+
+              <div *ngFor="let item of ownerGroup"
+                   class="d-flex ion-justify-content-between ion-align-items-center indicatedAdd">
+                <ion-text>
+                  <span class="text-dark ion-text-capitalize">{{item.name}}</span>
+                </ion-text>
+                <ion-icon name="trash-outline" class="text-danger" (click)="removeOwner(item)"></ion-icon>
+              </div>
+
+              <ion-text (click)="addContent()" class="d-flex ion-align-items-center mt-3">
+                <ion-icon class="color-purple font-size-24 px-1" name="add-circle-outline"></ion-icon>
+                <span class="fw-500 font-size-16 line-18 color-purple">Adicionar mais contato</span>
+              </ion-text>
+            </ion-col>
+            <ion-row class="row m-0 p-0 mt-4 w-100">
+              <ion-col class="col-6">
+                <ion-button type="button" (click)="clearinput()"
+                            class="w-100 bg-gray-light border-purple h-51 box-shadow none border-10 fw-500 font-size-16 line-20 color-purple">
+                  Limpar campos</ion-button>
+              </ion-col>
+              <ion-col class="col-6">
+                <ion-button type="button" (click)="confirmIndicate()" [disabled]="formIndicate.invalid"
+                            class="w-100 bg-greenpool h-51 box-shadow none border-10 fw-500 font-size-16 line-20 color-purple">
+                  <span *ngIf="indicate">Indique </span>
+                  <ion-spinner *ngIf="spinnload" name="crescent"></ion-spinner>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-modal [isOpen]="isModalOpen" class="bg-transparent">
+      <ng-template>
+        <ion-row class="row position-absolute bottom-0  py-5 px-3 bg-light">
+          <ion-col class="col-12 text-align-center">
+            <div style=" padding: 13px 16px 8px 14px;" class="border-100 mb-4 bg-white-light w-fit ">
+              <ion-icon class="color-purple font-size-48" name="checkmark-circle-outline"></ion-icon>
+            </div>
+            <ion-text class="fw-500 font-size-20 line-24 color-purple">
+              <p class="m-0">Parabéns</p>
+              <span class="ion-text-capitalize">{{user.name}}</span>
+            </ion-text>
+            <ion-text class="fw-400 font-size-14 line-18 color-blue-light">
+              <p class="mb-5">Sua indicação foi registrada e <br /> estará em análise por nossa equipe.
+              </p>
+            </ion-text>
+            <ion-text class="fw-400 font-size-14 line-18 color-blue-light">
+              <p class="mb-5">Se tudo estiver correto, seu <br /> imóvel aparecerá no <b>menu de
+                Status</b><br /> em até um dia útil.</p>
+            </ion-text>
+          </ion-col>
+          <ion-col class="col-12">
+            <ion-button
+              class="fw-500 font-size-20 line-24 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100"
+              type="button" (click)="closeModal(false)">
+              Ok, entendi
+            </ion-button>
+          </ion-col>
         </ion-row>
-
-
-        <ion-modal [isOpen]="isModalOpen" class="bg-transparent">
-            <ng-template>
-                <ion-row class="row position-absolute bottom-0  py-5 px-3 bg-light">
-                    <ion-col class="col-12 text-align-center">
-                        <div style=" padding: 13px 16px 8px 14px;" class="border-100 mb-4 bg-white-light w-fit ">
-                            <ion-icon class="color-purple font-size-48" name="checkmark-circle-outline"></ion-icon>
-                        </div>
-                        <ion-text class="fw-500 font-size-20 line-24 color-purple">
-                            <p class="m-0">Parabéns</p>
-                            <span class="ion-text-capitalize">{{user.name}}</span>
-                        </ion-text>
-                        <ion-text class="fw-400 font-size-14 line-18 color-blue-light">
-                            <p class="mb-5">Sua indicação foi registrada e <br /> estará em análise por nossa equipe.
-                            </p>
-                        </ion-text>
-                        <ion-text class="fw-400 font-size-14 line-18 color-blue-light">
-                            <p class="mb-5">Se tudo estiver correto, seu <br /> imóvel aparecerá no <b>menu de
-                                    Status</b><br /> em até um dia útil.</p>
-                        </ion-text>
-                    </ion-col>
-                    <ion-col class="col-12">
-                        <ion-button
-                            class="fw-500 font-size-20 line-24 color-purple box-shadow-none bg-greenpool h-51 border-10 w-100"
-                            type="button" (click)="closeModal(false)">
-                            Ok, entendi
-                        </ion-button>
-                    </ion-col>
-                </ion-row>
-            </ng-template>
-        </ion-modal>
-    </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
 </ion-app>
