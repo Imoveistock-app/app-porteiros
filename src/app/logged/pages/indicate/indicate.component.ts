@@ -16,7 +16,7 @@ import { UserGetResponseDto } from '../../../dtos/user-get-response.dto';
   styleUrls: ['./indicate.component.scss'],
 })
 export class IndicateComponent implements OnInit {
-  
+
   formIndicate: FormGroup;
 
   indicate = true;
@@ -106,7 +106,7 @@ export class IndicateComponent implements OnInit {
 
   async addContent() {
 
-    if (this.formIndicate.controls.ownerContact.value === '' || this.formIndicate.controls.email.value === '' || this.formIndicate.controls.ownername.value === '') {
+    if (this.formIndicate.controls.ownerContact.value === '' || this.formIndicate.controls.ownername.value === '') {
       const toast = await this.toastController.create({
         message: `Preencha todos os campos para adicionar proprietário!`,
         duration: 1500,
@@ -153,7 +153,7 @@ export class IndicateComponent implements OnInit {
     }
 
     if (this.ownerGroup.length === 0) {
-      if (this.formIndicate.controls.ownerContact.value === '' || this.formIndicate.controls.email.value === '' || this.formIndicate.controls.ownername.value === '') {
+      if (this.formIndicate.controls.ownerContact.value === '' || this.formIndicate.controls.ownername.value === '') {
         const toast = await this.toastController.create({
           message: `Adicione pelo menos um proprietário!`,
           duration: 1500,
