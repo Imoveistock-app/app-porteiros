@@ -91,19 +91,19 @@
         <ion-text classs="">
           <span class="fw-400 font-size-12 line-15 color-purple">Filtros aplicados</span>
           <div class="d-flex ion-justify-content-evenly">
-            <div *ngIf="form.controls.all.value">
-              Todos
+            <div class="status-property-list-underAnalysis " *ngIf="form.controls.all.value">
+             <span>Todos</span>
             </div>
-            <div *ngIf="form.controls.inAnalysis.value">
+            <div class="filter" *ngIf="form.controls.inAnalysis.value">
               Em análise
             </div>
-            <div *ngIf="form.controls.inProgress.value">
+            <div class="filter" *ngIf="form.controls.inProgress.value">
               Em andamento
             </div>
-            <div *ngIf="form.controls.disapproved.value">
+            <div class="filter" *ngIf="form.controls.disapproved.value">
               Reprovado
             </div>
-            <div *ngIf="form.controls.approved.value">
+            <div class="filter" *ngIf="form.controls.approved.value">
               Aprovado
             </div>
           </div>
