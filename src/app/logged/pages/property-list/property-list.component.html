@@ -23,40 +23,40 @@
                 </span>
               </ion-text>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputEveryone" formControlName="filter" type="radio" value="all"
-                  id="confirmFilterAll">
+                <input class="form-check-input InputEveryone" formControlName="all" type="checkbox" (change)="changeAll()" value="all"
+                       id="confirmFilterAll">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterAll">
                   Todos
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input formControlName="filter" class="InputAnalysis
-                  form-check-input" type="radio" value="underAnalysis" id="confirmFilterAnalysis">
+                <input formControlName="inAnalysis" class="InputAnalysis
+                  form-check-input" (change)="changeFilter()" type="checkbox" value="underAnalysis" id="confirmFilterAnalysis">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterAnalysis">
                   Em análise
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputProgress" formControlName="filter" type="radio" value="inProgress"
-                  id="confirmFilterProgress">
+                <input class="form-check-input InputProgress"  (change)="changeFilter()" formControlName="inProgress" type="checkbox" value="inProgress"
+                       id="confirmFilterProgress">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterProgress">
                   Em andamento
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputDisapproved" formControlName="filter" type="radio"
-                  value="disapproved" id="confirmFilterDisapproved">
+                <input class="form-check-input InputDisapproved" (change)="changeFilter()" formControlName="disapproved" type="checkbox"
+                       value="disapproved" id="confirmFilterDisapproved">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterDisapproved">
                   Reprovado
                 </label>
               </div>
               <div class="form-check mx-4 my-3">
-                <input class="form-check-input InputAproved" formControlName="filter" type="radio" value="approved"
-                  id="confirmFilterApproved">
+                <input class="form-check-input InputAproved" (change)="changeFilter()" formControlName="approved" type="checkbox" value="approved"
+                       id="confirmFilterApproved">
                 <label class="form-check-label color-blue-light font-size-16
                   line-20 fw-400" for="confirmFilterApproved">
                   Aprovado
@@ -89,8 +89,24 @@
     <ion-row class="row">
       <ion-col class="col-12 mx-4">
         <ion-text classs="">
-          <span class="fw-400 font-size-12 line-15 color-purple">Filtros
-            aplicados</span>
+          <span class="fw-400 font-size-12 line-15 color-purple">Filtros aplicados</span>
+          <div class="d-flex ion-justify-content-evenly">
+            <div *ngIf="form.controls.all.value">
+              Todos
+            </div>
+            <div *ngIf="form.controls.inAnalysis.value">
+              Em análise
+            </div>
+            <div *ngIf="form.controls.inProgress.value">
+              Em andamento
+            </div>
+            <div *ngIf="form.controls.disapproved.value">
+              Reprovado
+            </div>
+            <div *ngIf="form.controls.approved.value">
+              Aprovado
+            </div>
+          </div>
         </ion-text>
       </ion-col>
       <!-- <ion-col class="col-12">
@@ -127,7 +143,6 @@
                 Aprovado<ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </li>
-
           </ul>
         </form>
 

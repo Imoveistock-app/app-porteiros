@@ -46,7 +46,11 @@ export class PropertyListComponent implements OnInit {
     private toastController: ToastController
   ) {
     this.form = this.formBuilder.group({
-      filter: ['']
+      all: [true],
+      inAnalysis: [true],
+      inProgress: [true],
+      disapproved: [true],
+      approved: [true],
     });
   }
 
@@ -70,6 +74,38 @@ export class PropertyListComponent implements OnInit {
     )
   }
 
+
+  changeAll(){
+    console.log(`changeALl`)
+    if (this.form.controls.all.value){
+      this.form.patchValue({
+        inAnalysis :true,
+        inProgress :true,
+        disapproved :true,
+        approved :true,
+      })
+    }else {
+      this.form.patchValue({
+        inAnalysis :false,
+        inProgress :false,
+        disapproved :false,
+        approved :false,
+      })
+    }
+  }
+  changeFilter(){
+    if (this.form.controls.inAnalysis.value && this.form.controls.inProgress.value && this.form.controls.disapproved.value && this.form.controls.approved.value){
+      console.log(`todis`)
+      this.form.patchValue({
+        all:true
+      })
+    }else{
+      console.log(`não todis`)
+      this.form.patchValue({
+        all:false
+      })
+    }
+  }
 
 
   public onChange(event): void {
@@ -109,102 +145,107 @@ export class PropertyListComponent implements OnInit {
   // logic-filter
   async handlerFillter() {
 
-    this.propertyListAll = [];
 
-    if (this.form.controls.filter.value === 'all') {
+    console.log(this.form.value)
 
-      this.paginateQuerryRequest = {
-        skip: 0,
-        take: 0
-      }
 
-      this.propertyIndicationService.list(this.paginateQuerryRequest).subscribe(
-        success => {
-          this.propertyListAll = success;
-          this.isModalOpen = false;
-        },
-        error => {
-          console.error(error)
-        }
-      )
-    } else if (this.form.controls.filter.value === 'underAnalysis') {
 
-      this.paginateQuerryRequest = {
-        skip: 0,
-        take: 0,
-        processStatus: 'underAnalysis'
-      }
-
-      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
-        success => {
-          this.propertyListAll = success;
-          this.isModalOpen = false;
-        },
-        error => {
-          console.error(error)
-        }
-      )
-    } else if (this.form.controls.filter.value === 'inProgress') {
-      
-      this.paginateQuerryRequest = {
-        skip: 0,
-        take: 0,
-        processStatus: 'inProgress'
-      }
-
-      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
-        success => {
-          this.propertyListAll = success;
-          this.isModalOpen = false;
-        },
-        error => {
-          console.error(error)
-        }
-      )
-    } else if (this.form.controls.filter.value === 'disapproved') {
-      
-      this.paginateQuerryRequest = {
-        skip: 0,
-        take: 0,
-        processStatus: 'disapproved'
-      }
-
-      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
-        success => {
-          this.propertyListAll = success;
-          this.isModalOpen = false;
-        },
-        error => {
-          console.error(error)
-        }
-      )
-    } else if (this.form.controls.filter.value === 'approved') {
-      
-      this.paginateQuerryRequest = {
-        skip: 0,
-        take: 0,
-        processStatus: 'approved'
-      }
-
-      this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
-        success => {
-          this.propertyListAll = success;
-          this.isModalOpen = false;
-        },
-        error => {
-          console.error(error)
-        }
-      )
-    } else if (
-      this.form.controls.filter.value === '') {
-      const toast = await this.toastController.create({
-        message: `Selecione um filtro!`,
-        duration: 1500,
-        position: 'top',
-        color: 'danger',
-      });
-      toast.present();
-    }
+    // this.propertyListAll = [];
+    //
+    // if (this.form.controls.all.value === 'all') {
+    //
+    //   this.paginateQuerryRequest = {
+    //     skip: 0,
+    //     take: 0
+    //   }
+    //
+    //   this.propertyIndicationService.list(this.paginateQuerryRequest).subscribe(
+    //     success => {
+    //       this.propertyListAll = success;
+    //       this.isModalOpen = false;
+    //     },
+    //     error => {
+    //       console.error(error)
+    //     }
+    //   )
+    // } else if (this.form.controls.filter.value === 'underAnalysis') {
+    //
+    //   this.paginateQuerryRequest = {
+    //     skip: 0,
+    //     take: 0,
+    //     processStatus: 'underAnalysis'
+    //   }
+    //
+    //   this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+    //     success => {
+    //       this.propertyListAll = success;
+    //       this.isModalOpen = false;
+    //     },
+    //     error => {
+    //       console.error(error)
+    //     }
+    //   )
+    // } else if (this.form.controls.filter.value === 'inProgress') {
+    //
+    //   this.paginateQuerryRequest = {
+    //     skip: 0,
+    //     take: 0,
+    //     processStatus: 'inProgress'
+    //   }
+    //
+    //   this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+    //     success => {
+    //       this.propertyListAll = success;
+    //       this.isModalOpen = false;
+    //     },
+    //     error => {
+    //       console.error(error)
+    //     }
+    //   )
+    // } else if (this.form.controls.filter.value === 'disapproved') {
+    //
+    //   this.paginateQuerryRequest = {
+    //     skip: 0,
+    //     take: 0,
+    //     processStatus: 'disapproved'
+    //   }
+    //
+    //   this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+    //     success => {
+    //       this.propertyListAll = success;
+    //       this.isModalOpen = false;
+    //     },
+    //     error => {
+    //       console.error(error)
+    //     }
+    //   )
+    // } else if (this.form.controls.filter.value === 'approved') {
+    //
+    //   this.paginateQuerryRequest = {
+    //     skip: 0,
+    //     take: 0,
+    //     processStatus: 'approved'
+    //   }
+    //
+    //   this.propertyIndicationService.listByStatus(this.paginateQuerryRequest).subscribe(
+    //     success => {
+    //       this.propertyListAll = success;
+    //       this.isModalOpen = false;
+    //     },
+    //     error => {
+    //       console.error(error)
+    //     }
+    //   )
+    // } else if (
+    //   this.form.controls.filter.value === '') {
+    //   const toast = await this.toastController.create({
+    //     message: `Selecione um filtro!`,
+    //     duration: 1500,
+    //     position: 'top',
+    //     color: 'danger',
+    //   });
+    //   toast.present();
+    // }
 
   }
 
