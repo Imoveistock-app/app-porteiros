@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable prefer-const */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { UserRegisterRequestDto } from 'src/app/dtos/user-register-request.dto';
 import { UserService } from 'src/app/service/user.service';
-import {AuthenticationService} from "../../../service/authentication.service";
+import { AuthenticationService } from '../../../service/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -20,8 +22,8 @@ export class SignUpComponent implements OnInit {
   componentPopup = false;
   submitContinued = false;
 
-  public maskTel: Array<any> = ['(',/\d/, /\d/, ')' ,/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  public maskCpf: Array<any> = [/\d/, /\d/ ,/\d/,'.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/,'-',/\d/,/\d/];
+  public maskTel: Array<any> = ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public maskCpf: Array<any> = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
 
   request: UserRegisterRequestDto;
 
@@ -41,16 +43,16 @@ export class SignUpComponent implements OnInit {
 
     });
   }
-  ngOnInit() {}
+  ngOnInit() { }
 
-  goLogin(){
+  goLogin() {
     this.router.navigate(['auth/login']);
   }
-  goHome(){
+  goHome() {
     this.router.navigate(['logged/home']);
   }
   insertTel(value) {
-    let phone = value.replace(/\D/g, '')
+    let phone = value.replace(/\D/g, '');
 
     if (phone.length === 11) {
       this.componentPopup = true;
@@ -59,7 +61,6 @@ export class SignUpComponent implements OnInit {
       this.componentLogo = false;
       this.submitContinued = true;
     }
-
   }
 
   async confirm() {
@@ -73,7 +74,7 @@ export class SignUpComponent implements OnInit {
 
 
     if (this.form.controls.terms.value === true) {
-
+      // validação usuário cadastrado
       this.userService.register(this.request).subscribe(
         async success => {
           const toast = await this.toastController.create({
@@ -84,8 +85,19 @@ export class SignUpComponent implements OnInit {
           });
           toast.present();
           // this.router.navigate(['auth/send-code'])
+          this.nextFunction();
         },
         async error => {
+          if (error.error.errors[0].includes('Duplicate')) {
+            const toast = await this.toastController.create({
+              message: `Usuário já cadastrado!`,
+              duration: 1500,
+              position: 'top',
+              color: 'warning',
+            });
+            toast.present();
+            return;
+          }
           const toast = await this.toastController.create({
             message: `Não foi possível cadastrar usuário!`,
             duration: 1500,
@@ -93,35 +105,8 @@ export class SignUpComponent implements OnInit {
             color: 'danger',
           });
           toast.present();
-          console.error(error);
         }
       );
-      if (this.form.controls.terms.value === true){
-        this.authenticationService.authenticate(this.request).subscribe(
-          async success => {
-            const toast = await this.toastController.create({
-              message: `Sms enviado com sucesso!`,
-              duration: 1500,
-              position: 'top',
-              color: 'success',
-            });
-            toast.present();
-            localStorage.setItem('phone', this.request.phone);
-            this.router.navigate(['auth/send-code'])
-          },
-          async error => {
-            const toast = await this.toastController.create({
-              message: `Não foi possível enviar SMS!`,
-              duration: 1500,
-              position: 'top',
-              color: 'danger',
-            });
-            toast.present();
-            console.error(error)
-          }
-        )
-        // console.log(this.request)
-      }
     }
     else if (this.form.controls.terms.value === false) {
       const toast = await this.toastController.create({
@@ -131,6 +116,36 @@ export class SignUpComponent implements OnInit {
         color: 'danger',
       });
       toast.present();
+    }
+  }
+
+
+  nextFunction() {
+    if (this.form.controls.terms.value === true) {
+      this.authenticationService.authenticate(this.request).subscribe(
+        async success => {
+          const toast = await this.toastController.create({
+            message: `Sms enviado com sucesso!`,
+            duration: 1500,
+            position: 'top',
+            color: 'success',
+          });
+          toast.present();
+          localStorage.setItem('phone', this.request.phone);
+          this.router.navigate(['auth/send-code']);
+        },
+        async error => {
+          const toast = await this.toastController.create({
+            message: `Não foi possível enviar SMS!`,
+            duration: 1500,
+            position: 'top',
+            color: 'danger',
+          });
+          toast.present();
+          console.error(error);
+        }
+      );
+      // console.log(this.request)
     }
   }
 }
